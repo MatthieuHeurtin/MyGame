@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="MyGame.Game.GraphicElements.MapCells.Path.PathCell"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MyGame.Game.GraphicElements.MapCells.Path"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="50">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../CellStyleSheet.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid Name="MainGrid">
+            <Border Background="Black">
+                <Grid>
+                    <Grid.Background>
+                        <ImageBrush ImageSource="./../ressources/images/path.jpg"/>
+                    </Grid.Background>
+
+                    <StackPanel >
+                        <Image Name="ImageViewer" Height="50" Width="50"  Source="C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\Game\GraphicElements\Characters\ressources/mainCharacter.png"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+           </Grid>
+    </Grid>
+</UserControl>
