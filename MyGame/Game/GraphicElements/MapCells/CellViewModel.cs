@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyGame.Game.Character.Characters;
+using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -8,25 +9,32 @@ namespace MyGame.Game.GraphicElements.MapCells
     {
         private bool _isOccupied = false;
         private string _spriteImagePath;
+        private ICharacter _character;
 
         public string SpriteImagePath { get { return _spriteImagePath; } }
 
         public bool IsOccupied { get { return _isOccupied; } }
 
+        public ICharacter Character { get { return _character; } }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public void SetSprite(string spriteName)
+        public void SetCharacter(ICharacter character)
         {
-            if (!string.IsNullOrEmpty(spriteName))
+            if (character == null)
             {
-                _spriteImagePath = String.Concat("./../Characters/ressources/", spriteName);
-                _isOccupied = true;
-            }
-            else
-            {
-                _spriteImagePath = null;
+                SetSprite(string.Empty);
                 _isOccupied = false;
+                return;
             }
+            _isOccupied = true;
+            SetSprite(character.SpriteName);
+            NotifyPropertyChanged(nameof(Character));
+        }
+
+        private void SetSprite(string spriteName)
+        {
+            _spriteImagePath = String.Concat("./../Characters/ressources/", spriteName);
             NotifyPropertyChanged(nameof(SpriteImagePath));
         }
 

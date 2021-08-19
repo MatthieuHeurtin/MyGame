@@ -22,9 +22,9 @@
                         <ImageBrush ImageSource="./../ressources/images/path.jpg"/>
                     </Grid.Background>
 
-                    <StackPanel >
+                  
                         <ContentControl  Template="{StaticResource Image}" ></ContentControl>
-                    </StackPanel>
+                
                 </Grid>
             </Border>
            </Grid>

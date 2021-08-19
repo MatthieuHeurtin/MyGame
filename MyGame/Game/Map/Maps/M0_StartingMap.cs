@@ -126,10 +126,5 @@ namespace MyGame.Game.Map.Maps
             //SetCharcaters();
 
         }
-
-        private void SetCharcaters()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

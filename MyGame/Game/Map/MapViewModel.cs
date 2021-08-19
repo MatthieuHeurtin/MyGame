@@ -66,13 +66,13 @@ namespace MyGame.Game.Map
         internal void AddCharacter(ICharacter character)
         {
             ICellViewModel cell = MapCelles[string.Concat(character.X, ";", character.Y)];
-            cell.SetSprite(character.SpriteName);
+            cell.SetCharacter(character);
         }
 
         internal void RemoveCharacter(ICharacter character)
         {
             ICellViewModel cell = MapCelles[string.Concat(character.X,  ";", character.Y)];
-            cell.SetSprite(string.Empty);
+            cell.SetCharacter(null);
         }
 
         internal bool IsOccupied(int X, int Y)

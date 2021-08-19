@@ -1,8 +1,10 @@
-﻿namespace MyGame.Game.GraphicElements.MapCells
+﻿using MyGame.Game.Character.Characters;
+
+namespace MyGame.Game.GraphicElements.MapCells
 {
     public interface ICellViewModel
     {
-        void SetSprite(string spriteName);
+        void SetCharacter(ICharacter character);
         bool IsOccupied { get; }
     }
 }
