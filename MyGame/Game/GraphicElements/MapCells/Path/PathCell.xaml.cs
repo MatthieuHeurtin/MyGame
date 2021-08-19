@@ -8,13 +8,12 @@ namespace MyGame.Game.GraphicElements.MapCells.Path
     /// </summary>
     public partial class PathCell : UserControl, IMapCell
     {
-
-
+        private bool _hasCharacter;
         public PathCell()
         {
             InitializeComponent();
 
-            //AddImage();
+            DataContext = new CellDataContext();
         }
 
         public CaseTypes Type
@@ -22,17 +21,10 @@ namespace MyGame.Game.GraphicElements.MapCells.Path
             get { return CaseTypes.PATH; }
         }
 
-        public void AddImage()
+        public bool HasCharacter
         {
-
-            BitmapImage b = new BitmapImage();
-            b.BeginInit();
-            b.UriSource = new System.Uri(@"C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\Game\GraphicElements\Characters\ressources/mainCharacter.png");
-            b.EndInit();
-
-            ImageViewer.Source = b;
-
-
+            get { return _hasCharacter; }
+            set { _hasCharacter = value; }
         }
     }
 }

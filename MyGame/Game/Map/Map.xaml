@@ -6,6 +6,12 @@
         xmlns:local="clr-namespace:MyGame.Game.Map"
         mc:Ignorable="d"
         Title="Map" Height="450" Width="800">
+
+    <Window.InputBindings>
+        <KeyBinding Key="Up"
+               Command="{Binding MoveCommand}" />
+    </Window.InputBindings>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
@@ -13,6 +19,8 @@
         </Grid.ColumnDefinitions>
 
         <Grid Name="GameArea" Grid.Column="0">
+
+
         </Grid>
         <Grid Name="ControlArea" Grid.Column="1" Background="PaleVioletRed">
         </Grid>

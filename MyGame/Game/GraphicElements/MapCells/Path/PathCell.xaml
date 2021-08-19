@@ -23,7 +23,7 @@
                     </Grid.Background>
 
                     <StackPanel >
-                        <Image Name="ImageViewer" Height="50" Width="50"  Source="C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\Game\GraphicElements\Characters\ressources/mainCharacter.png"/>
+                        <ContentControl  Template="{StaticResource Image}" ></ContentControl>
                     </StackPanel>
                 </Grid>
             </Border>

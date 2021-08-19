@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("game/graphicelements/characters/ressources/maincharacter.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("game/graphicelements/characters/ressources/defaultcharacter.png")]
 
 

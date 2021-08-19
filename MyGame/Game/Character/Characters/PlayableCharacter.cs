@@ -2,31 +2,37 @@
 
 namespace MyGame.Game.Characters.Character
 {
-    public class PlayableCharacter : ICharacter
+    public class PlayableCharacter : AbstractCharacter
     {
-        private string _key;
-        private string _name;
+        private readonly string _key;
+        private readonly string _name;
         private int _Y;
         private int _X;
+        private readonly string _spriteName;
 
-        public string Name
+        public override string Name
         {
             get { return _name; }
         }
 
-        public string Key
+        public override string Key
         {
             get { return _key; }
         }
 
-        public int X
+        public override int X
         {
             get { return _X; }
         }
 
-        public int Y
+        public override int Y
         {
             get { return _Y; }
+        }
+
+        public override string SpriteName
+        {
+            get { return _spriteName; }
         }
 
         public PlayableCharacter()
@@ -35,6 +41,7 @@ namespace MyGame.Game.Characters.Character
             _Y = 7;
             _name = "Matt";
             _key = "player";
+            _spriteName = "mainCharacter.png";
         }
     }
 }

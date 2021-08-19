@@ -1,5 +1,6 @@
 ﻿using MyGame.Game.GraphicElements.MapCells.Path;
 using MyGame.Game.Map;
+using MyGame.Game.Map.Maps;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,8 +27,9 @@ namespace MyGame
         {
             InitializeComponent();
 
-            var v = new Map();
-            v.Show();
+            var t = new Game.GameEngine.Engine(new M0_StartingMap());
+
+            t.Start();
 
 
      

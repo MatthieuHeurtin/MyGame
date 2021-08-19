@@ -11,5 +11,6 @@ namespace MyGame.Game.Map.Maps
         int Width { get; }
 
         Dictionary<string, ICharacter> Characters { get; }
+        ICharacter Player { get; }
     }
 }

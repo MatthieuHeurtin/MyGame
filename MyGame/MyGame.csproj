@@ -89,8 +89,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Game\Character\Characters\AbstractCharacter.cs" />
     <Compile Include="Game\Character\Characters\ICharacter.cs" />
+    <Compile Include="Game\Character\Characters\NonPlayableCharacter.cs" />
     <Compile Include="Game\Character\Characters\PlayableCharacter.cs" />
+    <Compile Include="Game\GameEngine\Engine.cs" />
+    <Compile Include="Game\GraphicElements\MapCells\CellDataContext.cs" />
+    <Compile Include="Game\GraphicElements\MapCells\CellViewModel.cs" />
+    <Compile Include="Game\GraphicElements\MapCells\ICellViewModel.cs" />
     <Compile Include="Game\GraphicElements\MapCells\Desert\DesertCell.xaml.cs">
       <DependentUpon>DesertCell.xaml</DependentUpon>
     </Compile>
@@ -101,15 +107,20 @@
       <DependentUpon>GrassCell.xaml</DependentUpon>
     </Compile>
     <Compile Include="Game\GraphicElements\MapCells\IMapCell.cs" />
+    <Compile Include="Game\GraphicElements\MapCells\ICellDataContext.cs" />
     <Compile Include="Game\GraphicElements\MapCells\Path\PathCell.xaml.cs">
       <DependentUpon>PathCell.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Game\Map\CommandRelay.cs" />
+    <Compile Include="Game\Map\Commands\Movement.cs" />
     <Compile Include="Game\Map\Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
     <Compile Include="Game\Map\MapCellFactory.cs" />
+    <Compile Include="Game\Map\MapDataContext.cs" />
     <Compile Include="Game\Map\Maps\M0_StartingMap.cs" />
     <Compile Include="Game\Map\Maps\IMap.cs" />
+    <Compile Include="Game\Map\MapViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -151,7 +162,9 @@
   <ItemGroup>
     <Resource Include="Game\GraphicElements\MapCells\ressources\images\path.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Game\GraphicElements\Characters\ressources\defaultCharacter.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Game\GraphicElements\Characters\ressources\mainCharacter.png" />
   </ItemGroup>

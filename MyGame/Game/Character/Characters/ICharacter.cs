@@ -6,5 +6,6 @@
         int Y { get; }
         string Name { get; }
         string Key { get; }
+        string SpriteName { get; }
     }
 }

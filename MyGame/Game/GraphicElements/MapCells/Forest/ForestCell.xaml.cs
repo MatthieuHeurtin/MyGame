@@ -20,13 +20,22 @@ namespace MyGame.Game.GraphicElements.MapCells.Forest
     /// </summary>
     public partial class ForestCell : UserControl, IMapCell
     {
+        private bool _hasCharacter;
+
         public CaseTypes Type
         {
             get { return CaseTypes.FOREST; }
         }
+
+        public bool HasCharacter
+        {
+            get { return _hasCharacter; }
+            set { _hasCharacter = value; }
+        }
         public ForestCell()
         {
             InitializeComponent();
+            DataContext = new CellDataContext(); ;
         }
 
     }

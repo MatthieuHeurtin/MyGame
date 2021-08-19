@@ -3,6 +3,8 @@
     public interface IMapCell
     {
         CaseTypes Type { get; }
+        bool HasCharacter { get; set; }
+
     }
 
 

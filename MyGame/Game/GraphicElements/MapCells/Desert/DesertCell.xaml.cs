@@ -20,14 +20,23 @@ namespace MyGame.Game.GraphicElements.MapCells.Desert
     /// </summary>
     public partial class DesertCell : UserControl, IMapCell
     {
+        private bool _hasCharacter;
+
         public CaseTypes Type
         {
             get { return CaseTypes.DESERT; }
         }
 
+        public bool HasCharacter
+        {
+            get { return _hasCharacter; }
+            set { _hasCharacter = value; }
+        }
+
         public DesertCell()
         {
             InitializeComponent();
+            DataContext = new CellDataContext();
         }
     }
 }

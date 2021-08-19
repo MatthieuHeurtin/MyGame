@@ -8,4 +8,12 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+
+
+
+    <ControlTemplate x:Key="Image" TargetType="ContentControl">
+        <Image Height="50" Width="50"  Source="{Binding CellViewModel.SpriteImagePath}"/>
+    </ControlTemplate>
+
 </ResourceDictionary>

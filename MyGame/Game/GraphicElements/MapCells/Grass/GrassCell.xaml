@@ -23,7 +23,9 @@
                     </Grid.Background>
                 </Grid>
             </Border>
-            <!--<Image Name="myImage" Width="100" Height="40" VerticalAlignment="Bottom" Source="./../ressources/images/mainCharacter.png"/>-->
+            <StackPanel>
+                <ContentControl  Template="{StaticResource Image}" ></ContentControl>
+            </StackPanel>
         </Grid>
     </Grid>
 </UserControl>

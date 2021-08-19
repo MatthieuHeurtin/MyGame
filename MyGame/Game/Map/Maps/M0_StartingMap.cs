@@ -27,19 +27,22 @@ namespace MyGame.Game.Map.Maps
             get { return _height; }
         }
 
-        public Dictionary<string, ICharacter> Characters { get { return _characters; } }
-
-        private readonly Dictionary<string, ICharacter> _characters;
-
 
         private readonly int _height;
+        public Dictionary<string, ICharacter> Characters { get { return _characters; } }
 
+        public ICharacter Player { get { return _player; } }
+
+        private readonly Dictionary<string, ICharacter> _characters;
+        private readonly ICharacter _player;
 
         public M0_StartingMap()
         {
             _characters = new Dictionary<string, ICharacter>();
-            var player = new PlayableCharacter();
-            _characters.Add(player.Key, player);
+            var npc = new NonPlayableCharacter("random1");
+            _characters.Add(npc.Key, npc);
+
+            _player = new PlayableCharacter();
 
 
             _height = 8;
