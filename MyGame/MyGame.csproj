@@ -112,12 +112,13 @@
       <DependentUpon>PathCell.xaml</DependentUpon>
     </Compile>
     <Compile Include="Game\Map\CommandRelay.cs" />
-    <Compile Include="Game\Map\Commands\Movement.cs" />
+    <Compile Include="Game\Map\EventParameter.cs" />
     <Compile Include="Game\Map\Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
     <Compile Include="Game\Map\MapCellFactory.cs" />
     <Compile Include="Game\Map\MapDataContext.cs" />
+    <Compile Include="Game\Map\Maps\M1_StartingMap.cs" />
     <Compile Include="Game\Map\Maps\M0_StartingMap.cs" />
     <Compile Include="Game\Map\Maps\IMap.cs" />
     <Compile Include="Game\Map\MapViewModel.cs" />

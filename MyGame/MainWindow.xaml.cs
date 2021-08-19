@@ -31,9 +31,12 @@ namespace MyGame
 
             t.Start();
 
+            var p = new Game.GameEngine.Engine(new M1_StartingMap());
 
-     
-                
+            p.Start();
+
+
+
         }
     }
 }

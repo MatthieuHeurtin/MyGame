@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace MyGame.Game.Map
 {
-    public class MapViewModel 
+    public partial class MapViewModel
     {
         //XY used to indentify the cell
         private class XY : IEquatable<XY>
@@ -31,27 +31,54 @@ namespace MyGame.Game.Map
 
             public override int GetHashCode()
             {
-                return X + Y; //should be enough
+                unchecked // Allow arithmetic overflow, numbers will just "wrap around"
+                {
+                    int hashcode = 1430287;
+                    hashcode = hashcode * 7302013 ^ X.GetHashCode();
+                    hashcode = hashcode * 7302013 ^ Y.GetHashCode();
+                    return hashcode;
+                }
             }
         }
+        public event EventHandler RaiseMovement;
 
-        IDictionary<XY, ICellViewModel> MapCelles;
+
+
+        IDictionary<string, ICellViewModel> MapCelles;
 
 
         public MapViewModel()
         {
-            MapCelles = new Dictionary<XY, ICellViewModel>();
+            MapCelles = new Dictionary<string, ICellViewModel>();
+        }
+
+        internal void Move(string obj)
+        {
+            EventArgs e = new EventParameter(obj);
+            RaiseMovement?.Invoke(this, e);
         }
 
         internal void AddCell(int i, int j, ICellViewModel cellInst)
         {
-            MapCelles.Add(new XY(i, j), cellInst);
+            MapCelles.Add(string.Concat(i, ";", j), cellInst);
         }
 
         internal void AddCharacter(ICharacter character)
         {
-            ICellViewModel cell = MapCelles[new XY(character.X, character.Y)];
+            ICellViewModel cell = MapCelles[string.Concat(character.X, ";", character.Y)];
             cell.SetSprite(character.SpriteName);
         }
+
+        internal void RemoveCharacter(ICharacter character)
+        {
+            ICellViewModel cell = MapCelles[string.Concat(character.X,  ";", character.Y)];
+            cell.SetSprite(string.Empty);
+        }
+
+        internal bool IsOccupied(int X, int Y)
+        {
+            return MapCelles[string.Concat(X, ";", Y)].IsOccupied;
+        }
+
     }
 }

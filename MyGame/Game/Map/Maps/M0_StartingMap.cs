@@ -45,17 +45,17 @@ namespace MyGame.Game.Map.Maps
             _player = new PlayableCharacter();
 
 
-            _height = 8;
-            _width = 8;
+            _height = 25;
+            _width = 25;
             _cases = new CaseTypes[_width, _height];
 
 
             //2 bottom lines are PATH
-            for (int i = 7; i < _height; i++)
+            for (int i = 0; i < _height; i++)
             {
-                for (int j = 0; j < _width; j++)
+                for (int j = 7; j < _width; j++)
                 {
-                    _cases[i, j] = CaseTypes.PATH;
+                    _cases[j, i] = CaseTypes.PATH;
                 }
 
             }

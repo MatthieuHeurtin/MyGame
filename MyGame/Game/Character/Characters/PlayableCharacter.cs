@@ -6,8 +6,6 @@ namespace MyGame.Game.Characters.Character
     {
         private readonly string _key;
         private readonly string _name;
-        private int _Y;
-        private int _X;
         private readonly string _spriteName;
 
         public override string Name
@@ -20,16 +18,6 @@ namespace MyGame.Game.Characters.Character
             get { return _key; }
         }
 
-        public override int X
-        {
-            get { return _X; }
-        }
-
-        public override int Y
-        {
-            get { return _Y; }
-        }
-
         public override string SpriteName
         {
             get { return _spriteName; }
@@ -37,8 +25,8 @@ namespace MyGame.Game.Characters.Character
 
         public PlayableCharacter()
         {
-            _X = 7;
-            _Y = 7;
+            X = 2;
+            Y = 3;
             _name = "Matt";
             _key = "player";
             _spriteName = "mainCharacter.png";

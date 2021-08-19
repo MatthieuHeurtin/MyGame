@@ -2,14 +2,20 @@
 {
     public abstract class AbstractCharacter : ICharacter
     {
-        public virtual int X { get { return 0; } }
+        public int X { get; set; }
 
-        public virtual int Y { get { return 0; } }
+        public int Y { get; set; }
 
         public virtual string Name { get { return "I'm no set"; } }
 
         public virtual string SpriteName { get { return "defaultCharacter.png"; } }
 
         public abstract string Key { get; }
+
+        public void SetPosition(int x, int y)
+        {
+            X = x;
+            Y = y;
+        }
     }
 }

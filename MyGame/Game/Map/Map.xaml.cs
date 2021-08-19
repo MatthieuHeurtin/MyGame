@@ -10,14 +10,12 @@ namespace MyGame.Game.Map
     /// </summary>
     public partial class Map : Window
     {
-        public MapViewModel MapViewModel { get; }
+
 
         public Map()
         {
             InitializeComponent();
-
             DataContext = new MapDataContext();
-            MapViewModel = new MapViewModel();
         }
 
 
@@ -39,16 +37,15 @@ namespace MyGame.Game.Map
             {
                 for (int j = 0; j < map.Width; j++)
                 {
-                    CaseTypes caseType = map.Cases[i, j];
+                    CaseTypes caseType = map.Cases[j, i];
 
                     UserControl caseInst = MapCellFactory.GetCaseFromType(caseType) as UserControl; //create a userControl
-
+                    caseInst.ToolTip = j.ToString() + ";" + i.ToString();
                     //but we save the viewmodel of the UserControl
                     // really 'heavy' trick
-                    MapViewModel.AddCell(i, j, (caseInst.DataContext as ICellDataContext).CellViewModel); 
+                    GetViewModel().AddCell(j, i, (caseInst.DataContext as ICellDataContext).CellViewModel); 
 
-                    caseInst.Width = GameArea.Width / map.Width;
-                    caseInst.Height = GameArea.Width / map.Height;
+
                     Grid.SetRow(caseInst, i);
                     Grid.SetColumn(caseInst, j);
                     GameArea.Children.Add(caseInst);
@@ -58,5 +55,14 @@ namespace MyGame.Game.Map
 
 
         }
+
+        public MapViewModel GetViewModel()
+        {
+            return (DataContext as MapDataContext).MapViewModel;
+        }
+
+
+
+
     }
 }

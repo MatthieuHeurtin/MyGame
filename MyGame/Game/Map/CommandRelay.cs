@@ -5,8 +5,8 @@ namespace MyGame.Game.Map
 {
     public class CommandRelay : ICommand
     {
-        private Action<string> _action;
-        private bool _canExecute;
+        private readonly Action<string> _action;
+        private readonly bool _canExecute;
 
         public CommandRelay(Action<string> action, bool canExecute)
         {

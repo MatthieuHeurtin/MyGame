@@ -13,7 +13,31 @@
 
 
     <ControlTemplate x:Key="Image" TargetType="ContentControl">
-        <Image Height="50" Width="50"  Source="{Binding CellViewModel.SpriteImagePath}"/>
+        <Image Source="{Binding CellViewModel.SpriteImagePath}"
+      RenderOptions.BitmapScalingMode="Fant"
+       Stretch="Fill"
+       VerticalAlignment="Top"
+       Margin="0,0,0,0"
+       HorizontalAlignment="Center" 
+       Width="{Binding RelativeSource=
+
+            {RelativeSource FindAncestor,
+
+            AncestorType={x:Type Grid}},
+
+            Path=ActualWidth}"
+
+    Height="{Binding RelativeSource=
+
+            {RelativeSource FindAncestor,
+
+              AncestorType={x:Type Grid}},
+
+              Path=ActualHeight}"
+               />
+        
+        
+        
     </ControlTemplate>
 
 </ResourceDictionary>

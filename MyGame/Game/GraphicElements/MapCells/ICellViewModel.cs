@@ -3,5 +3,6 @@
     public interface ICellViewModel
     {
         void SetSprite(string spriteName);
+        bool IsOccupied { get; }
     }
 }
