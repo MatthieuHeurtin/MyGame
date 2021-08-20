@@ -1,5 +1,8 @@
 ﻿using MyGame.Game.GraphicElements.MapCells.Common;
+using MyGame.Ressources;
+using System;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace MyGame.Game.GraphicElements.MapCells.Grass
 {
@@ -25,6 +28,7 @@ namespace MyGame.Game.GraphicElements.MapCells.Grass
         {
             InitializeComponent();
             DataContext = new CellDataContext(); ;
+            CellBackground.ImageSource = new BitmapImage(new Uri(string.Concat(RessourcesManager.MapCellsPath, "grass.jpg"), UriKind.Relative));
         }
     }
 }

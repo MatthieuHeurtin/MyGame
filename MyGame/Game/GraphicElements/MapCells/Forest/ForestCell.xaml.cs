@@ -1,4 +1,5 @@
 ﻿using MyGame.Game.GraphicElements.MapCells.Common;
+using MyGame.Ressources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,8 @@ namespace MyGame.Game.GraphicElements.MapCells.Forest
         public ForestCell()
         {
             InitializeComponent();
-            DataContext = new CellDataContext(); ;
+            DataContext = new CellDataContext();
+            CellBackground.ImageSource = new BitmapImage(new Uri(string.Concat(RessourcesManager.MapCellsPath, "tree.jpg"), UriKind.Relative));
         }
 
     }

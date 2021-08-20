@@ -1,4 +1,6 @@
 ﻿using MyGame.Game.GraphicElements.MapCells.Common;
+using MyGame.Ressources;
+using System;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
@@ -14,7 +16,7 @@ namespace MyGame.Game.GraphicElements.MapCells.Path
             InitializeComponent();
 
             DataContext = new CellDataContext();
-
+            CellBackground.ImageSource = new BitmapImage(new Uri(string.Concat(RessourcesManager.MapCellsPath, "path.jpg"), UriKind.Relative));
 
 
         }

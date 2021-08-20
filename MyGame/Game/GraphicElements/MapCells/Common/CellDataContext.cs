@@ -4,6 +4,7 @@
     {
         public ICellViewModel CellViewModel { get; }
 
+        public System.Windows.Media.ImageBrush r;
 
         public CellDataContext()
         {

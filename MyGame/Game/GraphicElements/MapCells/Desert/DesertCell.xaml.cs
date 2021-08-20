@@ -1,5 +1,9 @@
 ﻿using MyGame.Game.GraphicElements.MapCells.Common;
+using MyGame.Ressources;
+using System;
 using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace MyGame.Game.GraphicElements.MapCells.Desert
 {
@@ -17,7 +21,7 @@ namespace MyGame.Game.GraphicElements.MapCells.Desert
         {
             InitializeComponent();
             DataContext = new CellDataContext();
-            Item.Template = FindResource("Item") as ControlTemplate;
+            CellBackground.ImageSource = new BitmapImage(new Uri(string.Concat(RessourcesManager.MapCellsPath, "desert.jpg"), UriKind.Relative));
         }
     }
 }

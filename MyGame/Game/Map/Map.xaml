@@ -25,6 +25,9 @@
 
         </Grid>
         <Grid Name="ControlArea" Grid.Column="1" Background="PaleVioletRed">
+            <Image Name="CellItem" Source="{Binding MapViewModel.Path}"></Image>
+            <Label Name="lon" Content="{Binding MapViewModel.Path}"></Label>
+            <Label Name="llon" Content="coucou"></Label>
         </Grid>
     </Grid>
 </Window>

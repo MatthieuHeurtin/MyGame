@@ -16,7 +16,7 @@
         public AbstractCharacter()
         {
             SpriteName = "defaultCharacter.png";
-            Name = "I have noname";
+            Name = "I have no name";
         }
 
         public void SetPosition(int x, int y)

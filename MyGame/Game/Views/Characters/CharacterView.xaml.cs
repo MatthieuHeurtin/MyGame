@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace MyGame.Game.Views.Characters
@@ -17,7 +18,7 @@ namespace MyGame.Game.Views.Characters
     /// <summary>
     /// Interaction logic for CharacterView.xaml
     /// </summary>
-    public partial class CharacterView : Window
+    public partial class CharacterView : UserControl
     {
         public CharacterView()
         {

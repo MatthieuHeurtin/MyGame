@@ -45,7 +45,7 @@ namespace MyGame.Game.Map.Maps
 
             var npc2 = new NonPlayableCharacter("sleepingDragon");
             npc2.SetPosition(2, 2);
-            npc2.SetSpriteName("sleepingDragon.gif");
+            npc2.SetSpriteName("sleepingDragon.jpg");
             _characters.Add(npc2.Key, npc2);
 
 

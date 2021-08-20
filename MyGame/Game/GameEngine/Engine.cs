@@ -35,17 +35,29 @@ namespace MyGame.Game.GameEngine
             //subscribe to events coming from the map
             _graphicMap.GetViewModel().RaiseMovement += Move;
 
+            //subscribe to events coming from the cells
+            foreach (var entry in _graphicMap.GetViewModel().MapCelles)
+            {
+                entry.Value.RaiseClickOnCell += UpdateControlArea;
+            }
+
             //display
             _graphicMap.Show();
         }
 
+        private void UpdateControlArea(object sender, EventArgs e)
+        {
+            string cellSpriteName = (e as MyGame.Game.GraphicElements.MapCells.Common.EventParameter).Param;
+            _graphicMap.GetViewModel().SetCellItemSprite(cellSpriteName);
+        }
+
         private void Move(object sender, EventArgs e)
         {
-            string direction = (e as EventParameter).Param;
+            string direction = (e as MyGame.Game.Map.EventParameter).Param;
             int Xcurrent = _map.Player.X;
             int Ycurrent = _map.Player.Y;
-            var dest = GetDestination(direction, Xcurrent, Ycurrent,_map.Height - 1, _map.Width - 1);
-            if (Xcurrent == dest.Item1 && Ycurrent == dest.Item2 
+            var dest = GetDestination(direction, Xcurrent, Ycurrent, _map.Height - 1, _map.Width - 1);
+            if (Xcurrent == dest.Item1 && Ycurrent == dest.Item2
                 || Xcurrent == dest.Item1 && Ycurrent == dest.Item2
                 || _graphicMap.GetViewModel().IsOccupied(dest.Item1, dest.Item2)) return;
 
@@ -54,7 +66,7 @@ namespace MyGame.Game.GameEngine
             _graphicMap.GetViewModel().AddCharacter(_map.Player);
         }
 
-        private Tuple<int,int> GetDestination(string direction, int xcurrent, int ycurrent, int Ymax, int Xmax)
+        private Tuple<int, int> GetDestination(string direction, int xcurrent, int ycurrent, int Ymax, int Xmax)
         {
             switch (direction)
             {
@@ -73,7 +85,7 @@ namespace MyGame.Game.GameEngine
                 default:
                     break;
             }
-            return new Tuple<int,int>(xcurrent, ycurrent);
+            return new Tuple<int, int>(xcurrent, ycurrent);
         }
 
     }

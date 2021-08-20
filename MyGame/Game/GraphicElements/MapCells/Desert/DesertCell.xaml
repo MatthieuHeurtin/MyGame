@@ -21,7 +21,7 @@
         <Border Background="Black">
             <Grid>
                 <Grid.Background>
-                    <ImageBrush ImageSource="./../ressources/images/desert.jpg"/>
+                    <ImageBrush x:Name="CellBackground" Stretch="UniformToFill"/>
                 </Grid.Background>
 
                 <StackPanel >

@@ -12,9 +12,9 @@ DEBUG;TRACE
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\App.xaml
 8-1750589820
 
-35-798593226
+361781945320
 17940276893
 Game\GraphicElements\MapCells\Common\CellStyleSheet.xaml;Game\GraphicElements\MapCells\Desert\DesertCell.xaml;Game\GraphicElements\MapCells\Forest\ForestCell.xaml;Game\GraphicElements\MapCells\Grass\GrassCell.xaml;Game\GraphicElements\MapCells\Path\PathCell.xaml;Game\Map\Map.xaml;Game\Views\Characters\CharacterView.xaml;MainWindow.xaml;
 
-True
+False
 

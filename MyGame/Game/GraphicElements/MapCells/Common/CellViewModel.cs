@@ -1,5 +1,5 @@
 ﻿using MyGame.Game.Character.Characters;
-using MyGame.Game.Views.Characters;
+using MyGame.Ressources;
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -16,6 +16,7 @@ namespace MyGame.Game.GraphicElements.MapCells.Common
 
         private ICommand _displayDetailWindowCommand;
 
+        public event EventHandler RaiseClickOnCell;
 
         public ICommand DisplayDetailWindowCommand
         {
@@ -27,8 +28,8 @@ namespace MyGame.Game.GraphicElements.MapCells.Common
 
         private void DisplayDetailWindow(string obj)
         {
-            CharacterView r = new CharacterView();
-            r.Show();
+            EventArgs e = new EventParameter(obj);
+            RaiseClickOnCell?.Invoke(this, e);
         }
 
         public string SpriteImagePath { get { return _spriteImagePath; } }
@@ -51,7 +52,7 @@ namespace MyGame.Game.GraphicElements.MapCells.Common
                 return;
             }
             _isOccupied = true;
-            SetSprite(String.Concat("./../../Characters/ressources/", character.SpriteName));
+            SetSprite(string.Concat(RessourcesManager.CharacterSpriteCellsPath, character.SpriteName));
             _character = character;
 
             NotifyPropertyChanged(nameof(Character));

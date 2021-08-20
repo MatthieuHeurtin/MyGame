@@ -63,6 +63,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Ressources\RessourcesManager.cs" />
     <Page Include="Game\GraphicElements\MapCells\Common\CellStyleSheet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -107,7 +108,7 @@
     <Compile Include="Game\GraphicElements\MapCells\Common\CellDataContext.cs" />
     <Compile Include="Game\GraphicElements\MapCells\Common\CellViewModel.cs" />
     <Compile Include="Game\GraphicElements\MapCells\Common\CommandRelay.cs" />
-    <Compile Include="Game\GraphicElements\MapCells\Common\Events.cs" />
+    <Compile Include="Game\GraphicElements\MapCells\Common\EventParameter.cs" />
     <Compile Include="Game\GraphicElements\MapCells\ICellViewModel.cs" />
     <Compile Include="Game\GraphicElements\MapCells\Desert\DesertCell.xaml.cs">
       <DependentUpon>DesertCell.xaml</DependentUpon>
@@ -170,26 +171,42 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Game\GraphicElements\MapCells\ressources\images\desert.jpg" />
-    <Resource Include="Game\GraphicElements\MapCells\ressources\images\grass.jpg" />
-    <Resource Include="Game\GraphicElements\MapCells\ressources\images\tree.jpg" />
-    <Resource Include="Game\GraphicElements\MapCells\ressources\images\tree2.jpg" />
-    <Resource Include="Game\GraphicElements\MapCells\ressources\images\tree3.jpg" />
+    <EmbeddedResource Include="Ressources\Images\MapCells\desert.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ressources\Images\MapCells\grass.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ressources\Images\MapCells\tree.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ressources\Images\MapCells\tree2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ressources\Images\MapCells\tree3.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Game\GraphicElements\MapCells\ressources\images\path.jpg" />
+    <EmbeddedResource Include="Ressources\Images\MapCells\path.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Game\GraphicElements\Characters\ressources\defaultCharacter.png" />
+    <Resource Include="Ressources\Images\CharactersSprites\defaultCharacter.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Game\GraphicElements\Characters\ressources\mainCharacter.png" />
+    <Resource Include="Ressources\Images\CharactersSprites\mainCharacter.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Game\GraphicElements\Characters\ressources\sleepingDragon.gif" />
+    <Resource Include="Ressources\Images\CharactersSprites\sleepingDragon.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Game\GraphicElements\Characters\ressources\sleepingDragon.jpg" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
