@@ -1,5 +1,6 @@
 ﻿using MyGame.Game.Map.Maps;
 using MyGame.Game.MapCells;
+using MyGame.Game.Views.Characters;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -16,6 +17,8 @@ namespace MyGame.Game.Map
         {
             InitializeComponent();
             DataContext = new MapDataContext();
+
+            ControlArea.Children.Add(new CharacterView());
         }
 
 

@@ -24,15 +24,8 @@
 
 
         </Grid>
-        <Grid Name="ControlArea" Grid.Column="1" Background="PaleVioletRed">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid Name="CharacterArea" Grid.Column="0">
-                <Image Name="CellItem" Source="{Binding MapViewModel.Path}"></Image>
-            </Grid>
-
+        <Grid Name="ControlArea" Grid.Column="1">
+          
         </Grid>
     </Grid>
 </Window>
