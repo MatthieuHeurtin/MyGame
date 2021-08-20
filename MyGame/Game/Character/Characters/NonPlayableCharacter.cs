@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyGame.Game.Character.Characters
+﻿namespace MyGame.Game.Character.Characters
 {
     public class NonPlayableCharacter : AbstractCharacter
     {

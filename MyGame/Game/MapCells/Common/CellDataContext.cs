@@ -1,10 +1,8 @@
-﻿namespace MyGame.Game.GraphicElements.MapCells.Common
+﻿namespace MyGame.Game.MapCells.Common
 {
     public class CellDataContext : ICellDataContext
     {
         public ICellViewModel CellViewModel { get; }
-
-        public System.Windows.Media.ImageBrush r;
 
         public CellDataContext()
         {

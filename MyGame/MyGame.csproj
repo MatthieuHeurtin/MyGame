@@ -63,24 +63,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Game\Item\AbstractItem.cs" />
+    <Compile Include="Game\Item\IItem.cs" />
+    <Compile Include="Game\Item\Tree.cs" />
+    <Compile Include="Game\MapElements\AbstractMapElement.cs" />
+    <Compile Include="Game\MapElements\IMapElement.cs" />
     <Compile Include="Ressources\RessourcesManager.cs" />
-    <Page Include="Game\GraphicElements\MapCells\Common\CellStyleSheet.xaml">
+    <Page Include="Game\MapCells\Common\CellStyleSheet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Game\GraphicElements\MapCells\Desert\DesertCell.xaml">
+    <Page Include="Game\MapCells\Desert\DesertCell.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Game\GraphicElements\MapCells\Forest\ForestCell.xaml">
+    <Page Include="Game\MapCells\Forest\ForestCell.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Game\GraphicElements\MapCells\Grass\GrassCell.xaml">
+    <Page Include="Game\MapCells\Grass\GrassCell.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Game\GraphicElements\MapCells\Path\PathCell.xaml">
+    <Page Include="Game\MapCells\Path\PathCell.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -105,23 +110,23 @@
     <Compile Include="Game\Character\Characters\NonPlayableCharacter.cs" />
     <Compile Include="Game\Character\Characters\PlayableCharacter.cs" />
     <Compile Include="Game\GameEngine\Engine.cs" />
-    <Compile Include="Game\GraphicElements\MapCells\Common\CellDataContext.cs" />
-    <Compile Include="Game\GraphicElements\MapCells\Common\CellViewModel.cs" />
-    <Compile Include="Game\GraphicElements\MapCells\Common\CommandRelay.cs" />
-    <Compile Include="Game\GraphicElements\MapCells\Common\EventParameter.cs" />
-    <Compile Include="Game\GraphicElements\MapCells\ICellViewModel.cs" />
-    <Compile Include="Game\GraphicElements\MapCells\Desert\DesertCell.xaml.cs">
+    <Compile Include="Game\MapCells\Common\CellDataContext.cs" />
+    <Compile Include="Game\MapCells\Common\CellViewModel.cs" />
+    <Compile Include="Game\MapCells\Common\CommandRelay.cs" />
+    <Compile Include="Game\MapCells\Common\EventParameter.cs" />
+    <Compile Include="Game\MapCells\ICellViewModel.cs" />
+    <Compile Include="Game\MapCells\Desert\DesertCell.xaml.cs">
       <DependentUpon>DesertCell.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Game\GraphicElements\MapCells\Forest\ForestCell.xaml.cs">
+    <Compile Include="Game\MapCells\Forest\ForestCell.xaml.cs">
       <DependentUpon>ForestCell.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Game\GraphicElements\MapCells\Grass\GrassCell.xaml.cs">
+    <Compile Include="Game\MapCells\Grass\GrassCell.xaml.cs">
       <DependentUpon>GrassCell.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Game\GraphicElements\MapCells\IMapCell.cs" />
-    <Compile Include="Game\GraphicElements\MapCells\ICellDataContext.cs" />
-    <Compile Include="Game\GraphicElements\MapCells\Path\PathCell.xaml.cs">
+    <Compile Include="Game\MapCells\IMapCell.cs" />
+    <Compile Include="Game\MapCells\ICellDataContext.cs" />
+    <Compile Include="Game\MapCells\Path\PathCell.xaml.cs">
       <DependentUpon>PathCell.xaml</DependentUpon>
     </Compile>
     <Compile Include="Game\Map\CommandRelay.cs" />
@@ -180,12 +185,6 @@
     <EmbeddedResource Include="Ressources\Images\MapCells\tree.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ressources\Images\MapCells\tree2.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ressources\Images\MapCells\tree3.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Ressources\Images\MapCells\path.jpg">
@@ -207,6 +206,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Ressources\Images\Items\tree.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

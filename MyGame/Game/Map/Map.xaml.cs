@@ -1,5 +1,5 @@
-﻿using MyGame.Game.GraphicElements.MapCells;
-using MyGame.Game.Map.Maps;
+﻿using MyGame.Game.Map.Maps;
+using MyGame.Game.MapCells;
 using System.Windows;
 using System.Windows.Controls;
 

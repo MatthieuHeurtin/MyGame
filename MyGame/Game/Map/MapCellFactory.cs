@@ -1,13 +1,8 @@
-﻿using MyGame.Game.GraphicElements.MapCells;
-using MyGame.Game.GraphicElements.MapCells.Desert;
-using MyGame.Game.GraphicElements.MapCells.Forest;
-using MyGame.Game.GraphicElements.MapCells.Grass;
-using MyGame.Game.GraphicElements.MapCells.Path;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MyGame.Game.MapCells;
+using MyGame.Game.MapCells.Desert;
+using MyGame.Game.MapCells.Forest;
+using MyGame.Game.MapCells.Grass;
+using MyGame.Game.MapCells.Path;
 
 namespace MyGame.Game.Map
 {

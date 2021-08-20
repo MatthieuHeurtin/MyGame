@@ -1,6 +1,6 @@
 ﻿using MyGame.Game.Character.Characters;
-using MyGame.Game.GraphicElements.MapCells;
-using MyGame.Game.Views.Characters;
+using MyGame.Game.MapCells;
+using MyGame.Game.MapElements;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,21 +29,21 @@ namespace MyGame.Game.Map
             RaiseMovement?.Invoke(this, e);
         }
 
+        internal void AddElement(IMapElement element)
+        {
+            ICellViewModel cell = MapCelles[string.Concat(element.X, ";", element.Y)];
+            cell.SetElement(element);
+        }
+
         internal void AddCell(int i, int j, ICellViewModel cellInst)
         {
             MapCelles.Add(string.Concat(i, ";", j), cellInst);
         }
 
-        internal void AddCharacter(ICharacter character)
-        {
-            ICellViewModel cell = MapCelles[string.Concat(character.X, ";", character.Y)];
-            cell.SetCharacter(character);
-        }
-
         internal void RemoveCharacter(ICharacter character)
         {
             ICellViewModel cell = MapCelles[string.Concat(character.X,  ";", character.Y)];
-            cell.SetCharacter(null);
+            cell.SetElement(null);
         }
 
         internal bool IsOccupied(int X, int Y)

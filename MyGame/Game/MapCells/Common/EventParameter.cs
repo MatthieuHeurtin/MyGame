@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyGame.Game.GraphicElements.MapCells.Common
+namespace MyGame.Game.MapCells.Common
 {
     public class EventParameter : EventArgs
     {

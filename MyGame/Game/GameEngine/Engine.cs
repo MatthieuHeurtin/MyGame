@@ -24,13 +24,13 @@ namespace MyGame.Game.GameEngine
             _graphicMap.BuildMap(_map);
 
             //add npc (set character to a cell)
-            foreach (var character in _map.Characters)
+            foreach (var character in _map.Elements)
             {
-                _graphicMap.GetViewModel().AddCharacter(character.Value);
+                _graphicMap.GetViewModel().AddElement(character.Value);
             }
 
             //add players
-            _graphicMap.GetViewModel().AddCharacter(_map.Player);
+            _graphicMap.GetViewModel().AddElement(_map.Player);
 
             //subscribe to events coming from the map
             _graphicMap.GetViewModel().RaiseMovement += Move;
@@ -47,13 +47,13 @@ namespace MyGame.Game.GameEngine
 
         private void UpdateControlArea(object sender, EventArgs e)
         {
-            string cellSpriteName = (e as MyGame.Game.GraphicElements.MapCells.Common.EventParameter).Param;
+            string cellSpriteName = (e as MapCells.Common.EventParameter).Param;
             _graphicMap.GetViewModel().SetCellItemSprite(cellSpriteName);
         }
 
         private void Move(object sender, EventArgs e)
         {
-            string direction = (e as MyGame.Game.Map.EventParameter).Param;
+            string direction = (e as EventParameter).Param;
             int Xcurrent = _map.Player.X;
             int Ycurrent = _map.Player.Y;
             var dest = GetDestination(direction, Xcurrent, Ycurrent, _map.Height - 1, _map.Width - 1);
@@ -63,7 +63,7 @@ namespace MyGame.Game.GameEngine
 
             _graphicMap.GetViewModel().RemoveCharacter(_map.Player);
             _map.Player.SetPosition(dest.Item1, dest.Item2);
-            _graphicMap.GetViewModel().AddCharacter(_map.Player);
+            _graphicMap.GetViewModel().AddElement(_map.Player);
         }
 
         private Tuple<int, int> GetDestination(string direction, int xcurrent, int ycurrent, int Ymax, int Xmax)

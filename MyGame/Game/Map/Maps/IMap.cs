@@ -1,5 +1,6 @@
 ﻿using MyGame.Game.Character.Characters;
-using MyGame.Game.GraphicElements.MapCells;
+using MyGame.Game.MapCells;
+using MyGame.Game.MapElements;
 using System.Collections.Generic;
 
 namespace MyGame.Game.Map.Maps
@@ -10,7 +11,7 @@ namespace MyGame.Game.Map.Maps
         int Height { get; }
         int Width { get; }
 
-        Dictionary<string, ICharacter> Characters { get; }
+        Dictionary<string, IMapElement> Elements { get; }
         ICharacter Player { get; }
     }
 }

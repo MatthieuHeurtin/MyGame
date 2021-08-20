@@ -1,4 +1,4 @@
-﻿namespace MyGame.Game.GraphicElements.MapCells
+﻿namespace MyGame.Game.MapCells
 {
     public interface IMapCell
     {

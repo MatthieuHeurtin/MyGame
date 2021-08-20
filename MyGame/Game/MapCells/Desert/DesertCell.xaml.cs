@@ -1,11 +1,10 @@
-﻿using MyGame.Game.GraphicElements.MapCells.Common;
+﻿using MyGame.Game.MapCells.Common;
 using MyGame.Ressources;
 using System;
 using System.Windows.Controls;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace MyGame.Game.GraphicElements.MapCells.Desert
+namespace MyGame.Game.MapCells.Desert
 {
     /// <summary>
     /// Interaction logic for DesertCell.xaml
