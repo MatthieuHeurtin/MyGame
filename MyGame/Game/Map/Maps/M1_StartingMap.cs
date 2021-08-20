@@ -40,9 +40,17 @@ namespace MyGame.Game.Map.Maps
         {
             _characters = new Dictionary<string, ICharacter>();
             var npc = new NonPlayableCharacter("random1");
+            npc.SetPosition(4, 3);
             _characters.Add(npc.Key, npc);
 
+            var npc2 = new NonPlayableCharacter("sleepingDragon");
+            npc2.SetPosition(2, 2);
+            npc2.SetSpriteName("sleepingDragon.gif");
+            _characters.Add(npc2.Key, npc2);
+
+
             _player = new PlayableCharacter();
+            _player.SetPosition(5, 5);
 
 
             _height = 6;

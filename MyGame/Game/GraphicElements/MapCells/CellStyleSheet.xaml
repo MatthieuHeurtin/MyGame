@@ -20,23 +20,6 @@
        HorizontalAlignment="Center" 
        Width="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Grid}},Path=ActualWidth}"
        Height="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Grid}},Path=ActualHeight}">
-            <Image.Style>
-                <Style TargetType="Image">
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Trigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation AutoReverse="True" Duration="0:0:0.300" To="125" Storyboard.TargetProperty="Height" />
-                                        <DoubleAnimation AutoReverse="True" Duration="0:0:0.300" To="125" Storyboard.TargetProperty="Width" />
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.EnterActions>
-
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Image.Style>
         </Image>
     </ControlTemplate>
 

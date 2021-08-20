@@ -10,7 +10,7 @@ namespace MyGame.Game.Character.Characters
     {
         private readonly string _key;
 
-        public NonPlayableCharacter(string key)
+        public NonPlayableCharacter(string key):base()
         {
             _key = key;
         }

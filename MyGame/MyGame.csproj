@@ -169,5 +169,11 @@
   <ItemGroup>
     <Resource Include="Game\GraphicElements\Characters\ressources\mainCharacter.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Game\GraphicElements\Characters\ressources\sleepingDragon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Game\GraphicElements\Characters\ressources\sleepingDragon.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

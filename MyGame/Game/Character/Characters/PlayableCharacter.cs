@@ -23,10 +23,8 @@ namespace MyGame.Game.Characters.Character
             get { return _spriteName; }
         }
 
-        public PlayableCharacter()
+        public PlayableCharacter():base()
         {
-            X = 2;
-            Y = 3;
             _name = "Matt";
             _key = "player";
             _spriteName = "mainCharacter.png";
