@@ -23,7 +23,7 @@
                 </Grid>
             </Border>
             <StackPanel >
-                <ContentControl  Template="{StaticResource Image}" ></ContentControl>
+                <ContentControl Name="Item"  Template="{StaticResource Item}" ></ContentControl>
             </StackPanel>
         </Grid>
     </Grid>

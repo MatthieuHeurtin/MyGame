@@ -8,12 +8,14 @@ namespace MyGame.Game.GraphicElements.MapCells.Path
     /// </summary>
     public partial class PathCell : UserControl, IMapCell
     {
-        private bool _hasCharacter;
         public PathCell()
         {
             InitializeComponent();
 
             DataContext = new CellDataContext();
+
+
+
         }
 
         public CaseTypes Type
@@ -21,10 +23,5 @@ namespace MyGame.Game.GraphicElements.MapCells.Path
             get { return CaseTypes.PATH; }
         }
 
-        public bool HasCharacter
-        {
-            get { return _hasCharacter; }
-            set { _hasCharacter = value; }
-        }
     }
 }

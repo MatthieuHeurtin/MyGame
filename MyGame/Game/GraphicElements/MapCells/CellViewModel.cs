@@ -23,18 +23,23 @@ namespace MyGame.Game.GraphicElements.MapCells
         {
             if (character == null)
             {
-                SetSprite(string.Empty);
+                SetSprite(null);
                 _isOccupied = false;
+                NotifyPropertyChanged(nameof(Character));
                 return;
             }
             _isOccupied = true;
-            SetSprite(character.SpriteName);
+            SetSprite(String.Concat("./../Characters/ressources/", character.SpriteName));
+            _character = character;
+
             NotifyPropertyChanged(nameof(Character));
         }
 
-        private void SetSprite(string spriteName)
+        private void SetSprite(string spriteNamePath)
         {
-            _spriteImagePath = String.Concat("./../Characters/ressources/", spriteName);
+            _spriteImagePath = spriteNamePath;
+
+
             NotifyPropertyChanged(nameof(SpriteImagePath));
         }
 

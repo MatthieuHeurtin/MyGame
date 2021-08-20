@@ -11,6 +11,10 @@
                 <ResourceDictionary Source="../CellStyleSheet.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
+
+
+         
+
     </UserControl.Resources>
 
     <Grid>
@@ -21,7 +25,7 @@
                 </Grid.Background>
 
                 <StackPanel >
-                    <ContentControl  Template="{StaticResource Image}" ></ContentControl>
+                    <ContentControl Name="Item" Template="{StaticResource Item}" ></ContentControl>
                 </StackPanel>
             </Grid>
         </Border>

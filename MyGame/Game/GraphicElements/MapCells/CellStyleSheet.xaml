@@ -9,12 +9,11 @@
         </Style.Triggers>
     </Style>
 
-
-
-
-    <ControlTemplate x:Key="Image" TargetType="ContentControl">
-        <Image Source="{Binding CellViewModel.SpriteImagePath}"
-      RenderOptions.BitmapScalingMode="Fant"
+    <ControlTemplate x:Key="Item" TargetType="ContentControl">
+        <Image
+       Source="{Binding CellViewModel.SpriteImagePath,TargetNullValue={x:Null}}" 
+       
+       RenderOptions.BitmapScalingMode="Fant"
        Stretch="Fill"
        VerticalAlignment="Top"
        Margin="0,0,0,0"
@@ -33,7 +32,7 @@
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.EnterActions>
-                          
+
                         </Trigger>
                     </Style.Triggers>
                 </Style>
@@ -41,6 +40,8 @@
         </Image>
     </ControlTemplate>
 
-  
+
+
+
 
 </ResourceDictionary>

@@ -9,6 +9,5 @@
         {
             CellViewModel = new CellViewModel();
         }
-
     }
 }

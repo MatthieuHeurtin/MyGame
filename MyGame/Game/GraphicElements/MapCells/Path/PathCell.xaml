@@ -21,12 +21,9 @@
                     <Grid.Background>
                         <ImageBrush ImageSource="./../ressources/images/path.jpg"/>
                     </Grid.Background>
-
-                  
-                        <ContentControl  Template="{StaticResource Image}" ></ContentControl>
-                
+                    <ContentControl  Name="Item" Template="{StaticResource Item}" ></ContentControl>
                 </Grid>
             </Border>
-           </Grid>
+        </Grid>
     </Grid>
 </UserControl>
