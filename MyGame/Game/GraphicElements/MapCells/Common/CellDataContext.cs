@@ -1,4 +1,4 @@
-﻿namespace MyGame.Game.GraphicElements.MapCells
+﻿namespace MyGame.Game.GraphicElements.MapCells.Common
 {
     public class CellDataContext : ICellDataContext
     {

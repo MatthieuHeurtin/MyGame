@@ -8,7 +8,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="../CellStyleSheet.xaml"/>
+                <ResourceDictionary Source="../Common/CellStyleSheet.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 

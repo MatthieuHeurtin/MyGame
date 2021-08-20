@@ -1,19 +1,41 @@
 ﻿using MyGame.Game.Character.Characters;
+using MyGame.Game.Views.Characters;
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
 
-namespace MyGame.Game.GraphicElements.MapCells
+namespace MyGame.Game.GraphicElements.MapCells.Common
 {
     public class CellViewModel : ICellViewModel, INotifyPropertyChanged
     {
         private bool _isOccupied = false;
+        private bool _isMouseOver = false;
         private string _spriteImagePath;
         private ICharacter _character;
+
+        private ICommand _displayDetailWindowCommand;
+
+
+        public ICommand DisplayDetailWindowCommand
+        {
+            get
+            {
+                return (_displayDetailWindowCommand ?? (_displayDetailWindowCommand = new CommandRelay(DisplayDetailWindow, true)));
+            }
+        }
+
+        private void DisplayDetailWindow(string obj)
+        {
+            CharacterView r = new CharacterView();
+            r.Show();
+        }
 
         public string SpriteImagePath { get { return _spriteImagePath; } }
 
         public bool IsOccupied { get { return _isOccupied; } }
+
+        public bool IsMouseOver { get { return _isMouseOver; } set { _isMouseOver = value; } }
 
         public ICharacter Character { get { return _character; } }
 
@@ -29,7 +51,7 @@ namespace MyGame.Game.GraphicElements.MapCells
                 return;
             }
             _isOccupied = true;
-            SetSprite(String.Concat("./../Characters/ressources/", character.SpriteName));
+            SetSprite(String.Concat("./../../Characters/ressources/", character.SpriteName));
             _character = character;
 
             NotifyPropertyChanged(nameof(Character));

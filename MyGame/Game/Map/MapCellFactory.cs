@@ -18,8 +18,7 @@ namespace MyGame.Game.Map
             switch (caseType)
             {
                 case CaseTypes.FOREST:
-                    var t = new ForestCell();
-                    return t;
+                    return new ForestCell(); //default value, since caseType default value is 0
                 case CaseTypes.DESERT:
                     return new DesertCell();
                 case CaseTypes.GRASS:

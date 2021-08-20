@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using MyGame.Game.GraphicElements.MapCells.Common;
+using System.Windows.Controls;
 
 namespace MyGame.Game.GraphicElements.MapCells.Desert
 {

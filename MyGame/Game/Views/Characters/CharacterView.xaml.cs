@@ -1,5 +1,4 @@
-﻿using MyGame.Game.GraphicElements.MapCells.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,26 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MyGame.Game.GraphicElements.MapCells.Forest
+namespace MyGame.Game.Views.Characters
 {
     /// <summary>
-    /// Interaction logic for ForestCell.xaml
+    /// Interaction logic for CharacterView.xaml
     /// </summary>
-    public partial class ForestCell : UserControl, IMapCell
+    public partial class CharacterView : Window
     {
-        public CaseTypes Type
-        {
-            get { return CaseTypes.FOREST; }
-        }
-
-        public ForestCell()
+        public CharacterView()
         {
             InitializeComponent();
-            DataContext = new CellDataContext(); ;
         }
-
     }
 }

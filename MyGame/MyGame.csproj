@@ -35,10 +35,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -57,7 +63,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Game\GraphicElements\MapCells\CellStyleSheet.xaml">
+    <Page Include="Game\GraphicElements\MapCells\Common\CellStyleSheet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -81,6 +87,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Game\Views\Characters\CharacterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -94,8 +104,10 @@
     <Compile Include="Game\Character\Characters\NonPlayableCharacter.cs" />
     <Compile Include="Game\Character\Characters\PlayableCharacter.cs" />
     <Compile Include="Game\GameEngine\Engine.cs" />
-    <Compile Include="Game\GraphicElements\MapCells\CellDataContext.cs" />
-    <Compile Include="Game\GraphicElements\MapCells\CellViewModel.cs" />
+    <Compile Include="Game\GraphicElements\MapCells\Common\CellDataContext.cs" />
+    <Compile Include="Game\GraphicElements\MapCells\Common\CellViewModel.cs" />
+    <Compile Include="Game\GraphicElements\MapCells\Common\CommandRelay.cs" />
+    <Compile Include="Game\GraphicElements\MapCells\Common\Events.cs" />
     <Compile Include="Game\GraphicElements\MapCells\ICellViewModel.cs" />
     <Compile Include="Game\GraphicElements\MapCells\Desert\DesertCell.xaml.cs">
       <DependentUpon>DesertCell.xaml</DependentUpon>
@@ -122,6 +134,9 @@
     <Compile Include="Game\Map\Maps\M0_StartingMap.cs" />
     <Compile Include="Game\Map\Maps\IMap.cs" />
     <Compile Include="Game\Map\MapViewModel.cs" />
+    <Compile Include="Game\Views\Characters\CharacterView.xaml.cs">
+      <DependentUpon>CharacterView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -145,6 +160,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

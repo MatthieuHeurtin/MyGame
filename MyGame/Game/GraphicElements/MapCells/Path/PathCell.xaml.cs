@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using MyGame.Game.GraphicElements.MapCells.Common;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 namespace MyGame.Game.GraphicElements.MapCells.Path

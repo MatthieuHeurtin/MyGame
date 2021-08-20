@@ -7,39 +7,7 @@ namespace MyGame.Game.Map
 {
     public partial class MapViewModel
     {
-        //XY used to indentify the cell
-        private class XY : IEquatable<XY>
-        {
-            public XY(int x, int y)
-            {
-                X = x;
-                Y = y;
-            }
-
-            readonly int X;
-            readonly int Y;
-
-            public bool Equals(XY other)
-            {
-                return other != null && X == other.X && Y == other.X;
-            }
-
-            public override bool Equals(object obj)
-            {
-                return Equals(obj as XY);
-            }
-
-            public override int GetHashCode()
-            {
-                unchecked // Allow arithmetic overflow, numbers will just "wrap around"
-                {
-                    int hashcode = 1430287;
-                    hashcode = hashcode * 7302013 ^ X.GetHashCode();
-                    hashcode = hashcode * 7302013 ^ Y.GetHashCode();
-                    return hashcode;
-                }
-            }
-        }
+      
         public event EventHandler RaiseMovement;
 
 
