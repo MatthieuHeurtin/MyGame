@@ -44,40 +44,40 @@ namespace MyGame.Game.Map.Maps
             var npc = new NonPlayableCharacter("random1");
             npc.SetPosition(6, 3);
             _elements.Add(npc.Key, npc);
-            IRoutine npcR = new MovementRoutine(new string[] { "Left", "Left", "Left","Right", "Right", "Right"}, npc.Key);
+            IRoutine npcR = new MovementRoutine(new string[] { "Left", "Left", "Left", "Right", "Right", "Right" });
             npc.SetRoutine(npcR);
 
             var npc2 = new NonPlayableCharacter("random2");
             npc2.SetPosition(19, 19);
             _elements.Add(npc2.Key, npc2);
-            IRoutine npcR2 = new MovementRoutine(new string[] { "Left", "Left", "Left", "Right", "Right", "Right" }, npc2.Key);
+            IRoutine npcR2 = new MovementRoutine(new string[] { "Left", "Left", "Left", "Right", "Right", "Right" });
             npc2.SetRoutine(npcR2);
 
 
             var npc3 = new NonPlayableCharacter("random3");
             npc3.SetPosition(14, 18);
             _elements.Add(npc3.Key, npc3);
-            IRoutine npcR3 = new MovementRoutine(new string[] { "Up", "Left", "Left", "Down", "Right", "Right" }, npc3.Key);
+            IRoutine npcR3 = new MovementRoutine(new string[] { "Up", "Left", "Left", "Down", "Right", "Right" });
             npc3.SetRoutine(npcR3);
 
             var npc4 = new NonPlayableCharacter("random4");
             npc4.SetPosition(18, 18);
             _elements.Add(npc4.Key, npc4);
-            IRoutine npcR4 = new MovementRoutine(new string[] { "Left",  "Left", "Right",  "Right" }, npc4.Key);
+            IRoutine npcR4 = new MovementRoutine(new string[] { "Left", "Left", "Right", "Right" });
             npc4.SetRoutine(npcR4);
 
 
             var npc5 = new NonPlayableCharacter("random5");
             npc5.SetPosition(12, 15);
             _elements.Add(npc5.Key, npc5);
-            IRoutine npcR5 = new MovementRoutine(new string[] { "Up", "Up", "Up", "Up", "Up", "Up", "Down", "Down", "Down", "Down", "Down", "Down", }, npc5.Key);
+            IRoutine npcR5 = new MovementRoutine(new string[] { "Up", "Up", "Up", "Up", "Up", "Up", "Down", "Down", "Down", "Down", "Down", "Down", });
             npc5.SetRoutine(npcR5);
 
 
             var npc6 = new NonPlayableCharacter("random6");
             npc6.SetPosition(5, 15);
             _elements.Add(npc6.Key, npc6);
-            IRoutine npcR6 = new MovementRoutine(new string[] { "Up", "Up", "Up", "Up", "Up", "Up", "Down", "Down", "Down", "Down", "Down", "Down", }, npc6.Key);
+            IRoutine npcR6 = new MovementRoutine(new string[] { "Up", "Up", "Up", "Up", "Up", "Up", "Down", "Down", "Down", "Down", "Down", "Down", });
             npc5.SetRoutine(npcR6);
 
             var npcD = new NonPlayableCharacter("sleepingDragon");
@@ -91,6 +91,7 @@ namespace MyGame.Game.Map.Maps
 
             _player = new PlayableCharacter();
             _player.SetPosition(13, 19);
+            _elements.Add(_player.Key, _player);
 
 
 
@@ -257,7 +258,7 @@ namespace MyGame.Game.Map.Maps
                     if (pathCells.Contains(string.Concat(j, ";", i))) continue;
                     _cases[j, i] = CaseTypes.GRASS;
 
-                    var tree = new Tree(string.Concat("tree", i,";", j));
+                    var tree = new Tree(string.Concat("tree", i, ";", j));
                     tree.SetPosition(j, i);
                     tree.SetSpriteName("tree.png");
                     _elements.Add(tree.Key, tree);
@@ -272,14 +273,14 @@ namespace MyGame.Game.Map.Maps
 
                     _cases[j, i] = CaseTypes.GRASS;
 
-                    var tree = new Tree(string.Concat("tree", i,";", j));
+                    var tree = new Tree(string.Concat("tree", i, ";", j));
                     tree.SetPosition(j, i);
                     tree.SetSpriteName("tree.png");
                     _elements.Add(tree.Key, tree);
                 }
             }
 
-          
+
         }
     }
 }

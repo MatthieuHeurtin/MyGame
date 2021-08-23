@@ -39,7 +39,7 @@ namespace MyGame.Game.GameEngine
 
                     if (ev != null)
                     {
-
+                        Thread.Sleep(500);
                         ev.Execute();
                         ev.Dispose();
                     }

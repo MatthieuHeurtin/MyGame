@@ -11,19 +11,19 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Name="CharacterArea" Grid.Column="0">
+        <Grid Name="CharacterArea" Grid.Row="0">
             <Border Background="Black">
                 <Grid>
                     <Grid.Background>
                         <ImageBrush ImageSource="./../../../Ressources/Images/Control/spriteBackground.jpg" Stretch="UniformToFill"/>
                     </Grid.Background>
                 </Grid>
-                </Border>
-                    <Image Name="CellItem" Source="{Binding MapViewModel.Path}"></Image>
+            </Border>
+            <Image Name="CellItem" Source="{Binding MapViewModel.SpriteFullPath}"></Image>
         </Grid>
-        <Grid Name="kwy" Grid.Column="1">
-            
-            <Label Name="key" Content="{Binding MapViewModel.Path}"></Label>
+        <Grid Name="kwy" Grid.Row="1" Background="LightPink">
+
+            <Label Name="key" Content="{Binding MapViewModel.MapElement.Key}"></Label>
         </Grid>
     </Grid>
 </UserControl>

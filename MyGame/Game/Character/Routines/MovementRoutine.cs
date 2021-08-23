@@ -1,5 +1,4 @@
 ﻿using MyGame.Game.Character.Routines.Events;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace MyGame.Game.Character.Routines
@@ -8,14 +7,12 @@ namespace MyGame.Game.Character.Routines
     {
         private readonly string[] _directions;
         public IRoutineEvent RoutinedEvent { get; set; }
-
         public string Key { get; set; }
 
-        public MovementRoutine(string[] directions, string key)
+        public MovementRoutine(string[] directions)
         {
             _directions = directions;
             RoutinedEvent = new MovementEvent();
-            Key = key;
         }
 
         public void Start()
@@ -26,8 +23,7 @@ namespace MyGame.Game.Character.Routines
                 {
                     foreach (var direction in _directions)
                     {
-                        Thread.Sleep(200);
-                        RoutinedEvent.Raise(direction, Key);
+                        RoutinedEvent.Raise(direction,Key);
                     }
                 }
             });

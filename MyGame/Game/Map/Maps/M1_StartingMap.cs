@@ -51,6 +51,7 @@ namespace MyGame.Game.Map.Maps
 
             _player = new PlayableCharacter();
             _player.SetPosition(5, 5);
+            _elements.Add(_player.Key, _player);
 
 
             _height = 6;

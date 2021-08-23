@@ -28,9 +28,9 @@ namespace MyGame.Game.MapCells.Common
             }
         }
 
-        private void DisplayDetailWindow(string obj)
+        private void DisplayDetailWindow(string key)
         {
-            EventArgs e = new EventParameter(obj);
+            EventArgs e = new EventParameter(key);
             RaiseClickOnCell?.Invoke(this, e);
         }
 
@@ -50,23 +50,18 @@ namespace MyGame.Game.MapCells.Common
             {
                 SetSprite(null);
                 _isOccupied = false;
-                NotifyPropertyChanged(nameof(Character));
+                NotifyPropertyChanged(nameof(Element));
                 return;
             }
- 
 
-            string folderRessourcesPath = string.Empty;
 
-            if (element is ICharacter)
-                folderRessourcesPath = RessourcesManager.CharacterSpriteCellsPath;
-            else if (element is IItem)
-                folderRessourcesPath = RessourcesManager.ItemsPath;
+            string folderRessourcesPath = RessourcesManager.GetPathFromElementMap(element);
 
             SetSprite(string.Concat(folderRessourcesPath, element.SpriteName));
             _isOccupied = true;
             _element = element;
 
-            NotifyPropertyChanged(nameof(Character));
+            NotifyPropertyChanged(nameof(Element));
         }
 
         private void SetSprite(string spriteNamePath)

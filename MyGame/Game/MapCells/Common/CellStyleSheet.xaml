@@ -24,7 +24,7 @@
        Height="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Grid}},Path=ActualHeight}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseLeftButtonDown" >
-                    <i:InvokeCommandAction Command="{Binding CellViewModel.DisplayDetailWindowCommand}" CommandParameter="{Binding CellViewModel.SpriteImagePath,TargetNullValue={x:Null}}" />
+                    <i:InvokeCommandAction Command="{Binding CellViewModel.DisplayDetailWindowCommand}" CommandParameter="{Binding CellViewModel.Element.Key,TargetNullValue={x:Null}}" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Image>

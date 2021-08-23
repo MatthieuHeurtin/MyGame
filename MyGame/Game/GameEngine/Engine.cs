@@ -1,8 +1,6 @@
 ﻿using System;
 using MyGame.Game.Character.Characters;
-using MyGame.Game.Character.Routines;
 using MyGame.Game.Character.Routines.Events;
-using MyGame.Game.GameEngine.Events;
 using MyGame.Game.GameEngine.Events.PlayerEvent;
 using MyGame.Game.Map;
 using MyGame.Game.Map.Maps;
@@ -89,8 +87,8 @@ namespace MyGame.Game.GameEngine
 
         private void UpdateControlArea(object sender, EventArgs e)
         {
-            string cellSpriteName = (e as MapCells.Common.EventParameter).Param;
-            _mapState.GetViewModel().SetCellItemSprite(cellSpriteName);
+            string key = (e as MapCells.Common.EventParameter).Key;
+            _mapState.GetViewModel().SetFocusedElement(_map.Elements[key]);
         }
 
         private void Move(object sender, EventArgs e)

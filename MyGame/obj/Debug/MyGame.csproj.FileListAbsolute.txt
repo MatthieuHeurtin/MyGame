@@ -34,3 +34,4 @@ C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\MyG
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\MyGame.csproj.CopyComplete
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\MyGame.exe
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\MyGame.pdb
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\MyGame.csprojAssemblyReference.cache

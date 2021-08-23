@@ -4,11 +4,11 @@ namespace MyGame.Game.MapCells.Common
 {
     public class EventParameter : EventArgs
     {
-        public readonly string Param;
+        public readonly string Key;
 
         public EventParameter(string obj)
         {
-            Param = obj;
+            Key = obj;
         }
     }
 }
