@@ -15,12 +15,15 @@
             <Border Background="Black">
                 <Grid>
                     <Grid.Background>
-                        <ImageBrush ImageSource="./../../../Ressources/Images/Control/background.jpg" Stretch="UniformToFill"/>
+                        <ImageBrush ImageSource="./../../../Ressources/Images/Control/spriteBackground.jpg" Stretch="UniformToFill"/>
                     </Grid.Background>
                 </Grid>
                 </Border>
                     <Image Name="CellItem" Source="{Binding MapViewModel.Path}"></Image>
         </Grid>
-
+        <Grid Name="kwy" Grid.Column="1">
+            
+            <Label Name="key" Content="{Binding MapViewModel.Path}"></Label>
+        </Grid>
     </Grid>
 </UserControl>

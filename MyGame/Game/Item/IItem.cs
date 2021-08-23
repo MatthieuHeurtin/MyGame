@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyGame.Game.Item
+﻿namespace MyGame.Game.Item
 {
     public interface IItem
     {
+
     }
 }

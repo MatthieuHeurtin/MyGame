@@ -1,92 +1,117 @@
 ﻿using System;
 using MyGame.Game.Character.Characters;
+using MyGame.Game.Character.Routines;
+using MyGame.Game.Character.Routines.Events;
+using MyGame.Game.GameEngine.Events;
+using MyGame.Game.GameEngine.Events.PlayerEvent;
 using MyGame.Game.Map;
 using MyGame.Game.Map.Maps;
 
 namespace MyGame.Game.GameEngine
 {
-    public class Engine
+    public class Engine : IDisposable
     {
         private readonly IMap _map;
-        private Map.Map _graphicMap;
+        private Map.Map _mapState;
         private readonly ICharacter _player;
+        private EventConsumer _eventConsumer;
 
         public Engine(IMap map)
         {
             _map = map;
             _player = map.Player;
+
+
         }
 
         public void Start()
         {
             //Init Map
-            _graphicMap = new Map.Map();
-            _graphicMap.BuildMap(_map);
+            _mapState = new Map.Map();
+            _mapState.BuildMap(_map);
 
-            //add npc (set character to a cell)
-            foreach (var character in _map.Elements)
+            //add npc/item (set character to a cell) and subscribe to their events
+            foreach (var element in _map.Elements)
             {
-                _graphicMap.GetViewModel().AddElement(character.Value);
+                _mapState.GetViewModel().AddElement(element.Value);
+                if ((element.Value as ICharacter)?.Routine != null)
+                {
+                    ((element.Value as ICharacter)?.Routine?.RoutinedEvent).OnRaise += AddRoutinedEvent;
+                }
+
             }
 
-            //add players
-            _graphicMap.GetViewModel().AddElement(_map.Player);
 
+
+            //add player
+            _mapState.GetViewModel().AddElement(_map.Player);
+
+
+            // PLAYERS EVENTS //
             //subscribe to events coming from the map
-            _graphicMap.GetViewModel().RaiseMovement += Move;
+            _mapState.GetViewModel().RaiseMovement += Move;
 
-            //subscribe to events coming from the cells
-            foreach (var entry in _graphicMap.GetViewModel().MapCelles)
+            //subscribe to events coming npc/scripted events
+            foreach (var entry in _mapState.GetViewModel().MapCelles)
             {
                 entry.Value.RaiseClickOnCell += UpdateControlArea;
             }
 
+
+
+            //SCRIPTED EVENTS (NPC, ETC....)
+
+
+            //start event consumer (npc events only)
+            _eventConsumer = new EventConsumer();
+            _eventConsumer.Start();
+
+
+
             //display
-            _graphicMap.Show();
+            _mapState.Show();
+
+            foreach (var element in _map.Elements)
+            {
+                if ((element.Value as ICharacter)?.Routine != null)
+                { (element.Value as ICharacter)?.Routine.Start(); }
+            }
+
+        }
+
+        private void AddRoutinedEvent(object sender, EventArgs e)
+        {
+            string direction = (e as MovementEvent).Direction;
+            string key = (e as MovementEvent).Key;
+            MoveEvent p = new MoveEvent(direction, _map, _mapState, _map.Elements[key] as ICharacter);
+            _eventConsumer.QueueEvent(p);
         }
 
         private void UpdateControlArea(object sender, EventArgs e)
         {
             string cellSpriteName = (e as MapCells.Common.EventParameter).Param;
-            _graphicMap.GetViewModel().SetCellItemSprite(cellSpriteName);
+            _mapState.GetViewModel().SetCellItemSprite(cellSpriteName);
         }
 
         private void Move(object sender, EventArgs e)
         {
             string direction = (e as EventParameter).Param;
-            int Xcurrent = _map.Player.X;
-            int Ycurrent = _map.Player.Y;
-            var dest = GetDestination(direction, Xcurrent, Ycurrent, _map.Height - 1, _map.Width - 1);
-            if (Xcurrent == dest.Item1 && Ycurrent == dest.Item2
-                || Xcurrent == dest.Item1 && Ycurrent == dest.Item2
-                || _graphicMap.GetViewModel().IsOccupied(dest.Item1, dest.Item2)) return;
-
-            _graphicMap.GetViewModel().RemoveCharacter(_map.Player);
-            _map.Player.SetPosition(dest.Item1, dest.Item2);
-            _graphicMap.GetViewModel().AddElement(_map.Player);
+            MoveEvent p = new MoveEvent(direction, _map, _mapState, _player);
+            p.Execute();
         }
 
-        private Tuple<int, int> GetDestination(string direction, int xcurrent, int ycurrent, int Ymax, int Xmax)
+        public void Dispose()
         {
-            switch (direction)
+            //Unsubscribe to events coming from the cells
+            foreach (var entry in _mapState.GetViewModel().MapCelles)
             {
-                case "Up":
-                    if (ycurrent > 0) ycurrent = ycurrent - 1;
-                    break;
-                case "Down":
-                    if (ycurrent < Ymax) ycurrent = ycurrent + 1;
-                    break;
-                case "Right":
-                    if (xcurrent < Xmax) xcurrent = xcurrent + 1;
-                    break;
-                case "Left":
-                    if (xcurrent > 0) xcurrent = xcurrent - 1;
-                    break;
-                default:
-                    break;
+                entry.Value.RaiseClickOnCell -= UpdateControlArea;
             }
-            return new Tuple<int, int>(xcurrent, ycurrent);
-        }
 
+            //Unsubscribe to events coming from the map
+            _mapState.GetViewModel().RaiseMovement += Move;
+
+            _eventConsumer.Dispose();
+        }
     }
 }

@@ -17,6 +17,7 @@ namespace MyGame.Game.Map
         public IDictionary<string, ICellViewModel> MapCelles;
 
         public string Path { get; set; }
+        public string Key { get; set; }
 
         public MapViewModel()
         {

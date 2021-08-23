@@ -1,4 +1,5 @@
 ﻿using MyGame.Game.Map.Maps;
+using System;
 using System.Windows;
 
 namespace MyGame
@@ -12,6 +13,7 @@ namespace MyGame
         {
             InitializeComponent();
 
+
             var t = new Game.GameEngine.Engine(new M0_StartingMap());
 
             t.Start();
@@ -20,8 +22,7 @@ namespace MyGame
 
             p.Start();
 
-
-
+            Console.WriteLine("All Map started");
         }
     }
 }

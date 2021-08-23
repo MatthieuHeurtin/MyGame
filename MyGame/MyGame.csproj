@@ -63,6 +63,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Game\Character\Routines\Events\IRoutineEvent.cs" />
+    <Compile Include="Game\Character\Routines\Events\MovementEvent.cs" />
+    <Compile Include="Game\Character\Routines\IRoutine.cs" />
+    <Compile Include="Game\Character\Routines\MovementRoutine.cs" />
+    <Compile Include="Game\GameEngine\EventConsumer.cs" />
+    <Compile Include="Game\GameEngine\Events\IEvent.cs" />
+    <Compile Include="Game\GameEngine\Events\PlayerEvent\MoveEvent.cs" />
     <Compile Include="Game\Item\AbstractItem.cs" />
     <Compile Include="Game\Item\IItem.cs" />
     <Compile Include="Game\Item\Tree.cs" />
@@ -212,7 +219,7 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Ressources\Images\Control\background.jpg">
+    <Resource Include="Ressources\Images\Control\spriteBackground.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

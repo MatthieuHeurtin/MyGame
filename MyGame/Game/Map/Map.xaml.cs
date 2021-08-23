@@ -46,7 +46,7 @@ namespace MyGame.Game.Map
                     caseInst.ToolTip = j.ToString() + ";" + i.ToString();
                     //but we save the viewmodel of the UserControl
                     // really 'heavy' trick
-                    GetViewModel().AddCell(j, i, (caseInst.DataContext as ICellDataContext).CellViewModel); 
+                    GetViewModel().AddCell(j, i, (caseInst.DataContext as ICellDataContext).CellViewModel);
 
 
                     Grid.SetRow(caseInst, i);
@@ -61,7 +61,13 @@ namespace MyGame.Game.Map
 
         public MapViewModel GetViewModel()
         {
-            return (DataContext as MapDataContext).MapViewModel;
+            MapViewModel p = null;
+            Dispatcher.Invoke(() =>
+            {
+                p =  (DataContext as MapDataContext).MapViewModel;
+            });
+            return p;
+
         }
 
 

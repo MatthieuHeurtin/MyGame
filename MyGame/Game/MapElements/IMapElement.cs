@@ -9,5 +9,7 @@
         string SpriteName { get; }
 
         void SetPosition(int item1, int item2);
+
+
     }
 }

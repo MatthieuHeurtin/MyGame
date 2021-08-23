@@ -8,10 +8,10 @@
         Title="Map" Height="450" Width="800">
 
     <Window.InputBindings>
-        <KeyBinding Key="Up" Command="{Binding MoveCommand}" CommandParameter="Up" />
-        <KeyBinding Key="Down" Command="{Binding MoveCommand}" CommandParameter="Down" />
-        <KeyBinding Key="Right" Command="{Binding MoveCommand}" CommandParameter="Right" />
-        <KeyBinding Key="Left" Command="{Binding MoveCommand}" CommandParameter="Left" />
+        <KeyBinding Key="w" Command="{Binding MoveCommand}" CommandParameter="Up" />
+        <KeyBinding Key="s" Command="{Binding MoveCommand}" CommandParameter="Down" />
+        <KeyBinding Key="d" Command="{Binding MoveCommand}" CommandParameter="Right" />
+        <KeyBinding Key="a" Command="{Binding MoveCommand}" CommandParameter="Left" />
     </Window.InputBindings>
 
     <Grid>

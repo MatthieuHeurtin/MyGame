@@ -1,4 +1,5 @@
 ﻿using MyGame.Game.Character.Characters;
+using MyGame.Game.Character.Routines;
 using MyGame.Game.Characters.Character;
 using MyGame.Game.Item;
 using MyGame.Game.MapCells;
@@ -43,11 +44,46 @@ namespace MyGame.Game.Map.Maps
             var npc = new NonPlayableCharacter("random1");
             npc.SetPosition(6, 3);
             _elements.Add(npc.Key, npc);
+            IRoutine npcR = new MovementRoutine(new string[] { "Left", "Left", "Left","Right", "Right", "Right"}, npc.Key);
+            npc.SetRoutine(npcR);
 
-            var npc2 = new NonPlayableCharacter("sleepingDragon");
-            npc2.SetPosition(18, 7);
-            npc2.SetSpriteName("sleepingDragon.jpg");
+            var npc2 = new NonPlayableCharacter("random2");
+            npc2.SetPosition(19, 19);
             _elements.Add(npc2.Key, npc2);
+            IRoutine npcR2 = new MovementRoutine(new string[] { "Left", "Left", "Left", "Right", "Right", "Right" }, npc2.Key);
+            npc2.SetRoutine(npcR2);
+
+
+            var npc3 = new NonPlayableCharacter("random3");
+            npc3.SetPosition(14, 18);
+            _elements.Add(npc3.Key, npc3);
+            IRoutine npcR3 = new MovementRoutine(new string[] { "Up", "Left", "Left", "Down", "Right", "Right" }, npc3.Key);
+            npc3.SetRoutine(npcR3);
+
+            var npc4 = new NonPlayableCharacter("random4");
+            npc4.SetPosition(18, 18);
+            _elements.Add(npc4.Key, npc4);
+            IRoutine npcR4 = new MovementRoutine(new string[] { "Left",  "Left", "Right",  "Right" }, npc4.Key);
+            npc4.SetRoutine(npcR4);
+
+
+            var npc5 = new NonPlayableCharacter("random5");
+            npc5.SetPosition(12, 15);
+            _elements.Add(npc5.Key, npc5);
+            IRoutine npcR5 = new MovementRoutine(new string[] { "Up", "Up", "Up", "Up", "Up", "Up", "Down", "Down", "Down", "Down", "Down", "Down", }, npc5.Key);
+            npc5.SetRoutine(npcR5);
+
+
+            var npc6 = new NonPlayableCharacter("random6");
+            npc6.SetPosition(5, 15);
+            _elements.Add(npc6.Key, npc6);
+            IRoutine npcR6 = new MovementRoutine(new string[] { "Up", "Up", "Up", "Up", "Up", "Up", "Down", "Down", "Down", "Down", "Down", "Down", }, npc6.Key);
+            npc5.SetRoutine(npcR6);
+
+            var npcD = new NonPlayableCharacter("sleepingDragon");
+            npcD.SetPosition(18, 7);
+            npcD.SetSpriteName("sleepingDragon.jpg");
+            _elements.Add(npcD.Key, npcD);
 
 
 
@@ -83,65 +119,66 @@ namespace MyGame.Game.Map.Maps
             }
 
             #region path
-            List<string> pathCells = new List<string>();
-
-            pathCells.Add(string.Concat(6, ";", 3));
-            pathCells.Add(string.Concat(5, ";", 3));
-            pathCells.Add(string.Concat(4, ";", 3));
-            pathCells.Add(string.Concat(3, ";", 3));
-            pathCells.Add(string.Concat(3, ";", 4));
-            pathCells.Add(string.Concat(3, ";", 5));
-            pathCells.Add(string.Concat(2, ";", 5));
-            pathCells.Add(string.Concat(1, ";", 5));
-            pathCells.Add(string.Concat(0, ";", 5));
-            pathCells.Add(string.Concat(13, ";", 16));
-            pathCells.Add(string.Concat(14, ";", 13));
-            pathCells.Add(string.Concat(13, ";", 13));
-            pathCells.Add(string.Concat(15, ";", 13));
-            pathCells.Add(string.Concat(16, ";", 13));
-            pathCells.Add(string.Concat(18, ";", 13));
-            pathCells.Add(string.Concat(18, ";", 12));
-            pathCells.Add(string.Concat(18, ";", 11));
-            pathCells.Add(string.Concat(18, ";", 10));
-            pathCells.Add(string.Concat(18, ";", 9));
-            pathCells.Add(string.Concat(18, ";", 8));
-            pathCells.Add(string.Concat(18, ";", 7));
-            pathCells.Add(string.Concat(18, ";", 6));
-            pathCells.Add(string.Concat(18, ";", 5));
-            pathCells.Add(string.Concat(18, ";", 4));
-            pathCells.Add(string.Concat(18, ";", 3));
-            pathCells.Add(string.Concat(18, ";", 2));
-            pathCells.Add(string.Concat(17, ";", 2));
-            pathCells.Add(string.Concat(16, ";", 2));
-            pathCells.Add(string.Concat(15, ";", 2));
-            pathCells.Add(string.Concat(14, ";", 2));
-            pathCells.Add(string.Concat(13, ";", 2));
-            pathCells.Add(string.Concat(12, ";", 2));
-            pathCells.Add(string.Concat(11, ";", 2));
-            pathCells.Add(string.Concat(11, ";", 3));
-            pathCells.Add(string.Concat(11, ";", 4));
-            pathCells.Add(string.Concat(11, ";", 6));
-            pathCells.Add(string.Concat(11, ";", 7));
-            pathCells.Add(string.Concat(11, ";", 8));
-            pathCells.Add(string.Concat(11, ";", 9));
-            pathCells.Add(string.Concat(11, ";", 5));
-            pathCells.Add(string.Concat(6, ";", 9));
-            pathCells.Add(string.Concat(6, ";", 8));
-            pathCells.Add(string.Concat(6, ";", 7));
-            pathCells.Add(string.Concat(6, ";", 6));
-            pathCells.Add(string.Concat(6, ";", 5));
-            pathCells.Add(string.Concat(6, ";", 4));
-            pathCells.Add(string.Concat(6, ";", 3));
-            pathCells.Add(string.Concat(6, ";", 10));
-            pathCells.Add(string.Concat(9, ";", 11));
-            pathCells.Add(string.Concat(8, ";", 11));
-            pathCells.Add(string.Concat(7, ";", 11));
-            pathCells.Add(string.Concat(6, ";", 11));
-            pathCells.Add(string.Concat(17, ";", 13));
-            pathCells.Add(string.Concat(13, ";", 14));
-            pathCells.Add(string.Concat(11, ";", 10));
-            pathCells.Add(string.Concat(11, ";", 11));
-            pathCells.Add(string.Concat(10, ";", 11));
+            List<string> pathCells = new List<string>
+            {
+                string.Concat(6, ";", 3),
+                string.Concat(5, ";", 3),
+                string.Concat(4, ";", 3),
+                string.Concat(3, ";", 3),
+                string.Concat(3, ";", 4),
+                string.Concat(3, ";", 5),
+                string.Concat(2, ";", 5),
+                string.Concat(1, ";", 5),
+                string.Concat(0, ";", 5),
+                string.Concat(13, ";", 16),
+                string.Concat(14, ";", 13),
+                string.Concat(13, ";", 13),
+                string.Concat(15, ";", 13),
+                string.Concat(16, ";", 13),
+                string.Concat(18, ";", 13),
+                string.Concat(18, ";", 12),
+                string.Concat(18, ";", 11),
+                string.Concat(18, ";", 10),
+                string.Concat(18, ";", 9),
+                string.Concat(18, ";", 8),
+                string.Concat(18, ";", 7),
+                string.Concat(18, ";", 6),
+                string.Concat(18, ";", 5),
+                string.Concat(18, ";", 4),
+                string.Concat(18, ";", 3),
+                string.Concat(18, ";", 2),
+                string.Concat(17, ";", 2),
+                string.Concat(16, ";", 2),
+                string.Concat(15, ";", 2),
+                string.Concat(14, ";", 2),
+                string.Concat(13, ";", 2),
+                string.Concat(12, ";", 2),
+                string.Concat(11, ";", 2),
+                string.Concat(11, ";", 3),
+                string.Concat(11, ";", 4),
+                string.Concat(11, ";", 6),
+                string.Concat(11, ";", 7),
+                string.Concat(11, ";", 8),
+                string.Concat(11, ";", 9),
+                string.Concat(11, ";", 5),
+                string.Concat(6, ";", 9),
+                string.Concat(6, ";", 8),
+                string.Concat(6, ";", 7),
+                string.Concat(6, ";", 6),
+                string.Concat(6, ";", 5),
+                string.Concat(6, ";", 4),
+                string.Concat(6, ";", 3),
+                string.Concat(6, ";", 10),
+                string.Concat(9, ";", 11),
+                string.Concat(8, ";", 11),
+                string.Concat(7, ";", 11),
+                string.Concat(6, ";", 11),
+                string.Concat(17, ";", 13),
+                string.Concat(13, ";", 14),
+                string.Concat(11, ";", 10),
+                string.Concat(11, ";", 11),
+                string.Concat(10, ";", 11)
+            };
 
 
 
@@ -211,6 +248,8 @@ namespace MyGame.Game.Map.Maps
             _cases[13, 14] = CaseTypes.PATH;
             #endregion path
 
+
+            //set trees and grass
             for (int i = 0; i < 15; i++)
             {
                 for (int j = 0; j < _width; j++)
