@@ -34,3 +34,10 @@ C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\MyG
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\MyGame.csproj.CopyComplete
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\MyGame.exe
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\MyGame.pdb
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\Game\MapCells\StonePath\StonePath.g.cs
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\Game\MapCells\StonePath\StonePath.baml
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\Ressources\Images\MapCells\stonePath.jpg
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\Ressources\Images\MapCells\happyGrass.png
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\Game\MapCells\HappyGrass\HappyGrass.g.cs
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\Game\MapCells\HappyGrass\HappyGrass.baml
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\MyGame.csprojAssemblyReference.cache

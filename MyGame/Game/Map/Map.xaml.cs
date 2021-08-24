@@ -33,6 +33,7 @@ namespace MyGame.Game.Map
             for (int i = 0; i < map.Width; i++)
             {
                 ColumnDefinition col = new ColumnDefinition();
+
                 GameArea.ColumnDefinitions.Add(col);
             }
 
@@ -47,7 +48,6 @@ namespace MyGame.Game.Map
                     //but we save the viewmodel of the UserControl
                     // really 'heavy' trick
                     GetViewModel().AddCell(j, i, (caseInst.DataContext as ICellDataContext).CellViewModel);
-
 
                     Grid.SetRow(caseInst, i);
                     Grid.SetColumn(caseInst, j);

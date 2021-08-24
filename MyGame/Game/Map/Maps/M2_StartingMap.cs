@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace MyGame.Game.Map.Maps
 {
-    public class M1_StartingMap : IMap
+    public class M2_StartingMap : IMap
     {
         public CaseTypes[,] Cases
         {
@@ -36,7 +36,7 @@ namespace MyGame.Game.Map.Maps
         private readonly Dictionary<string, IMapElement> _elements;
         private readonly ICharacter _player;
 
-        public M1_StartingMap()
+        public M2_StartingMap()
         {
             _elements = new Dictionary<string, IMapElement>();
             var npc = new NonPlayableCharacter("random1");

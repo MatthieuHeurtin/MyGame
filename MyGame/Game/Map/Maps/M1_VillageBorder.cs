@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace MyGame.Game.Map.Maps
 {
-    public class M0_StartingMap : IMap
+    public class M1_VillageBorder : IMap
     {
         public CaseTypes[,] Cases
         {
@@ -38,7 +38,7 @@ namespace MyGame.Game.Map.Maps
         private readonly Dictionary<string, IMapElement> _elements;
         private readonly ICharacter _player;
 
-        public M0_StartingMap()
+        public M1_VillageBorder()
         {
             _elements = new Dictionary<string, IMapElement>();
             var npc = new NonPlayableCharacter("random1");
@@ -93,10 +93,26 @@ namespace MyGame.Game.Map.Maps
             _player.SetPosition(13, 19);
             _elements.Add(_player.Key, _player);
 
-            var house = new House(string.Concat("houseGateDown", 19, ";", 19));
+            //HOUSE
+            var house = new House(string.Concat("houseGateDownTopRight", 19, ";", 15));
             house.SetPosition(19, 15);
             house.SetSpriteName("houseGateDown.png");
             _elements.Add(house.Key, house);
+
+            var houseTopLeft = new House(string.Concat("houseGateDownTopLeft", 18, ";", 15));
+            houseTopLeft.SetPosition(18, 15);
+            houseTopLeft.SetSpriteName("houseGateDown.png");
+            _elements.Add(houseTopLeft.Key, houseTopLeft);
+
+            var houseBottomLeft = new House(string.Concat("houseGateDownBottomLeft", 18, ";", 16));
+            houseBottomLeft.SetPosition(18, 16);
+            houseBottomLeft.SetSpriteName("houseGateDown.png");
+            _elements.Add(houseBottomLeft.Key, houseBottomLeft);
+
+            var houseBottomRight = new House(string.Concat("houseGateDownBottomRight", 19, ";", 16));
+            houseBottomRight.SetPosition(7, 19);
+            houseBottomRight.SetSpriteName("houseGateDown.png");
+            _elements.Add(houseBottomRight.Key, houseBottomRight);
 
             _height = 20;
             _width = 20;
@@ -118,7 +134,7 @@ namespace MyGame.Game.Map.Maps
             {
                 for (int j = 5; j < _width; j++)
                 {
-                    _cases[j, i] = CaseTypes.PATH;
+                    _cases[j, i] = CaseTypes.STONE_PATH;
                 }
             }
 
@@ -181,7 +197,9 @@ namespace MyGame.Game.Map.Maps
                 string.Concat(13, ";", 14),
                 string.Concat(11, ";", 10),
                 string.Concat(11, ";", 11),
-                string.Concat(10, ";", 11)
+                string.Concat(10, ";", 11),
+
+
             };
 
 
@@ -199,7 +217,6 @@ namespace MyGame.Game.Map.Maps
             _cases[2, 5] = CaseTypes.PATH;
             _cases[1, 5] = CaseTypes.PATH;
             _cases[0, 5] = CaseTypes.PATH;
-            _cases[13, 16] = CaseTypes.PATH;
             _cases[14, 13] = CaseTypes.PATH;
             _cases[13, 13] = CaseTypes.PATH;
             _cases[15, 13] = CaseTypes.PATH;
@@ -251,6 +268,13 @@ namespace MyGame.Game.Map.Maps
             _cases[17, 13] = CaseTypes.PATH;
             _cases[13, 14] = CaseTypes.PATH;
             #endregion path
+
+            _cases[6, 19] = CaseTypes.HAPPY_GRASS;
+            _cases[6, 18]= CaseTypes.HAPPY_GRASS;
+            _cases[7, 19] = CaseTypes.HAPPY_GRASS;
+            _cases[7, 18] = CaseTypes.HAPPY_GRASS;
+            _cases[8, 19] = CaseTypes.HAPPY_GRASS;
+            _cases[8, 18] = CaseTypes.HAPPY_GRASS;
 
 
             //set trees and grass

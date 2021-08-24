@@ -11,6 +11,8 @@
         FOREST,
         DESERT,
         GRASS,
-        PATH
+        PATH,
+        STONE_PATH,
+        HAPPY_GRASS
     }
 }

@@ -11,17 +11,9 @@ namespace MyGame.Game.MapCells.Grass
     /// </summary>
     public partial class GrassCell : UserControl, IMapCell
     {
-        private bool _hasCharacter;
-
         public CaseTypes Type
         {
             get { return CaseTypes.GRASS; }
-        }
-
-        public bool HasCharacter
-        {
-            get { return _hasCharacter; }
-            set { _hasCharacter = value; }
         }
 
         public GrassCell()

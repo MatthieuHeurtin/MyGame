@@ -75,8 +75,15 @@
     <Compile Include="Game\Item\House.cs" />
     <Compile Include="Game\Item\IItem.cs" />
     <Compile Include="Game\Item\Tree.cs" />
+    <Compile Include="Game\MapCells\HappyGrass\HappyGrass.xaml.cs">
+      <DependentUpon>HappyGrass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Game\MapCells\StonePath\StonePath.xaml.cs">
+      <DependentUpon>StonePath.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Game\MapElements\AbstractMapElement.cs" />
     <Compile Include="Game\MapElements\IMapElement.cs" />
+    <Compile Include="Game\Map\Maps\M0_Village.cs" />
     <Compile Include="Ressources\RessourcesManager.cs" />
     <Page Include="Game\MapCells\Common\CellStyleSheet.xaml">
       <SubType>Designer</SubType>
@@ -94,7 +101,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Game\MapCells\HappyGrass\HappyGrass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Game\MapCells\Path\PathCell.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Game\MapCells\StonePath\StonePath.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -145,8 +160,8 @@
     </Compile>
     <Compile Include="Game\Map\MapCellFactory.cs" />
     <Compile Include="Game\Map\MapDataContext.cs" />
-    <Compile Include="Game\Map\Maps\M1_StartingMap.cs" />
-    <Compile Include="Game\Map\Maps\M0_StartingMap.cs" />
+    <Compile Include="Game\Map\Maps\M2_StartingMap.cs" />
+    <Compile Include="Game\Map\Maps\M1_VillageBorder.cs" />
     <Compile Include="Game\Map\Maps\IMap.cs" />
     <Compile Include="Game\Map\MapViewModel.cs" />
     <Compile Include="Game\Views\Characters\CharacterView.xaml.cs">
@@ -226,14 +241,39 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Ressources\Images\Items\house.jpg">
+    <Resource Include="Ressources\Images\Items\houseGateDown.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Ressources\Images\Items\houseGateDown.png">
+    <Resource Include="Ressources\Images\Items\houseGateDownBottomLeft.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\Images\Items\houseGateDownBottomRight.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\Images\Items\houseGateDownTopLeft.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\Images\Items\houseGateDownTopRight.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Ressources\Images\MapCells\happyGrass.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Ressources\Images\MapCells\stonePath.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
