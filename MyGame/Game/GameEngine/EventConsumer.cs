@@ -10,10 +10,11 @@ namespace MyGame.Game.GameEngine
     {
         private const int MAX_THREAD = 10;
         private BlockingCollection<IEvent> _events;
-
-        public EventConsumer()
+        private Clock _clock;
+        public EventConsumer(Clock clock)
         {
             _events = new BlockingCollection<IEvent>(MAX_THREAD);
+            _clock = clock;
         }
 
 
@@ -33,14 +34,17 @@ namespace MyGame.Game.GameEngine
 
                     try
                     {
+                       
                         ev = _events.Take();
+                       
                     }
                     catch (InvalidOperationException) { }
 
                     if (ev != null)
                     {
-                        Thread.Sleep(500);
+                        _clock.ManualResetEvent.WaitOne();
                         ev.Execute();
+                        _clock.ManualResetEvent.Reset();
                         ev.Dispose();
                     }
                 }

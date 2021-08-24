@@ -13,13 +13,11 @@ namespace MyGame.Game.GameEngine
         private Map.Map _mapState;
         private readonly ICharacter _player;
         private EventConsumer _eventConsumer;
-
+        
         public Engine(IMap map)
         {
             _map = map;
             _player = map.Player;
-
-
         }
 
         public void Start()
@@ -43,8 +41,6 @@ namespace MyGame.Game.GameEngine
 
             //add player
             _mapState.GetViewModel().AddElement(_map.Player);
-
-
             // PLAYERS EVENTS //
             //subscribe to events coming from the map
             _mapState.GetViewModel().RaiseMovement += Move;
@@ -57,11 +53,12 @@ namespace MyGame.Game.GameEngine
 
 
 
-            //SCRIPTED EVENTS (NPC, ETC....)
 
+            //create clock
+            Clock clock = new Clock();
 
             //start event consumer (npc events only)
-            _eventConsumer = new EventConsumer();
+            _eventConsumer = new EventConsumer(clock);
             _eventConsumer.Start();
 
 
@@ -69,11 +66,15 @@ namespace MyGame.Game.GameEngine
             //display
             _mapState.Show();
 
+            //start characters routine
             foreach (var element in _map.Elements)
             {
                 if ((element.Value as ICharacter)?.Routine != null)
                 { (element.Value as ICharacter)?.Routine.Start(); }
             }
+
+            //start clock
+            clock.Start();
 
         }
 

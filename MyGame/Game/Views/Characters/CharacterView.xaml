@@ -21,8 +21,7 @@
             </Border>
             <Image Name="CellItem" Source="{Binding MapViewModel.SpriteFullPath}"></Image>
         </Grid>
-        <Grid Name="kwy" Grid.Row="1" Background="LightPink">
-
+        <Grid Name="DialogArea" Grid.Row="1" Background="GhostWhite" >
             <Label Name="key" Content="{Binding MapViewModel.MapElement.Key}"></Label>
         </Grid>
     </Grid>

@@ -67,6 +67,7 @@
     <Compile Include="Game\Character\Routines\Events\MovementEvent.cs" />
     <Compile Include="Game\Character\Routines\IRoutine.cs" />
     <Compile Include="Game\Character\Routines\MovementRoutine.cs" />
+    <Compile Include="Game\GameEngine\Clock.cs" />
     <Compile Include="Game\GameEngine\EventConsumer.cs" />
     <Compile Include="Game\GameEngine\Events\IEvent.cs" />
     <Compile Include="Game\GameEngine\Events\PlayerEvent\MoveEvent.cs" />
