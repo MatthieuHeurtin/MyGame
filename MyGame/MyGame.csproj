@@ -72,6 +72,7 @@
     <Compile Include="Game\GameEngine\Events\IEvent.cs" />
     <Compile Include="Game\GameEngine\Events\PlayerEvent\MoveEvent.cs" />
     <Compile Include="Game\Item\AbstractItem.cs" />
+    <Compile Include="Game\Item\House.cs" />
     <Compile Include="Game\Item\IItem.cs" />
     <Compile Include="Game\Item\Tree.cs" />
     <Compile Include="Game\MapElements\AbstractMapElement.cs" />
@@ -221,6 +222,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Ressources\Images\Control\spriteBackground.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\Images\Items\house.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\Images\Items\houseGateDown.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

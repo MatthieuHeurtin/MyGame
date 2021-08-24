@@ -1,3 +1,14 @@
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\Ressources\Images\MapCells\desert.jpg
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\Ressources\Images\MapCells\grass.jpg
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\Ressources\Images\MapCells\tree.jpg
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\Ressources\Images\MapCells\path.jpg
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\MyGame.exe.config
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\MyGame.exe
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\MyGame.pdb
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\Microsoft.Expression.Interactions.xml
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\System.Windows.Interactivity.xml
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\Game\MapCells\Common\CellStyleSheet.baml
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\Game\MapCells\Desert\DesertCell.baml
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\Game\MapCells\Forest\ForestCell.baml
@@ -13,17 +24,6 @@ C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\Mai
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\App.g.cs
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\MyGame_MarkupCompile.cache
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\MyGame_MarkupCompile.lref
-C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\Ressources\Images\MapCells\desert.jpg
-C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\Ressources\Images\MapCells\grass.jpg
-C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\Ressources\Images\MapCells\tree.jpg
-C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\Ressources\Images\MapCells\path.jpg
-C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\MyGame.exe.config
-C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\MyGame.exe
-C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\MyGame.pdb
-C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\Microsoft.Expression.Interactions.dll
-C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\System.Windows.Interactivity.dll
-C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\Microsoft.Expression.Interactions.xml
-C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\System.Windows.Interactivity.xml
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\Game\Map\Map.baml
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\Game\Views\Characters\CharacterView.baml
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\MainWindow.baml
@@ -34,4 +34,3 @@ C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\MyG
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\MyGame.csproj.CopyComplete
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\MyGame.exe
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\MyGame.pdb
-C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\MyGame.csprojAssemblyReference.cache

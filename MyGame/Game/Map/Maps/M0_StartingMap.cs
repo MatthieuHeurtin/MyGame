@@ -48,7 +48,7 @@ namespace MyGame.Game.Map.Maps
             npc.SetRoutine(npcR);
 
             var npc2 = new NonPlayableCharacter("random2");
-            npc2.SetPosition(19, 19);
+            npc2.SetPosition(15, 14);
             _elements.Add(npc2.Key, npc2);
             IRoutine npcR2 = new MovementRoutine(new string[] { "Left", "Left", "Left", "Right", "Right", "Right" });
             npc2.SetRoutine(npcR2);
@@ -93,7 +93,10 @@ namespace MyGame.Game.Map.Maps
             _player.SetPosition(13, 19);
             _elements.Add(_player.Key, _player);
 
-
+            var house = new House(string.Concat("houseGateDown", 19, ";", 19));
+            house.SetPosition(19, 15);
+            house.SetSpriteName("houseGateDown.png");
+            _elements.Add(house.Key, house);
 
             _height = 20;
             _width = 20;
