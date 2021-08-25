@@ -76,6 +76,7 @@
     <Compile Include="Game\GameEngine\Events\IEvent.cs" />
     <Compile Include="Game\GameEngine\Events\PlayerEvent\MoveEvent.cs" />
     <Compile Include="Game\Item\AbstractItem.cs" />
+    <Compile Include="Game\Item\Fence.cs" />
     <Compile Include="Game\Item\House.cs" />
     <Compile Include="Game\Item\IItem.cs" />
     <Compile Include="Game\Item\Tree.cs" />
@@ -283,6 +284,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Ressources\Images\Items\facedFence.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

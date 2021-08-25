@@ -47,7 +47,7 @@ namespace MyGame.Game.Map.Maps
 
 
             _player = new PlayableCharacter();
-            _player.SetPosition(13, 19);
+            _player.SetPosition(13, 18);
             _elements.Add(_player.Key, _player);
 
             _height = 20;
@@ -125,7 +125,7 @@ namespace MyGame.Game.Map.Maps
             npc8.SetRoutine(npcR8);
 
             var npc9 = new NonPlayableCharacter("random9");
-            npc9.SetPosition(0, 19);
+            npc9.SetPosition(0, 17);
             _elements.Add(npc9.Key, npc9);
             IRoutine npcR9 = new MovementRoutine(new string[] { "Up", "Up", "Up", "Up", "Up", "Up", "Down", "Down", "Down", "Down", "Down", "Down", });
             npc9.SetRoutine(npcR9);
@@ -147,6 +147,15 @@ namespace MyGame.Game.Map.Maps
             _elements.Add(npc12.Key, npc12);
             IRoutine npcR12 = new MovementRoutine(new string[] { "Up", "Up", "Up", "Up", "Up", "Up", "Down", "Down", "Down", "Down", "Down", "Down", });
             npc12.SetRoutine(npcR12);
+
+
+            for (int j = 0; j < _width; j++)
+            {
+                var fence = new Fence(string.Concat("fence", 19, ";", j));
+                fence.SetPosition(j, 19);
+                fence.SetSpriteName("tree.png");
+                _elements.Add(fence.Key, fence);
+            }
 
 
         }
