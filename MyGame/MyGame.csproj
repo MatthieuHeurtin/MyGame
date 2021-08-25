@@ -63,6 +63,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DebugTools\DebugConsole.xaml.cs">
+      <DependentUpon>DebugConsole.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DebugTools\DebugConsoleElement.cs" />
     <Compile Include="Game\Character\Routines\Events\IRoutineEvent.cs" />
     <Compile Include="Game\Character\Routines\Events\MovementEvent.cs" />
     <Compile Include="Game\Character\Routines\IRoutine.cs" />
@@ -85,6 +89,10 @@
     <Compile Include="Game\MapElements\IMapElement.cs" />
     <Compile Include="Game\Map\Maps\M0_Village.cs" />
     <Compile Include="Ressources\RessourcesManager.cs" />
+    <Page Include="DebugTools\DebugConsole.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Game\MapCells\Common\CellStyleSheet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -275,5 +283,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

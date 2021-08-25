@@ -1,4 +1,5 @@
 ﻿using System;
+using MyGame.DebugTools;
 using MyGame.Game.Character.Characters;
 using MyGame.Game.Character.Routines.Events;
 using MyGame.Game.GameEngine.Events.PlayerEvent;
@@ -13,11 +14,16 @@ namespace MyGame.Game.GameEngine
         private Map.Map _mapState;
         private readonly ICharacter _player;
         private EventConsumer _eventConsumer;
-        
-        public Engine(IMap map)
+        private Clock _clock;
+
+        private DebugConsole _dc;
+
+        public Engine(IMap map, bool IsDebug = false)
         {
             _map = map;
             _player = map.Player;
+
+            if (IsDebug) { _dc = new DebugConsole(); _dc.Show(); }
         }
 
         public void Start()
@@ -26,9 +32,14 @@ namespace MyGame.Game.GameEngine
             _mapState = new Map.Map();
             _mapState.BuildMap(_map);
 
+
+            _dc.AppendText("INIT MAP");
+
             //add npc/item (set character to a cell) and subscribe to their events
             foreach (var element in _map.Elements)
             {
+                _dc.AppendElement(element);
+
                 _mapState.GetViewModel().AddElement(element.Value);
                 if ((element.Value as ICharacter)?.Routine != null)
                 {
@@ -39,8 +50,6 @@ namespace MyGame.Game.GameEngine
 
 
 
-            //add player
-            _mapState.GetViewModel().AddElement(_map.Player);
             // PLAYERS EVENTS //
             //subscribe to events coming from the map
             _mapState.GetViewModel().RaiseMovement += Move;
@@ -55,10 +64,10 @@ namespace MyGame.Game.GameEngine
 
 
             //create clock
-            Clock clock = new Clock();
+            _clock = new Clock();
 
             //start event consumer (npc events only)
-            _eventConsumer = new EventConsumer(clock);
+            _eventConsumer = new EventConsumer(_clock);
             _eventConsumer.Start();
 
 
@@ -66,15 +75,21 @@ namespace MyGame.Game.GameEngine
             //display
             _mapState.Show();
 
+
+
+            //start clock
+            _dc.AppendText("START CLOCK");
+            _clock.Start();
+
             //start characters routine
+            _dc.AppendText("START ROUTINES");
             foreach (var element in _map.Elements)
             {
                 if ((element.Value as ICharacter)?.Routine != null)
-                { (element.Value as ICharacter)?.Routine.Start(); }
+                {
+                    (element.Value as ICharacter)?.Routine.Start();
+                }
             }
-
-            //start clock
-            clock.Start();
 
         }
 
@@ -111,6 +126,7 @@ namespace MyGame.Game.GameEngine
             _mapState.GetViewModel().RaiseMovement += Move;
 
             _eventConsumer.Dispose();
+            _clock.Dispose();
         }
     }
 }

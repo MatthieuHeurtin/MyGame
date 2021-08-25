@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyGame.Game.MapElements
+﻿namespace MyGame.Game.MapElements
 {
     public abstract class  AbstractMapElement : IMapElement
     {
@@ -34,6 +28,10 @@ namespace MyGame.Game.MapElements
         public void SetSpriteName(string spriteName)
         {
             SpriteName = spriteName;
+        }
+        public override string ToString()
+        {
+           return string.Format("Name : {0} ,X={1} Y={2}, SpriteName={3}"  ,Name, X, Y, SpriteName);
         }
     }
 }

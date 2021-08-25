@@ -3,18 +3,18 @@
                     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity">
 
 
-    <Style TargetType = "Border" >
+    <!--<Style TargetType = "Image" >
         <Style.Triggers>
-            <Trigger Property = "IsMouseOver" Value = "True">
-                <Setter Property = "BorderThickness" Value = "2" />
-            </Trigger>
+            <DataTrigger Binding="{Binding CellViewModel.Element.Key}" Value="player">
+                <Setter Property="Source" Value="10"/>
+            </DataTrigger>
         </Style.Triggers>
-    </Style>
+    </Style>-->
 
-    <ControlTemplate x:Key="Item" TargetType="ContentControl">
+    <ControlTemplate x:Key="Item">
         <Image
        Source="{Binding CellViewModel.SpriteImagePath,TargetNullValue={x:Null}}" 
-       
+       Name="itemImage"
        RenderOptions.BitmapScalingMode="Fant"
        Stretch="Fill"
        VerticalAlignment="Top"
@@ -28,7 +28,6 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Image>
-
     </ControlTemplate>
 
 

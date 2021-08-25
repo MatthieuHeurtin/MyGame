@@ -41,3 +41,5 @@ C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\Res
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\Game\MapCells\HappyGrass\HappyGrass.g.cs
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\Game\MapCells\HappyGrass\HappyGrass.baml
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\MyGame.csprojAssemblyReference.cache
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\DebugTools\DebugConsole.g.cs
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\DebugTools\DebugConsole.baml

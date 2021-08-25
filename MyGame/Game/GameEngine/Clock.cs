@@ -1,9 +1,10 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MyGame.Game.GameEngine
 {
-    public class Clock
+    public class Clock :IDisposable
     {
         private const int HEARTBEAT = 100;
         public ManualResetEvent ManualResetEvent { get { return _manualResetEvent; } }
@@ -23,6 +24,11 @@ namespace MyGame.Game.GameEngine
                     _manualResetEvent.Set();
                 }
             });
+        }
+
+        public void Dispose()
+        {
+           
         }
     }
 }

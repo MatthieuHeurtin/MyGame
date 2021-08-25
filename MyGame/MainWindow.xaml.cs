@@ -14,13 +14,13 @@ namespace MyGame
             InitializeComponent();
 
 
-            var t1 = new Game.GameEngine.Engine(new M0_Village());
+            var t1 = new Game.GameEngine.Engine(new M0_Village(), true);
 
             t1.Start();
 
-            var t = new Game.GameEngine.Engine(new M1_VillageBorder());
+            //var t = new Game.GameEngine.Engine(new M1_VillageBorder());
 
-            t.Start();
+            //t.Start();
 
             //var p = new Game.GameEngine.Engine(new M1_StartingMap());
 
