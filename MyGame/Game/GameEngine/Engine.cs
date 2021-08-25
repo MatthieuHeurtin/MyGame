@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using MyGame.DebugTools;
 using MyGame.Game.Character.Characters;
 using MyGame.Game.Character.Routines.Events;
@@ -15,13 +17,14 @@ namespace MyGame.Game.GameEngine
         private readonly ICharacter _player;
         private EventConsumer _eventConsumer;
         private Clock _clock;
-
+        private readonly IEnumerable<IMap> _maps;
         private DebugConsole _dc;
 
-        public Engine(IMap map, bool IsDebug = false)
+        public Engine(IEnumerable<IMap> maps, bool IsDebug = false)
         {
-            _map = map;
-            _player = map.Player;
+            _maps = maps;
+            _map = maps.First();
+            _player = _map.Player;
 
             if (IsDebug) { _dc = new DebugConsole(); _dc.Show(); }
         }

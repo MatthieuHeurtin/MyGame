@@ -35,16 +35,18 @@ namespace MyGame.Game.Map.Maps
 
         public ICharacter Player { get { return _player; } }
 
+        public IEnumerable<IMap> Neighbours { get { return _neighbours; } }
+
         private readonly Dictionary<string, IMapElement> _elements;
         private readonly ICharacter _player;
+        private readonly IList<IMap> _neighbours;
 
         public M0_Village()
         {
 
-
+            _neighbours = new List<IMap>();
+            _neighbours.Add(new M1_VillageBorder());
             _elements = new Dictionary<string, IMapElement>();
-
-
 
             _player = new PlayableCharacter();
             _player.SetPosition(13, 18);
@@ -65,9 +67,9 @@ namespace MyGame.Game.Map.Maps
              */
 
 
-            for (int i = 0; i < _height; i++)
+            for (int i = 0; i < _height ; i++)
             {
-                for (int j = 0; j < _width; j++)
+                for (int j = 0; j < _width ; j++)
                 {
                     _cases[j, i] = CaseTypes.STONE_PATH;
                 }
@@ -151,12 +153,30 @@ namespace MyGame.Game.Map.Maps
 
             for (int j = 0; j < _width; j++)
             {
+               
                 var fence = new Fence(string.Concat("fence", 19, ";", j));
                 fence.SetPosition(j, 19);
-                fence.SetSpriteName("tree.png");
+                fence.SetSpriteName("houseGateDown.png");
                 _elements.Add(fence.Key, fence);
             }
 
+            for (int j = 0; j < _height-1; j++)
+            {
+                
+                var fence1 = new Fence(string.Concat("fence", 0, ";", j));
+                fence1.SetPosition(0, j);
+                fence1.SetSpriteName("houseGateDown.png");
+                _elements.Add(fence1.Key, fence1);
+
+                _cases[j, 19] = CaseTypes.STONE_PATH;
+                var fence2 = new Fence(string.Concat("fence", j, ";", 19));
+                fence2.SetPosition(19, j);
+                fence2.SetSpriteName("houseGateDown.png");
+                _elements.Add(fence2.Key, fence2);
+            }
+
+
+            //place border map
 
         }
     }

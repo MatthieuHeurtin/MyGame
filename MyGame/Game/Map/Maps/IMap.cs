@@ -13,5 +13,6 @@ namespace MyGame.Game.Map.Maps
 
         Dictionary<string, IMapElement> Elements { get; }
         ICharacter Player { get; }
+        IEnumerable<IMap> Neighbours { get; }
     }
 }

@@ -33,6 +33,8 @@ namespace MyGame.Game.Map.Maps
 
         public ICharacter Player { get { return _player; } }
 
+        public IEnumerable<IMap> Neighbours { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+
         private readonly Dictionary<string, IMapElement> _elements;
         private readonly ICharacter _player;
 
