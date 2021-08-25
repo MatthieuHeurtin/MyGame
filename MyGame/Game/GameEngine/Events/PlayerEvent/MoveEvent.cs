@@ -8,31 +8,31 @@ namespace MyGame.Game.GameEngine.Events.PlayerEvent
     {
         private readonly string direction;
         private IMap _map;
-        private readonly ICharacter _player;
+        private readonly ICharacter _character;
         private readonly Map.Map _graphicMap;
 
         public string Description { get { return "PLAYER : MOVE"; } }
 
-        public MoveEvent(string direction, IMap map, Map.Map graphicMap, ICharacter player)
+        public MoveEvent(string direction, IMap map, Map.Map graphicMap, ICharacter character)
         {
             this.direction = direction;
             _map = map;
-            _player = player;
+            _character = character;
             _graphicMap = graphicMap;
         }
 
         public void Execute()
         {
-            int Xcurrent = _player.X;
-            int Ycurrent = _player.Y;
+            int Xcurrent = _character.X;
+            int Ycurrent = _character.Y;
             var dest = GetDestination(direction, Xcurrent, Ycurrent, _map.Height - 1, _map.Width - 1);
             if (Xcurrent == dest.Item1 && Ycurrent == dest.Item2
                 || Xcurrent == dest.Item1 && Ycurrent == dest.Item2
                 || _graphicMap.GetViewModel().IsOccupied(dest.Item1, dest.Item2)) return;
 
-            _graphicMap.GetViewModel().RemoveCharacter(_player);
-            _player.SetPosition(dest.Item1, dest.Item2);
-            _graphicMap.GetViewModel().AddElement(_player);
+            _graphicMap.GetViewModel().RemoveCharacter(_character);
+            _character.SetPosition(dest.Item1, dest.Item2);
+            _graphicMap.GetViewModel().AddElement(_character);
         }
         private Tuple<int, int> GetDestination(string direction, int xcurrent, int ycurrent, int Ymax, int Xmax)
         {

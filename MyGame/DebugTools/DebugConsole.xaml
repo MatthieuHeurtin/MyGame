@@ -18,12 +18,12 @@
     </Window.Resources>
     <Grid >
 
-        <ListView ItemsSource="{Binding Elements}" FontSize="12" Background="Black" Foreground="Green">
+        <ListView ItemsSource="{Binding Elements}" FontSize="12" Background="Black" Foreground="Green" >
             <ListView.View >
                 <GridView >
 
-                    <GridViewColumn Header="Type"      CellTemplate="{StaticResource BasicLabels}" />
-                    <GridViewColumn Header="Name"  Width="100"    DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Type"  Width="200"    CellTemplate="{StaticResource BasicLabels}" />
+                    <GridViewColumn Header="Name"  Width="200"    DisplayMemberBinding="{Binding Name}" />
                     <GridViewColumn Header="Description"   DisplayMemberBinding="{Binding Description}" />
                     <GridViewColumn Header="Routine"   DisplayMemberBinding="{Binding Routine}" />
                 </GridView>

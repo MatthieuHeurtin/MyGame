@@ -33,12 +33,12 @@ namespace MyGame.Game.GameEngine
             _mapState.BuildMap(_map);
 
 
-            _dc.AppendText("INIT MAP");
+            _dc?.AppendText("INIT MAP");
 
             //add npc/item (set character to a cell) and subscribe to their events
             foreach (var element in _map.Elements)
             {
-                _dc.AppendElement(element);
+                _dc?.AppendElement(element);
 
                 _mapState.GetViewModel().AddElement(element.Value);
                 if ((element.Value as ICharacter)?.Routine != null)
@@ -67,7 +67,8 @@ namespace MyGame.Game.GameEngine
             _clock = new Clock();
 
             //start event consumer (npc events only)
-            _eventConsumer = new EventConsumer(_clock);
+            _eventConsumer = new EventConsumer(_clock, _dc);
+            _dc?.AppendText("START EVENT CONSUMMER");
             _eventConsumer.Start();
 
 
@@ -78,11 +79,11 @@ namespace MyGame.Game.GameEngine
 
 
             //start clock
-            _dc.AppendText("START CLOCK");
+            _dc?.AppendText("START CLOCK");
             _clock.Start();
 
             //start characters routine
-            _dc.AppendText("START ROUTINES");
+            _dc?.AppendText("START ROUTINES");
             foreach (var element in _map.Elements)
             {
                 if ((element.Value as ICharacter)?.Routine != null)
@@ -98,6 +99,8 @@ namespace MyGame.Game.GameEngine
             string direction = (e as MovementEvent).Direction;
             string key = (e as MovementEvent).Key;
             MoveEvent p = new MoveEvent(direction, _map, _mapState, _map.Elements[key] as ICharacter);
+
+            _dc?.AddEvent(p, direction, key);
             _eventConsumer.QueueEvent(p);
         }
 

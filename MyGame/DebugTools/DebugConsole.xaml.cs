@@ -7,6 +7,8 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using MyGame.Game.Character.Characters;
 using MyGame.Game.Characters.Character;
+using MyGame.Game.GameEngine.Events;
+using MyGame.Game.GameEngine.Events.PlayerEvent;
 using MyGame.Game.MapElements;
 
 namespace MyGame.DebugTools
@@ -29,11 +31,17 @@ namespace MyGame.DebugTools
             DebugConsoleElement dce = new DebugConsoleElement
             {
                 Type = "action",
-                Name =text,
+                Name = text,
                 Color = GetColorFromType("action")
             };
 
-            Elements.Add(dce);
+
+            Dispatcher.Invoke(() =>
+            {
+                Elements.Add(dce);
+            });
+
+
 
 
         }
@@ -50,15 +58,20 @@ namespace MyGame.DebugTools
                 Color = GetColorFromType(GetType(element.Value))
             };
 
-            Elements.Add(dce);
-
-
+            Dispatcher.Invoke(() =>
+            {
+                Elements.Add(dce);
+            });
         }
+
+
 
         private string GetColorFromType(string type)
         {
             switch (type)
             {
+                case "npc event":
+                    return "Blue";
                 case "npc":
                     return "Blue";
                 case "player":
@@ -81,6 +94,28 @@ namespace MyGame.DebugTools
             else
                 return string.Empty;
 
+
+        }
+
+        internal void AddEvent(MoveEvent ev, string direction, string key)
+        {
+            DebugConsoleElement dce = new DebugConsoleElement
+            {
+                Key = key,
+                Name = key,
+                Description = direction,
+                Type = "npc event",
+                Color = GetColorFromType("npc event")
+            };
+
+            Dispatcher.Invoke(() =>
+            {
+                Elements.Add(dce);
+            });
+        }
+
+        private void ListView_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
+        {
 
         }
     }

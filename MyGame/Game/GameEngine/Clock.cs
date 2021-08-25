@@ -6,7 +6,7 @@ namespace MyGame.Game.GameEngine
 {
     public class Clock :IDisposable
     {
-        private const int HEARTBEAT = 100;
+        private const int HEARTBEAT = 200;
         public ManualResetEvent ManualResetEvent { get { return _manualResetEvent; } }
         private ManualResetEvent _manualResetEvent;
         public Clock()

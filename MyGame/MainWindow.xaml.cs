@@ -14,7 +14,7 @@ namespace MyGame
             InitializeComponent();
 
 
-            var t1 = new Game.GameEngine.Engine(new M0_Village(), true);
+            var t1 = new Game.GameEngine.Engine(new M0_Village());
 
             t1.Start();
 

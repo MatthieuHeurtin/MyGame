@@ -1,4 +1,5 @@
-﻿using MyGame.Game.GameEngine.Events;
+﻿using MyGame.DebugTools;
+using MyGame.Game.GameEngine.Events;
 using System;
 using System.Collections.Concurrent;
 using System.Threading;
@@ -11,10 +12,14 @@ namespace MyGame.Game.GameEngine
         private const int MAX_THREAD = 10;
         private BlockingCollection<IEvent> _events;
         private Clock _clock;
-        public EventConsumer(Clock clock)
+
+        private readonly DebugConsole _dc;
+        public EventConsumer(Clock clock, DebugConsole dbc = null)
         {
             _events = new BlockingCollection<IEvent>(MAX_THREAD);
             _clock = clock;
+
+            _dc = dbc ?? null;
         }
 
 
@@ -34,15 +39,18 @@ namespace MyGame.Game.GameEngine
 
                     try
                     {
-                       
+
                         ev = _events.Take();
-                       
+
                     }
                     catch (InvalidOperationException) { }
 
                     if (ev != null)
                     {
                         _clock.ManualResetEvent.WaitOne();
+
+                       // _dc?.AddEvent(ev);
+
                         ev.Execute();
                         _clock.ManualResetEvent.Reset();
                         ev.Dispose();
