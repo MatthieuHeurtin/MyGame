@@ -7,10 +7,4 @@ namespace MyGame.Game.GameEngine.Events
         void Execute();
         string Description { get; }
     }
-
-    public enum EventType
-    {
-        NpcMovement,
-        PlayerEvent,
-    }
 }

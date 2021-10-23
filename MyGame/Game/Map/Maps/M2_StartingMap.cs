@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace MyGame.Game.Map.Maps
 {
-    public class M2_StartingMap : IMap
+    public class TrashMap : IMap
     {
         public CaseTypes[,] Cases
         {
@@ -30,15 +30,17 @@ namespace MyGame.Game.Map.Maps
 
         private readonly int _height;
         public Dictionary<string, IMapElement> Elements { get { return _elements; } }
+        public string Key { get { return _key; } }
 
+        public string _key = "M0_Village";
         public ICharacter Player { get { return _player; } }
 
-        public IEnumerable<IMap> Neighbours { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        public IDictionary<string, IMap> Neighbours { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
         private readonly Dictionary<string, IMapElement> _elements;
         private readonly ICharacter _player;
 
-        public M2_StartingMap()
+        public TrashMap()
         {
             _elements = new Dictionary<string, IMapElement>();
             var npc = new NonPlayableCharacter("random1");

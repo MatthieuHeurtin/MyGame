@@ -10,9 +10,10 @@ namespace MyGame.Game.Map.Maps
         CaseTypes[,] Cases { get; }
         int Height { get; }
         int Width { get; }
+        string Key { get; }
 
         Dictionary<string, IMapElement> Elements { get; }
         ICharacter Player { get; }
-        IEnumerable<IMap> Neighbours { get; }
+        IDictionary<string, IMap> Neighbours { get; }
     }
 }

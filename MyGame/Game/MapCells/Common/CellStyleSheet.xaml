@@ -11,7 +11,8 @@
         </Style.Triggers>
     </Style>-->
 
-    <ControlTemplate x:Key="Item">
+    <ControlTemplate x:Key="Item"
+                     >
         <Image
        Source="{Binding CellViewModel.SpriteImagePath,TargetNullValue={x:Null}}" 
        Name="itemImage"
@@ -23,6 +24,9 @@
        Width="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Grid}},Path=ActualWidth}"
        Height="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Grid}},Path=ActualHeight}">
             <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseLeftButtonDown" >
+                    <i:InvokeCommandAction Command="{Binding CellViewModel.DisplayDetailWindowCommand}" CommandParameter="{Binding CellViewModel.Element.Key,TargetNullValue={x:Null}}" />
+                </i:EventTrigger>
                 <i:EventTrigger EventName="MouseLeftButtonDown" >
                     <i:InvokeCommandAction Command="{Binding CellViewModel.DisplayDetailWindowCommand}" CommandParameter="{Binding CellViewModel.Element.Key,TargetNullValue={x:Null}}" />
                 </i:EventTrigger>

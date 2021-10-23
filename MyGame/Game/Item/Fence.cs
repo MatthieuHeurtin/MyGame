@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MyGame.Game.Item
+﻿namespace MyGame.Game.Item
 {
     public class Fence : AbstractItem
     {

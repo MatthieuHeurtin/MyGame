@@ -2,14 +2,13 @@
 using MyGame.Game.GameEngine.Events;
 using System;
 using System.Collections.Concurrent;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace MyGame.Game.GameEngine
 {
     internal class EventConsumer : IDisposable
     {
-        private const int MAX_THREAD = 10;
+        private const int MAX_THREAD = 1;
         private BlockingCollection<IEvent> _events;
         private Clock _clock;
 
@@ -21,8 +20,6 @@ namespace MyGame.Game.GameEngine
 
             _dc = dbc ?? null;
         }
-
-
 
         internal void QueueEvent(IEvent custonEvent)
         {
@@ -36,21 +33,15 @@ namespace MyGame.Game.GameEngine
                 IEvent ev = null;
                 while (!_events.IsCompleted)
                 {
-
                     try
                     {
-
                         ev = _events.Take();
-
                     }
                     catch (InvalidOperationException) { }
 
                     if (ev != null)
                     {
                         _clock.ManualResetEvent.WaitOne();
-
-                       // _dc?.AddEvent(ev);
-
                         ev.Execute();
                         _clock.ManualResetEvent.Reset();
                         ev.Dispose();

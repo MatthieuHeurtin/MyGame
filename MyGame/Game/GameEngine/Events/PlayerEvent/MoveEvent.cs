@@ -1,5 +1,6 @@
 ﻿using System;
 using MyGame.Game.Character.Characters;
+using MyGame.Game.Map;
 using MyGame.Game.Map.Maps;
 
 namespace MyGame.Game.GameEngine.Events.PlayerEvent

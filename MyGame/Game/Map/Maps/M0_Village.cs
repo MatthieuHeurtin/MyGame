@@ -4,6 +4,7 @@ using MyGame.Game.Characters.Character;
 using MyGame.Game.Item;
 using MyGame.Game.MapCells;
 using MyGame.Game.MapElements;
+using MyGame.Game.MapElements.Interactions;
 using System.Collections.Generic;
 
 namespace MyGame.Game.Map.Maps
@@ -35,18 +36,32 @@ namespace MyGame.Game.Map.Maps
 
         public ICharacter Player { get { return _player; } }
 
-        public IEnumerable<IMap> Neighbours { get { return _neighbours; } }
+        public IDictionary<string, IMap> Neighbours { get { return _neighbours; } }
+        public string Key { get { return _key; } }
 
+        public string _key = "M0_Village";
         private readonly Dictionary<string, IMapElement> _elements;
         private readonly ICharacter _player;
-        private readonly IList<IMap> _neighbours;
+        private readonly new IDictionary<string, IMap> _neighbours;
 
         public M0_Village()
         {
 
-            _neighbours = new List<IMap>();
-            _neighbours.Add(new M1_VillageBorder());
+            IMap vBorder = new M1_VillageBorder();
+            _neighbours = new Dictionary<string,IMap>
+            {
+                {vBorder.Key,  vBorder }
+            };
+
             _elements = new Dictionary<string, IMapElement>();
+
+
+            ChangingMapPoint nextMap = new ChangingMapPoint("goingToForest", new M1_VillageBorder());
+            nextMap.SetPosition(3, 0);
+            nextMap.SetSpriteName("arrowUp.png");
+            _elements.Add(nextMap.Key, nextMap);
+
+
 
             _player = new PlayableCharacter();
             _player.SetPosition(13, 18);
@@ -67,9 +82,9 @@ namespace MyGame.Game.Map.Maps
              */
 
 
-            for (int i = 0; i < _height ; i++)
+            for (int i = 0; i < _height; i++)
             {
-                for (int j = 0; j < _width ; j++)
+                for (int j = 0; j < _width; j++)
                 {
                     _cases[j, i] = CaseTypes.STONE_PATH;
                 }
@@ -153,16 +168,15 @@ namespace MyGame.Game.Map.Maps
 
             for (int j = 0; j < _width; j++)
             {
-               
                 var fence = new Fence(string.Concat("fence", 19, ";", j));
                 fence.SetPosition(j, 19);
                 fence.SetSpriteName("houseGateDown.png");
                 _elements.Add(fence.Key, fence);
             }
 
-            for (int j = 0; j < _height-1; j++)
+            for (int j = 0; j < _height - 1; j++)
             {
-                
+
                 var fence1 = new Fence(string.Concat("fence", 0, ";", j));
                 fence1.SetPosition(0, j);
                 fence1.SetSpriteName("houseGateDown.png");
@@ -176,7 +190,6 @@ namespace MyGame.Game.Map.Maps
             }
 
 
-            //place border map
 
         }
     }

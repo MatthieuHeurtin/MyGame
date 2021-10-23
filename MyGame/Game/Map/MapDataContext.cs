@@ -4,9 +4,9 @@ namespace MyGame.Game.Map
 {
     public class MapDataContext
     {
-        private ICommand _moveCommand;
+      
         private MapViewModel _mapViewModel;
-
+        private ICommand _moveCommand;
         public ICommand MoveCommand
         {
             get

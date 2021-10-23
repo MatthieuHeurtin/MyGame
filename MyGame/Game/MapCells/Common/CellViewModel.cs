@@ -58,7 +58,7 @@ namespace MyGame.Game.MapCells.Common
             string folderRessourcesPath = RessourcesManager.GetPathFromElementMap(element);
 
             SetSprite(string.Concat(folderRessourcesPath, element.SpriteName));
-            _isOccupied = true;
+            _isOccupied = element.IsPhysical;
             _element = element;
 
             NotifyPropertyChanged(nameof(Element));

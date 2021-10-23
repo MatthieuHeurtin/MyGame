@@ -1,34 +1,29 @@
 ﻿using System;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace MyGame.Game.GameEngine
 {
-    public class Clock :IDisposable
+    public class Clock : IDisposable
     {
         private const int HEARTBEAT = 200;
         public ManualResetEvent ManualResetEvent { get { return _manualResetEvent; } }
         private ManualResetEvent _manualResetEvent;
+        private Timer _timer;
         public Clock()
         {
             _manualResetEvent = new ManualResetEvent(false);
+            _timer = new Timer(new TimerCallback(ResetEvent), null, 1000, HEARTBEAT);
+
         }
 
-        public void Start()
+        private void ResetEvent(object state)
         {
-            Task.Run(() =>
-            {
-                while (true)
-                {
-                    Thread.Sleep(HEARTBEAT);
-                    _manualResetEvent.Set();
-                }
-            });
+            _manualResetEvent.Set();
         }
 
         public void Dispose()
         {
-           
+            _timer.Dispose();
         }
     }
 }

@@ -59,6 +59,7 @@ namespace MyGame.Game.Map
 
         }
 
+        //allows me to delegate UI thread managment to window
         public MapViewModel GetViewModel()
         {
             MapViewModel p = null;

@@ -6,7 +6,6 @@ namespace MyGame.Game.Character.Routines
     {
         IRoutineEvent RoutinedEvent { get; set; }
         string Key { get; set; }
-
         void Start();
     }
 }
