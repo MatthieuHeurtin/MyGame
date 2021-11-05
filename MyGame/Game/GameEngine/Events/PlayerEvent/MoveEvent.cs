@@ -10,16 +10,14 @@ namespace MyGame.Game.GameEngine.Events.PlayerEvent
         private readonly string direction;
         private IMap _map;
         private readonly ICharacter _character;
-        private readonly Map.Map _graphicMap;
 
         public string Description { get { return "PLAYER : MOVE"; } }
 
-        public MoveEvent(string direction, IMap map, Map.Map graphicMap, ICharacter character)
+        public MoveEvent(string direction, IMap map, ICharacter character)
         {
             this.direction = direction;
             _map = map;
             _character = character;
-            _graphicMap = graphicMap;
         }
 
         public void Execute()
@@ -29,11 +27,14 @@ namespace MyGame.Game.GameEngine.Events.PlayerEvent
             var dest = GetDestination(direction, Xcurrent, Ycurrent, _map.Height - 1, _map.Width - 1);
             if (Xcurrent == dest.Item1 && Ycurrent == dest.Item2
                 || Xcurrent == dest.Item1 && Ycurrent == dest.Item2
-                || _graphicMap.GetViewModel().IsOccupied(dest.Item1, dest.Item2)) return;
+                || _map.MapCells[dest.Item1, dest.Item2].IsOccupied) return;
 
-            _graphicMap.GetViewModel().RemoveCharacter(_character);
+
+
+            _map.MapCells[Xcurrent, Ycurrent].SetMapElement(null);
+            _map.MapCells[dest.Item1, dest.Item2].SetMapElement(_character);
             _character.SetPosition(dest.Item1, dest.Item2);
-            _graphicMap.GetViewModel().AddElement(_character);
+
         }
         private Tuple<int, int> GetDestination(string direction, int xcurrent, int ycurrent, int Ymax, int Xmax)
         {

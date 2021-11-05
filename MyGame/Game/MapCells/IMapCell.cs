@@ -1,8 +1,18 @@
-﻿namespace MyGame.Game.MapCells
+﻿using MyGame.Game.MapCells.GraphicMapCell;
+using MyGame.Game.MapElements;
+using System;
+
+namespace MyGame.Game.MapCells
 {
     public interface IMapCell
     {
         CaseTypes Type { get; }
+        IMapElement MapElement { get; }
+        bool IsOccupied { get; }
+
+        void SetMapElement(IMapElement mapElement);
+        GuiMapCell GetGui();
+        event EventHandler ForwardEventToTheMap;
     }
 
 

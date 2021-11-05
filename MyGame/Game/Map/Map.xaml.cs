@@ -41,13 +41,14 @@ namespace MyGame.Game.Map
             {
                 for (int j = 0; j < map.Width; j++)
                 {
-                    CaseTypes caseType = map.Cases[j, i];
+                    var mapCell = map.MapCells[j, i];
 
-                    UserControl caseInst = MapCellFactory.GetCaseFromType(caseType) as UserControl; //create a userControl
+                    var caseInst = mapCell.GetGui(); //create a userControl
+                   
                     caseInst.ToolTip = j.ToString() + ";" + i.ToString();
                     //but we save the viewmodel of the UserControl
                     // really 'heavy' trick
-                    GetViewModel().AddCell(j, i, (caseInst.DataContext as ICellDataContext).CellViewModel);
+                 //   GetViewModel().AddCell(j, i, (caseInst.DataContext as IGuiMapCellDataContext).GuiMapCellViewModel);
 
                     Grid.SetRow(caseInst, i);
                     Grid.SetColumn(caseInst, j);

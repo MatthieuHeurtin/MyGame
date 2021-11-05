@@ -3,35 +3,16 @@
                     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity">
 
 
-    <!--<Style TargetType = "Image" >
+    <Style TargetType = "Image" >
         <Style.Triggers>
             <DataTrigger Binding="{Binding CellViewModel.Element.Key}" Value="player">
                 <Setter Property="Source" Value="10"/>
             </DataTrigger>
         </Style.Triggers>
-    </Style>-->
+    </Style>
 
-    <ControlTemplate x:Key="Item"
-                     >
-        <Image
-       Source="{Binding CellViewModel.SpriteImagePath,TargetNullValue={x:Null}}" 
-       Name="itemImage"
-       RenderOptions.BitmapScalingMode="Fant"
-       Stretch="Fill"
-       VerticalAlignment="Top"
-       Margin="0,0,0,0"
-       HorizontalAlignment="Center" 
-       Width="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Grid}},Path=ActualWidth}"
-       Height="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Grid}},Path=ActualHeight}">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="MouseLeftButtonDown" >
-                    <i:InvokeCommandAction Command="{Binding CellViewModel.DisplayDetailWindowCommand}" CommandParameter="{Binding CellViewModel.Element.Key,TargetNullValue={x:Null}}" />
-                </i:EventTrigger>
-                <i:EventTrigger EventName="MouseLeftButtonDown" >
-                    <i:InvokeCommandAction Command="{Binding CellViewModel.DisplayDetailWindowCommand}" CommandParameter="{Binding CellViewModel.Element.Key,TargetNullValue={x:Null}}" />
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-        </Image>
+    <ControlTemplate x:Key="Item">
+   
     </ControlTemplate>
 
 

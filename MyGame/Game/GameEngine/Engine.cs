@@ -38,26 +38,23 @@ namespace MyGame.Game.GameEngine
             {
                 _dc?.AppendElement(element);
 
-                _mapGui.GetViewModel().AddElement(element.Value);
+                _map.MapCells[element.Value.X, element.Value.Y].SetMapElement(element.Value);
                 if ((element.Value as ICharacter)?.Routine != null)
                 {
                     ((element.Value as ICharacter)?.Routine?.RoutinedEvent).OnRaise += AddRoutinedEvent;
                 }
 
-               // element.Value.PlayerInteraction.OnRaise += 
             }
 
 
 
-            // PLAYERS EVENTS //
-            //subscribe to events coming from the map
+            // PLAYER EVENTS //
+            //subscribe to events coming from the global map
             _mapGui.GetViewModel().RaiseMovement += Move;
 
-            //subscribe to events coming npc/scripted events
-            foreach (var entry in _mapGui.GetViewModel().MapCelles)
-            {
-                entry.Value.RaiseClickOnCell += UpdateControlArea;
-            }
+            //subscribe to events coming cellules
+            SubscribeToCellEvent();
+            // END PLAYER EVENTS //
 
 
 
@@ -72,8 +69,7 @@ namespace MyGame.Game.GameEngine
 
 
 
-            //display
-            _mapGui.Show();
+
 
 
 
@@ -90,6 +86,20 @@ namespace MyGame.Game.GameEngine
                     (element.Value as ICharacter)?.Routine?.Start();
                 }
             }
+
+            //display
+            _mapGui.Show();
+        }
+
+        private void SubscribeToCellEvent()
+        {
+            for (int i = 0; i < _map.Height; i++)
+            {
+                for (int j = 0; j < _map.Width; j++)
+                {
+                    _map.MapCells[i, j].ForwardEventToTheMap += UpdateControlArea;
+                }
+            }
         }
 
 
@@ -100,17 +110,17 @@ namespace MyGame.Game.GameEngine
             string key = (e as MovementEvent).Key;
 
             //TODO handle several types of events, not only move
-            MoveEvent p = new MoveEvent(direction, _map, _mapGui, _map.Elements[key] as ICharacter);
+            MoveEvent p = new MoveEvent(direction, _map, _map.Elements[key] as ICharacter);
 
             _dc?.AddEvent(p, direction, key);
             _eventConsumer.QueueEvent(p);
         }
 
+        #region player events
         //player events, does not go to the queue
-
         private void UpdateControlArea(object sender, EventArgs e)
         {
-            string key = (e as MapCells.Common.EventParameter).Key;
+            string key = (e as MapCells.GraphicMapCell.EventParameter).Key;
             _mapGui.GetViewModel().SetFocusedElement(_map.Elements[key]);
         }
 
@@ -118,21 +128,27 @@ namespace MyGame.Game.GameEngine
         private void Move(object sender, EventArgs e)
         {
             string direction = (e as EventParameter).Param;
-            MoveEvent p = new MoveEvent(direction, _map, _mapGui, _player);
-            p.Execute();
+            using (MoveEvent p = new MoveEvent(direction, _map,  _player))
+            {
+                p.Execute();
+            }
         }
+        #endregion
         #endregion
 
         public void Dispose()
         {
             //Unsubscribe to events coming from the cells
-            foreach (var entry in _mapGui.GetViewModel().MapCelles)
+            for (int i = 0; i < _map.Height; i++)
             {
-                entry.Value.RaiseClickOnCell -= UpdateControlArea;
+                for (int j = 0; j < _map.Width; j++)
+                {
+                    _map.MapCells[i, j].ForwardEventToTheMap -= UpdateControlArea;
+                }
             }
 
             //Unsubscribe to events coming from the map
-            _mapGui.GetViewModel().RaiseMovement += Move;
+            _mapGui.GetViewModel().RaiseMovement -= Move;
 
             _eventConsumer.Dispose();
             _clock.Dispose();

@@ -18,9 +18,9 @@ namespace MyGame
 
             t1.Start();
 
-         //   var t2 = new Game.GameEngine.Engine(new M1_VillageBorder());
+            var t2 = new Game.GameEngine.Engine(new M1_VillageBorder());
 
-           //t2.Start();
+           t2.Start();
 
             Console.WriteLine("All Map started");
         }

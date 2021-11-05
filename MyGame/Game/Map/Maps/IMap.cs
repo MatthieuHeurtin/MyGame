@@ -7,13 +7,12 @@ namespace MyGame.Game.Map.Maps
 {
     public interface IMap
     {
-        CaseTypes[,] Cases { get; }
+        IMapCell[,] MapCells { get; }
         int Height { get; }
         int Width { get; }
         string Key { get; }
 
         Dictionary<string, IMapElement> Elements { get; }
         ICharacter Player { get; }
-        IDictionary<string, IMap> Neighbours { get; }
     }
 }

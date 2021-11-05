@@ -75,6 +75,10 @@
     <Compile Include="Game\GameEngine\EventConsumer.cs" />
     <Compile Include="Game\GameEngine\Events\IEvent.cs" />
     <Compile Include="Game\GameEngine\Events\PlayerEvent\MoveEvent.cs" />
+    <Compile Include="Game\MapCells\GraphicMapCell\GuiMapCell.xaml.cs">
+      <DependentUpon>GuiMapCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Game\MapCells\MapCell.cs" />
     <Compile Include="Game\MapElements\Interactions\DefaultInteraction.cs" />
     <Compile Include="Game\MapElements\Interactions\IPlayerInteraction.cs" />
     <Compile Include="Game\Item\AbstractItem.cs" />
@@ -82,12 +86,6 @@
     <Compile Include="Game\Item\House.cs" />
     <Compile Include="Game\Item\IItem.cs" />
     <Compile Include="Game\Item\Tree.cs" />
-    <Compile Include="Game\MapCells\HappyGrass\HappyGrass.xaml.cs">
-      <DependentUpon>HappyGrass.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Game\MapCells\StonePath\StonePath.xaml.cs">
-      <DependentUpon>StonePath.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Game\MapElements\AbstractMapElement.cs" />
     <Compile Include="Game\Item\ChangingMapPoint.cs" />
     <Compile Include="Game\MapElements\IMapElement.cs" />
@@ -102,27 +100,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Game\MapCells\Desert\DesertCell.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Game\MapCells\Forest\ForestCell.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Game\MapCells\Grass\GrassCell.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Game\MapCells\HappyGrass\HappyGrass.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Game\MapCells\Path\PathCell.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Game\MapCells\StonePath\StonePath.xaml">
+    <Page Include="Game\MapCells\GraphicMapCell\GuiMapCell.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -147,33 +125,19 @@
     <Compile Include="Game\Character\Characters\NonPlayableCharacter.cs" />
     <Compile Include="Game\Character\Characters\PlayableCharacter.cs" />
     <Compile Include="Game\GameEngine\Engine.cs" />
-    <Compile Include="Game\MapCells\Common\CellDataContext.cs" />
-    <Compile Include="Game\MapCells\Common\CellViewModel.cs" />
-    <Compile Include="Game\MapCells\Common\CommandRelay.cs" />
-    <Compile Include="Game\MapCells\Common\EventParameter.cs" />
-    <Compile Include="Game\MapCells\ICellViewModel.cs" />
-    <Compile Include="Game\MapCells\Desert\DesertCell.xaml.cs">
-      <DependentUpon>DesertCell.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Game\MapCells\Forest\ForestCell.xaml.cs">
-      <DependentUpon>ForestCell.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Game\MapCells\Grass\GrassCell.xaml.cs">
-      <DependentUpon>GrassCell.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Game\MapCells\GraphicMapCell\GuiMapCellDataContext.cs" />
+    <Compile Include="Game\MapCells\GraphicMapCell\GuiMapCellViewModel.cs" />
+    <Compile Include="Game\MapCells\GraphicMapCell\CommandRelay.cs" />
+    <Compile Include="Game\MapCells\GraphicMapCell\EventParameter.cs" />
+    <Compile Include="Game\MapCells\IGuiMapCellViewModel.cs" />
     <Compile Include="Game\MapCells\IMapCell.cs" />
-    <Compile Include="Game\MapCells\ICellDataContext.cs" />
-    <Compile Include="Game\MapCells\Path\PathCell.xaml.cs">
-      <DependentUpon>PathCell.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Game\MapCells\IGuiMapCellDataContext.cs" />
     <Compile Include="Game\Map\CommandRelay.cs" />
     <Compile Include="Game\Map\EventParameter.cs" />
     <Compile Include="Game\Map\Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Game\Map\MapCellFactory.cs" />
     <Compile Include="Game\Map\MapDataContext.cs" />
-    <Compile Include="Game\Map\Maps\M2_StartingMap.cs" />
     <Compile Include="Game\Map\Maps\M1_VillageBorder.cs" />
     <Compile Include="Game\Map\Maps\IMap.cs" />
     <Compile Include="Game\Map\MapViewModel.cs" />

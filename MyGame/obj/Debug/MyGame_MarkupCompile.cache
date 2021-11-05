@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\App.xaml
-11-819637737
+61337543838
 
-56-622090311
+50-1946097094
 17940276893
-DebugTools\DebugConsole.xaml;Game\MapCells\Common\CellStyleSheet.xaml;Game\MapCells\Desert\DesertCell.xaml;Game\MapCells\Forest\ForestCell.xaml;Game\MapCells\Grass\GrassCell.xaml;Game\MapCells\HappyGrass\HappyGrass.xaml;Game\MapCells\Path\PathCell.xaml;Game\MapCells\StonePath\StonePath.xaml;Game\Map\Map.xaml;Game\Views\Characters\CharacterView.xaml;MainWindow.xaml;
+DebugTools\DebugConsole.xaml;Game\MapCells\Common\CellStyleSheet.xaml;Game\MapCells\GraphicMapCell\GuiMapCell.xaml;Game\Map\Map.xaml;Game\Views\Characters\CharacterView.xaml;MainWindow.xaml;
 
 False
 

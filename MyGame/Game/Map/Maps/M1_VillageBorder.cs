@@ -10,12 +10,13 @@ namespace MyGame.Game.Map.Maps
 {
     public class M1_VillageBorder : IMap
     {
-        public CaseTypes[,] Cases
-        {
-            get { return _cases; }
+
+        public IMapCell[,] MapCells
+               {
+            get { return _mapCells; }
         }
 
-        private readonly CaseTypes[,] _cases;
+        private readonly IMapCell[,] _mapCells;
 
         public int Width
         {
@@ -47,6 +48,11 @@ namespace MyGame.Game.Map.Maps
         public M1_VillageBorder()
         {
             _elements = new Dictionary<string, IMapElement>();
+            _height = 20;
+            _width = 20;
+            _mapCells = new IMapCell[_width, _height];
+
+
             var npc = new NonPlayableCharacter("random1");
             npc.SetPosition(6, 3);
             _elements.Add(npc.Key, npc);
@@ -91,10 +97,6 @@ namespace MyGame.Game.Map.Maps
             npcD.SetSpriteName("sleepingDragon.jpg");
             _elements.Add(npcD.Key, npcD);
 
-
-
-
-
             _player = new PlayableCharacter();
             _player.SetPosition(13, 19);
             _elements.Add(_player.Key, _player);
@@ -120,9 +122,7 @@ namespace MyGame.Game.Map.Maps
             houseBottomRight.SetSpriteName("houseGateDown.png");
             _elements.Add(houseBottomRight.Key, houseBottomRight);
 
-            _height = 20;
-            _width = 20;
-            _cases = new CaseTypes[_width, _height];
+
 
             /* --------------> X
              * |
@@ -140,7 +140,7 @@ namespace MyGame.Game.Map.Maps
             {
                 for (int j = 5; j < _width; j++)
                 {
-                    _cases[j, i] = CaseTypes.STONE_PATH;
+                    _mapCells[j, i] = new MapCell(CaseTypes.STONE_PATH);
                 }
             }
 
@@ -214,73 +214,73 @@ namespace MyGame.Game.Map.Maps
 
 
 
-            _cases[6, 3] = CaseTypes.PATH;
-            _cases[5, 3] = CaseTypes.PATH;
-            _cases[4, 3] = CaseTypes.PATH;
-            _cases[3, 3] = CaseTypes.PATH;
-            _cases[3, 4] = CaseTypes.PATH;
-            _cases[3, 5] = CaseTypes.PATH;
-            _cases[2, 5] = CaseTypes.PATH;
-            _cases[1, 5] = CaseTypes.PATH;
-            _cases[0, 5] = CaseTypes.PATH;
-            _cases[14, 13] = CaseTypes.PATH;
-            _cases[13, 13] = CaseTypes.PATH;
-            _cases[15, 13] = CaseTypes.PATH;
-            _cases[16, 13] = CaseTypes.PATH;
-            _cases[18, 13] = CaseTypes.PATH;
-            _cases[18, 12] = CaseTypes.PATH;
-            _cases[18, 11] = CaseTypes.PATH;
-            _cases[18, 10] = CaseTypes.PATH;
+            _mapCells[6, 3] = new MapCell(CaseTypes.PATH);
+            _mapCells[5, 3] = new MapCell(CaseTypes.PATH);
+            _mapCells[4, 3] = new MapCell(CaseTypes.PATH);
+            _mapCells[3, 3] = new MapCell(CaseTypes.PATH);
+            _mapCells[3, 4] = new MapCell(CaseTypes.PATH);
+            _mapCells[3, 5] = new MapCell(CaseTypes.PATH);
+            _mapCells[2, 5] = new MapCell(CaseTypes.PATH);
+            _mapCells[1, 5] = new MapCell(CaseTypes.PATH);
+            _mapCells[0, 5] = new MapCell(CaseTypes.PATH);
+            _mapCells[14, 13] = new MapCell(CaseTypes.PATH);
+            _mapCells[13, 13] = new MapCell(CaseTypes.PATH);
+            _mapCells[15, 13] = new MapCell(CaseTypes.PATH);
+            _mapCells[16, 13] = new MapCell(CaseTypes.PATH);
+            _mapCells[18, 13] = new MapCell(CaseTypes.PATH);
+            _mapCells[18, 12] = new MapCell(CaseTypes.PATH);
+            _mapCells[18, 11] = new MapCell(CaseTypes.PATH);
+            _mapCells[18, 10] = new MapCell(CaseTypes.PATH);
 
-            _cases[18, 9] = CaseTypes.PATH;
-            _cases[18, 8] = CaseTypes.PATH;
-            _cases[18, 7] = CaseTypes.PATH;
-            _cases[18, 6] = CaseTypes.PATH;
-            _cases[18, 5] = CaseTypes.PATH;
-            _cases[18, 4] = CaseTypes.PATH;
-            _cases[18, 3] = CaseTypes.PATH;
-            _cases[18, 2] = CaseTypes.PATH;
-            _cases[17, 2] = CaseTypes.PATH;
-            _cases[16, 2] = CaseTypes.PATH;
-            _cases[15, 2] = CaseTypes.PATH;
-            _cases[14, 2] = CaseTypes.PATH;
-            _cases[13, 2] = CaseTypes.PATH;
-            _cases[12, 2] = CaseTypes.PATH;
-            _cases[11, 2] = CaseTypes.PATH;
-            _cases[11, 3] = CaseTypes.PATH;
-            _cases[11, 4] = CaseTypes.PATH;
-            _cases[11, 5] = CaseTypes.PATH;
+            _mapCells[18, 9] = new MapCell(CaseTypes.PATH);
+            _mapCells[18, 8] = new MapCell(CaseTypes.PATH);
+            _mapCells[18, 7] = new MapCell(CaseTypes.PATH);
+            _mapCells[18, 6] = new MapCell(CaseTypes.PATH);
+            _mapCells[18, 5] = new MapCell(CaseTypes.PATH);
+            _mapCells[18, 4] = new MapCell(CaseTypes.PATH);
+            _mapCells[18, 3] = new MapCell(CaseTypes.PATH);
+            _mapCells[18, 2] = new MapCell(CaseTypes.PATH);
+            _mapCells[17, 2] = new MapCell(CaseTypes.PATH);
+            _mapCells[16, 2] = new MapCell(CaseTypes.PATH);
+            _mapCells[15, 2] = new MapCell(CaseTypes.PATH);
+            _mapCells[14, 2] = new MapCell(CaseTypes.PATH);
+            _mapCells[13, 2] = new MapCell(CaseTypes.PATH);
+            _mapCells[12, 2] = new MapCell(CaseTypes.PATH);
+            _mapCells[11, 2] = new MapCell(CaseTypes.PATH);
+            _mapCells[11, 3] = new MapCell(CaseTypes.PATH);
+            _mapCells[11, 4] = new MapCell(CaseTypes.PATH);
+            _mapCells[11, 5] = new MapCell(CaseTypes.PATH);
 
-            _cases[11, 6] = CaseTypes.PATH;
-            _cases[11, 7] = CaseTypes.PATH;
-            _cases[11, 8] = CaseTypes.PATH;
-            _cases[11, 9] = CaseTypes.PATH;
-            _cases[11, 10] = CaseTypes.PATH;
-            _cases[11, 11] = CaseTypes.PATH;
-            _cases[10, 11] = CaseTypes.PATH;
-            _cases[9, 11] = CaseTypes.PATH;
-            _cases[8, 11] = CaseTypes.PATH;
-            _cases[7, 11] = CaseTypes.PATH;
-            _cases[6, 11] = CaseTypes.PATH;
+            _mapCells[11, 6] = new MapCell(CaseTypes.PATH);
+            _mapCells[11, 7] = new MapCell(CaseTypes.PATH);
+            _mapCells[11, 8] = new MapCell(CaseTypes.PATH);
+            _mapCells[11, 9] = new MapCell(CaseTypes.PATH);
+            _mapCells[11, 10] = new MapCell(CaseTypes.PATH);
+            _mapCells[11, 11] = new MapCell(CaseTypes.PATH);
+            _mapCells[10, 11] = new MapCell(CaseTypes.PATH);
+            _mapCells[9, 11] = new MapCell(CaseTypes.PATH);
+            _mapCells[8, 11] = new MapCell(CaseTypes.PATH);
+            _mapCells[7, 11] = new MapCell(CaseTypes.PATH);
+            _mapCells[6, 11] = new MapCell(CaseTypes.PATH);
 
-            _cases[6, 10] = CaseTypes.PATH;
-            _cases[6, 9] = CaseTypes.PATH;
-            _cases[6, 8] = CaseTypes.PATH;
-            _cases[6, 7] = CaseTypes.PATH;
-            _cases[6, 6] = CaseTypes.PATH;
-            _cases[6, 5] = CaseTypes.PATH;
-            _cases[6, 4] = CaseTypes.PATH;
-            _cases[6, 3] = CaseTypes.PATH;
-            _cases[17, 13] = CaseTypes.PATH;
-            _cases[13, 14] = CaseTypes.PATH;
+           _mapCells[6, 10]= new MapCell(CaseTypes.PATH);
+           _mapCells[6, 9] = new MapCell(CaseTypes.PATH);
+           _mapCells[6, 8] = new MapCell(CaseTypes.PATH);
+           _mapCells[6, 7] = new MapCell(CaseTypes.PATH);
+           _mapCells[6, 6] = new MapCell(CaseTypes.PATH);
+           _mapCells[6, 5] = new MapCell(CaseTypes.PATH);
+           _mapCells[6, 4] = new MapCell(CaseTypes.PATH);
+           _mapCells[6, 3] = new MapCell(CaseTypes.PATH);
+           _mapCells[17, 13] = new MapCell(CaseTypes.PATH);
+            _mapCells[13, 14] = new MapCell(CaseTypes.PATH);
             #endregion path
 
-            _cases[6, 19] = CaseTypes.HAPPY_GRASS;
-            _cases[6, 18]= CaseTypes.HAPPY_GRASS;
-            _cases[7, 19] = CaseTypes.HAPPY_GRASS;
-            _cases[7, 18] = CaseTypes.HAPPY_GRASS;
-            _cases[8, 19] = CaseTypes.HAPPY_GRASS;
-            _cases[8, 18] = CaseTypes.HAPPY_GRASS;
+            _mapCells[6, 19] = new MapCell(CaseTypes.HAPPY_GRASS);
+            _mapCells[6, 18] = new MapCell(CaseTypes.HAPPY_GRASS);
+            _mapCells[7, 19] = new MapCell(CaseTypes.HAPPY_GRASS);
+            _mapCells[7, 18] = new MapCell(CaseTypes.HAPPY_GRASS);
+            _mapCells[8, 19] = new MapCell(CaseTypes.HAPPY_GRASS);
+            _mapCells[8, 18] = new MapCell(CaseTypes.HAPPY_GRASS);
 
 
             //set trees and grass
@@ -289,7 +289,7 @@ namespace MyGame.Game.Map.Maps
                 for (int j = 0; j < _width; j++)
                 {
                     if (pathCells.Contains(string.Concat(j, ";", i))) continue;
-                    _cases[j, i] = CaseTypes.GRASS;
+                    _mapCells[j, i] = new MapCell(CaseTypes.GRASS);
 
                     var tree = new Tree(string.Concat("tree", i, ";", j));
                     tree.SetPosition(j, i);
@@ -304,7 +304,7 @@ namespace MyGame.Game.Map.Maps
                 {
                     if (pathCells.Contains(string.Concat(j, ";", i))) continue;
 
-                    _cases[j, i] = CaseTypes.GRASS;
+                    _mapCells[j, i] = new MapCell(CaseTypes.GRASS);
 
                     var tree = new Tree(string.Concat("tree", i, ";", j));
                     tree.SetPosition(j, i);

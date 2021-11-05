@@ -11,12 +11,12 @@ namespace MyGame.Game.Map.Maps
 {
     public class M0_Village : IMap
     {
-        public CaseTypes[,] Cases
+        public IMapCell[,] MapCells
         {
-            get { return _cases; }
+            get { return _mapCells; }
         }
 
-        private readonly CaseTypes[,] _cases;
+        private readonly IMapCell[,] _mapCells;
 
         public int Width
         {
@@ -36,25 +36,25 @@ namespace MyGame.Game.Map.Maps
 
         public ICharacter Player { get { return _player; } }
 
-        public IDictionary<string, IMap> Neighbours { get { return _neighbours; } }
         public string Key { get { return _key; } }
 
         public string _key = "M0_Village";
         private readonly Dictionary<string, IMapElement> _elements;
         private readonly ICharacter _player;
-        private readonly new IDictionary<string, IMap> _neighbours;
 
         public M0_Village()
         {
-
-            IMap vBorder = new M1_VillageBorder();
-            _neighbours = new Dictionary<string,IMap>
-            {
-                {vBorder.Key,  vBorder }
-            };
-
             _elements = new Dictionary<string, IMapElement>();
-
+            _height = 20;
+            _width = 20;
+            _mapCells = new IMapCell[_width, _height];
+            for (int i = 0; i < _height; i++)
+            {
+                for (int j = 0; j < _width; j++)
+                {
+                    _mapCells[j, i] = new MapCell(CaseTypes.STONE_PATH);
+                }
+            }
 
             ChangingMapPoint nextMap = new ChangingMapPoint("goingToForest", new M1_VillageBorder());
             nextMap.SetPosition(3, 0);
@@ -67,9 +67,7 @@ namespace MyGame.Game.Map.Maps
             _player.SetPosition(13, 18);
             _elements.Add(_player.Key, _player);
 
-            _height = 20;
-            _width = 20;
-            _cases = new CaseTypes[_width, _height];
+
 
             /* --------------> X
              * |
@@ -82,22 +80,16 @@ namespace MyGame.Game.Map.Maps
              */
 
 
-            for (int i = 0; i < _height; i++)
-            {
-                for (int j = 0; j < _width; j++)
-                {
-                    _cases[j, i] = CaseTypes.STONE_PATH;
-                }
-            }
+
 
             var npc = new NonPlayableCharacter("random1");
             npc.SetPosition(6, 3);
-            _elements.Add(npc.Key, npc);
             IRoutine npcR = new MovementRoutine(new string[] { "Left", "Left", "Left", "Right", "Right", "Right" });
             npc.SetRoutine(npcR);
+            _elements.Add(npc.Key, npc);
 
             var npc2 = new NonPlayableCharacter("random2");
-            npc2.SetPosition(15, 14);
+            npc2.SetPosition(7, 7);
             _elements.Add(npc2.Key, npc2);
             IRoutine npcR2 = new MovementRoutine(new string[] { "Left", "Left", "Left", "Right", "Right", "Right" });
             npc2.SetRoutine(npcR2);
@@ -105,6 +97,7 @@ namespace MyGame.Game.Map.Maps
 
             var npc3 = new NonPlayableCharacter("random3");
             npc3.SetPosition(14, 18);
+
             _elements.Add(npc3.Key, npc3);
             IRoutine npcR3 = new MovementRoutine(new string[] { "Up", "Left", "Left", "Down", "Right", "Right" });
             npc3.SetRoutine(npcR3);
@@ -182,7 +175,7 @@ namespace MyGame.Game.Map.Maps
                 fence1.SetSpriteName("houseGateDown.png");
                 _elements.Add(fence1.Key, fence1);
 
-                _cases[j, 19] = CaseTypes.STONE_PATH;
+                _mapCells[j, 19] = new MapCell(CaseTypes.STONE_PATH);
                 var fence2 = new Fence(string.Concat("fence", j, ";", 19));
                 fence2.SetPosition(19, j);
                 fence2.SetSpriteName("houseGateDown.png");
