@@ -4,6 +4,7 @@ using MyGame.Game.Characters.Character;
 using MyGame.Game.Item;
 using MyGame.Game.MapCells;
 using MyGame.Game.MapElements;
+using MyGame.Game.MapElements.Interactions;
 using System.Collections.Generic;
 
 namespace MyGame.Game.Map.Maps
@@ -96,6 +97,10 @@ namespace MyGame.Game.Map.Maps
             npcD.SetPosition(18, 7);
             npcD.SetSpriteName("sleepingDragon.jpg");
             _elements.Add(npcD.Key, npcD);
+            IPlayerInteraction dialog = new DisaplayDialog("Coucou, I'm a dragon");
+            npcD.SetPlayerInteraction(dialog);
+
+            
 
             _player = new PlayableCharacter();
             _player.SetPosition(13, 19);

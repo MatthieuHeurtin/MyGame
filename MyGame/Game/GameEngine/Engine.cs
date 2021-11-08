@@ -5,6 +5,7 @@ using MyGame.Game.Character.Routines.Events;
 using MyGame.Game.GameEngine.Events.PlayerEvent;
 using MyGame.Game.Map;
 using MyGame.Game.Map.Maps;
+using MyGame.Game.MapCells;
 
 namespace MyGame.Game.GameEngine
 {
@@ -76,7 +77,6 @@ namespace MyGame.Game.GameEngine
             //start clock
             _dc?.AppendText("START CLOCK");
 
-
             //start characters routine
             _dc?.AppendText("START ROUTINES");
             foreach (var element in _map.Elements)
@@ -97,10 +97,14 @@ namespace MyGame.Game.GameEngine
             {
                 for (int j = 0; j < _map.Width; j++)
                 {
-                    _map.MapCells[i, j].ForwardEventToTheMap += UpdateControlArea;
+                    if (_map.MapCells[i, j].MapElement != null)
+                        _map.MapCells[i, j].ForwardEventToTheMap += RunCellPlayerEvent;
+
+
                 }
             }
         }
+
 
 
         #region events
@@ -117,18 +121,36 @@ namespace MyGame.Game.GameEngine
         }
 
         #region player events
-        //player events, does not go to the queue
-        private void UpdateControlArea(object sender, EventArgs e)
+        //player events do not go to the queue
+        private void RunCellPlayerEvent(object sender, EventArgs e)
         {
-            string key = (e as MapCells.GraphicMapCell.EventParameter).Key;
-            _mapGui.GetViewModel().SetFocusedElement(_map.Elements[key]);
+            string key = (e as EventArgsFromCell).Key;
+            EventFromCellType type = (e as EventArgsFromCell).Type;
+            switch (type)
+            {
+                case EventFromCellType.UpdateControlArea:
+                    _mapGui.GetViewModel().SetFocusedElement(_map.Elements[key]);
+                    break;
+                case EventFromCellType.ChangeMap:
+                    Engine newEngine = new Engine(_map.Elements[key].PlayerInteraction.Execute());
+                    newEngine.Start();
+                    break;
+                default:
+                    break;
+
+
+            }
+
         }
 
-        //player events, does not go to the queue
+
+
+
+        //player events, do not go to the queue
         private void Move(object sender, EventArgs e)
         {
             string direction = (e as EventParameter).Param;
-            using (MoveEvent p = new MoveEvent(direction, _map,  _player))
+            using (MoveEvent p = new MoveEvent(direction, _map, _player))
             {
                 p.Execute();
             }
@@ -143,7 +165,7 @@ namespace MyGame.Game.GameEngine
             {
                 for (int j = 0; j < _map.Width; j++)
                 {
-                    _map.MapCells[i, j].ForwardEventToTheMap -= UpdateControlArea;
+                    _map.MapCells[i, j].ForwardEventToTheMap -= RunCellPlayerEvent;
                 }
             }
 

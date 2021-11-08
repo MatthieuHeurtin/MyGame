@@ -23,6 +23,8 @@ namespace MyGame.Game.MapElements
             SpriteName = "defaultCharacter.png";
             Name = "I have no name";
             IsPhysical = true;
+           
+            
         }
 
         public void SetPosition(int x, int y)

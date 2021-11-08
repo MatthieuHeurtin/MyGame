@@ -5,15 +5,13 @@
 
     <Style TargetType = "Image" >
         <Style.Triggers>
-            <DataTrigger Binding="{Binding CellViewModel.Element.Key}" Value="player">
-                <Setter Property="Source" Value="10"/>
+            <DataTrigger Binding="{Binding GuiMapCellViewModel.Element.Key}" Value="player">
+                <!--<Setter Property="Source" Value="10"/>-->
             </DataTrigger>
         </Style.Triggers>
     </Style>
 
-    <ControlTemplate x:Key="Item">
-   
-    </ControlTemplate>
+
 
 
 

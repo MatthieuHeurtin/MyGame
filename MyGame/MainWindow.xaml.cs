@@ -1,6 +1,5 @@
 ﻿using MyGame.Game.Map.Maps;
 using System;
-using System.Collections.Generic;
 using System.Windows;
 
 namespace MyGame
@@ -16,11 +15,13 @@ namespace MyGame
 
             var t1 = new Game.GameEngine.Engine(new M0_Village());
 
+
+
             t1.Start();
 
-            var t2 = new Game.GameEngine.Engine(new M1_VillageBorder());
+           // var t2 = new Game.GameEngine.Engine(new M1_VillageBorder());
 
-           t2.Start();
+           //t2.Start();
 
             Console.WriteLine("All Map started");
         }

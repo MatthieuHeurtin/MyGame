@@ -59,6 +59,8 @@ namespace MyGame.Game.Map.Maps
             ChangingMapPoint nextMap = new ChangingMapPoint("goingToForest", new M1_VillageBorder());
             nextMap.SetPosition(3, 0);
             nextMap.SetSpriteName("arrowUp.png");
+            IPlayerInteraction playerInteraction = new NextMapToDisplay(new M1_VillageBorder());
+            nextMap.SetPlayerInteraction(playerInteraction);
             _elements.Add(nextMap.Key, nextMap);
 
 

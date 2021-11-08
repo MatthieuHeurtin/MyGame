@@ -1,6 +1,5 @@
 ﻿using System;
 using MyGame.Game.Character.Characters;
-using MyGame.Game.Map;
 using MyGame.Game.Map.Maps;
 
 namespace MyGame.Game.GameEngine.Events.PlayerEvent
@@ -26,8 +25,7 @@ namespace MyGame.Game.GameEngine.Events.PlayerEvent
             int Ycurrent = _character.Y;
             var dest = GetDestination(direction, Xcurrent, Ycurrent, _map.Height - 1, _map.Width - 1);
             if (Xcurrent == dest.Item1 && Ycurrent == dest.Item2
-                || Xcurrent == dest.Item1 && Ycurrent == dest.Item2
-                || _map.MapCells[dest.Item1, dest.Item2].IsOccupied) return;
+                  || _map.MapCells[dest.Item1, dest.Item2].IsOccupied) return;
 
 
 
