@@ -23,7 +23,10 @@ namespace MyGame.Game.GameEngine
 
         internal void QueueEvent(IEvent custonEvent)
         {
-            _events.Add(custonEvent);
+            if (_events.Count < 10)
+            {
+                _events.Add(custonEvent);
+            }
         }
 
         internal void Start()

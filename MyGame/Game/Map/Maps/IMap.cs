@@ -1,4 +1,4 @@
-﻿using MyGame.Game.Character.Characters;
+﻿using MyGame.Game.Characters.Character;
 using MyGame.Game.MapCells;
 using MyGame.Game.MapElements;
 using System.Collections.Generic;
@@ -13,6 +13,6 @@ namespace MyGame.Game.Map.Maps
         string Key { get; }
 
         Dictionary<string, IMapElement> Elements { get; }
-        ICharacter Player { get; }
+        PlayableCharacter Player { get; }
     }
 }

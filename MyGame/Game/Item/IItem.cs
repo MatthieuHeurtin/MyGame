@@ -1,6 +1,8 @@
-﻿namespace MyGame.Game.Item
+﻿using MyGame.Game.MapElements;
+
+namespace MyGame.Game.Item
 {
-    public interface IItem
+    public interface IItem 
     {
        
     }

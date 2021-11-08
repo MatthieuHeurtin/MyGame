@@ -35,16 +35,15 @@ namespace MyGame.Game.Map.Maps
         private readonly int _height;
         public Dictionary<string, IMapElement> Elements { get { return _elements; } }
 
-        public ICharacter Player { get { return _player; } }
-
         public IDictionary<string, IMap> Neighbours { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
         public string Key { get { return _key; } }
 
-        public string _key = "M1_VillageBorder";
+        public PlayableCharacter Player { get { return _player; } }
 
+        public string _key = "M1_VillageBorder";
+        private readonly PlayableCharacter  _player;
         private readonly Dictionary<string, IMapElement> _elements;
-        private readonly ICharacter _player;
 
         public M1_VillageBorder()
         {

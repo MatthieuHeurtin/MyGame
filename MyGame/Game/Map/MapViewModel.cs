@@ -17,9 +17,9 @@ namespace MyGame.Game.Map
         public IMapElement MapElement { get; set; }
         public string SpriteFullPath { get; set; }
 
-        internal void Move(string obj)
+        internal void Move(string direction)
         {
-            EventArgs e = new EventParameter(obj);
+            EventArgsFromMap e = new EventArgsFromMap(null, direction);
             RaiseMovement?.Invoke(this, e);
         }
         internal void SetFocusedElement(IMapElement mapElement)

@@ -1,18 +1,18 @@
 ﻿using System;
-using MyGame.Game.Character.Characters;
 using MyGame.Game.Map.Maps;
+using MyGame.Game.MapElements;
 
-namespace MyGame.Game.GameEngine.Events.PlayerEvent
+namespace MyGame.Game.GameEngine.Events.Event
 {
     internal class MoveEvent : IEvent
     {
         private readonly string direction;
         private IMap _map;
-        private readonly ICharacter _character;
+        private readonly IMapElement _character;
 
         public string Description { get { return "PLAYER : MOVE"; } }
 
-        public MoveEvent(string direction, IMap map, ICharacter character)
+        public MoveEvent(string direction, IMap map, IMapElement character)
         {
             this.direction = direction;
             _map = map;

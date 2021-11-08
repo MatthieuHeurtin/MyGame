@@ -34,13 +34,15 @@ namespace MyGame.Game.Map.Maps
         private readonly int _height;
         public Dictionary<string, IMapElement> Elements { get { return _elements; } }
 
-        public ICharacter Player { get { return _player; } }
 
         public string Key { get { return _key; } }
 
+
+        public PlayableCharacter Player { get { return _player; } }
+
         public string _key = "M0_Village";
         private readonly Dictionary<string, IMapElement> _elements;
-        private readonly ICharacter _player;
+        private readonly PlayableCharacter _player;
 
         public M0_Village()
         {

@@ -74,7 +74,7 @@
     <Compile Include="Game\GameEngine\Clock.cs" />
     <Compile Include="Game\GameEngine\EventConsumer.cs" />
     <Compile Include="Game\GameEngine\Events\IEvent.cs" />
-    <Compile Include="Game\GameEngine\Events\PlayerEvent\MoveEvent.cs" />
+    <Compile Include="Game\GameEngine\Events\Event\MoveEvent.cs" />
     <Compile Include="Game\MapCells\EventArgsFromCell.cs" />
     <Compile Include="Game\MapCells\GraphicMapCell\GuiMapCell.xaml.cs">
       <DependentUpon>GuiMapCell.xaml</DependentUpon>
@@ -91,6 +91,7 @@
     <Compile Include="Game\Item\ChangingMapPoint.cs" />
     <Compile Include="Game\MapElements\IMapElement.cs" />
     <Compile Include="Game\MapElements\Interactions\NextMapToDisplay.cs" />
+    <Compile Include="Game\Map\EventArgsFromMap.cs" />
     <Compile Include="Game\Map\Maps\M0_Village.cs" />
     <Compile Include="Ressources\RessourcesManager.cs" />
     <Page Include="DebugTools\DebugConsole.xaml">
@@ -133,7 +134,6 @@
     <Compile Include="Game\MapCells\IMapCell.cs" />
     <Compile Include="Game\MapCells\IGuiMapCellDataContext.cs" />
     <Compile Include="Game\Map\CommandRelay.cs" />
-    <Compile Include="Game\Map\EventParameter.cs" />
     <Compile Include="Game\Map\Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>

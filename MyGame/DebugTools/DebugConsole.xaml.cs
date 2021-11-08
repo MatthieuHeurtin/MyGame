@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
 using MyGame.Game.Character.Characters;
 using MyGame.Game.Characters.Character;
-using MyGame.Game.GameEngine.Events;
-using MyGame.Game.GameEngine.Events.PlayerEvent;
+using MyGame.Game.GameEngine.Events.Event;
 using MyGame.Game.MapElements;
 
 namespace MyGame.DebugTools

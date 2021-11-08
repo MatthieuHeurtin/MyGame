@@ -13,11 +13,12 @@ namespace MyGame
         {
             InitializeComponent();
 
-            var t1 = new Game.GameEngine.Engine(new M0_Village());
+            IMap m = new M0_Village();
+            var t1 = new Game.GameEngine.Engine(m);
 
 
 
-            t1.Start();
+            t1.StartMap(m.Key);
 
            // var t2 = new Game.GameEngine.Engine(new M1_VillageBorder());
 

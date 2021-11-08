@@ -57,6 +57,11 @@ namespace MyGame.Game.Map
 
         }
 
+        public void UpdateMap(IMap newMap)
+        {
+
+        }
+
         //allows me to delegate UI thread managment to window
         public MapViewModel GetViewModel()
         {
