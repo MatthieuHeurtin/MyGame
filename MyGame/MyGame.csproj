@@ -75,6 +75,7 @@
     <Compile Include="Game\GameEngine\EventConsumer.cs" />
     <Compile Include="Game\GameEngine\Events\IEvent.cs" />
     <Compile Include="Game\GameEngine\Events\Event\MoveEvent.cs" />
+    <Compile Include="Game\GameEngine\MapState.cs" />
     <Compile Include="Game\MapCells\EventArgsFromCell.cs" />
     <Compile Include="Game\MapCells\GraphicMapCell\GuiMapCell.xaml.cs">
       <DependentUpon>GuiMapCell.xaml</DependentUpon>

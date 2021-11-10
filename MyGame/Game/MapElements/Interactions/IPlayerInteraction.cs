@@ -4,6 +4,6 @@ namespace MyGame.Game.MapElements.Interactions
 {
     public interface IPlayerInteraction
     {
-        IMap Execute();
+        string Execute();
     }
 }

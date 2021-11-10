@@ -2,15 +2,17 @@
 using MyGame.Game.GameEngine.Events;
 using System;
 using System.Collections.Concurrent;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MyGame.Game.GameEngine
 {
-    internal class EventConsumer : IDisposable
+    public class EventConsumer : IDisposable
     {
         private const int MAX_THREAD = 1;
         private BlockingCollection<IEvent> _events;
         private Clock _clock;
+        private ManualResetEvent _manualEvent = new ManualResetEvent(false);
 
         private readonly DebugConsole _dc;
         public EventConsumer(Clock clock, DebugConsole dbc = null)
@@ -29,6 +31,7 @@ namespace MyGame.Game.GameEngine
             }
         }
 
+
         internal void Start()
         {
             Task.Run(() =>
@@ -36,6 +39,7 @@ namespace MyGame.Game.GameEngine
                 IEvent ev = null;
                 while (!_events.IsCompleted)
                 {
+
                     try
                     {
                         ev = _events.Take();
@@ -46,14 +50,13 @@ namespace MyGame.Game.GameEngine
                     {
                         _clock.ManualResetEvent.WaitOne();
                         ev.Execute();
-                        _clock.ManualResetEvent.Reset();
                         ev.Dispose();
+                        _clock.ManualResetEvent.Reset();
                     }
                 }
             }
             );
         }
-
         public void Dispose()
         {
             _events.CompleteAdding();

@@ -1,11 +1,9 @@
-﻿using MyGame.Game.Map.Maps;
-
-namespace MyGame.Game.MapElements.Interactions
+﻿namespace MyGame.Game.MapElements.Interactions
 {
     public class NextMapToDisplay : IPlayerInteraction
     {
-        private readonly IMap _nextMap;
-        public NextMapToDisplay(IMap nextMap)
+        private readonly string _nextMap;
+        public NextMapToDisplay(string nextMap)
         {
             _nextMap = nextMap;
         }
@@ -13,7 +11,7 @@ namespace MyGame.Game.MapElements.Interactions
 
 
 
-        public IMap Execute()
+        public string Execute()
         {
             return _nextMap;
         }

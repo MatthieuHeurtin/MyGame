@@ -1,6 +1,7 @@
 ﻿using MyGame.Game.Character.Characters;
 using MyGame.Game.Character.Routines;
 using MyGame.Game.Characters.Character;
+using MyGame.Game.GameEngine;
 using MyGame.Game.Item;
 using MyGame.Game.MapCells;
 using MyGame.Game.MapElements;
@@ -40,6 +41,8 @@ namespace MyGame.Game.Map.Maps
         public string Key { get { return _key; } }
 
         public PlayableCharacter Player { get { return _player; } }
+
+        public int ClockTick { get { return Clock.Default; } }
 
         public string _key = "M1_VillageBorder";
         private readonly PlayableCharacter  _player;
@@ -102,6 +105,10 @@ namespace MyGame.Game.Map.Maps
             
 
             _player = new PlayableCharacter();
+            _player.SetPosition(13, 19);
+            _elements.Add(_player.Key, _player);
+
+            _player = new ChangingMapPoint("goingToVillage", "M0_Village");
             _player.SetPosition(13, 19);
             _elements.Add(_player.Key, _player);
 

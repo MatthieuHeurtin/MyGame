@@ -1,5 +1,4 @@
-﻿using MyGame.Game.Map.Maps;
-using MyGame.Game.MapElements.Interactions;
+﻿using MyGame.Game.MapElements.Interactions;
 
 namespace MyGame.Game.Item
 {
@@ -14,10 +13,10 @@ namespace MyGame.Game.Item
             get { return _isPhysical; }
         }
 
-        public ChangingMapPoint(string key, IMap map) : base()
+        public ChangingMapPoint(string key, string mapKey) : base()
         {
             _key = key;
-            _nextMap = new NextMapToDisplay(map);
+            _nextMap = new NextMapToDisplay(mapKey);
             _isPhysical = false;
         }
 

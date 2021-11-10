@@ -1,6 +1,7 @@
 ﻿using MyGame.Game.Character.Characters;
 using MyGame.Game.Character.Routines;
 using MyGame.Game.Characters.Character;
+using MyGame.Game.GameEngine;
 using MyGame.Game.Item;
 using MyGame.Game.MapCells;
 using MyGame.Game.MapElements;
@@ -40,6 +41,8 @@ namespace MyGame.Game.Map.Maps
 
         public PlayableCharacter Player { get { return _player; } }
 
+        public int ClockTick { get { return Clock.Default; } }
+
         public string _key = "M0_Village";
         private readonly Dictionary<string, IMapElement> _elements;
         private readonly PlayableCharacter _player;
@@ -58,10 +61,10 @@ namespace MyGame.Game.Map.Maps
                 }
             }
 
-            ChangingMapPoint nextMap = new ChangingMapPoint("goingToForest", new M1_VillageBorder());
+            ChangingMapPoint nextMap = new ChangingMapPoint("goingToForest", "M0_VillageBorder");
             nextMap.SetPosition(3, 0);
             nextMap.SetSpriteName("arrowUp.png");
-            IPlayerInteraction playerInteraction = new NextMapToDisplay(new M1_VillageBorder());
+            IPlayerInteraction playerInteraction = new NextMapToDisplay("M0_VillageBorder");
             nextMap.SetPlayerInteraction(playerInteraction);
             _elements.Add(nextMap.Key, nextMap);
 

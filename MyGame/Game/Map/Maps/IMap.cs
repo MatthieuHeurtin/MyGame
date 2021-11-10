@@ -14,5 +14,6 @@ namespace MyGame.Game.Map.Maps
 
         Dictionary<string, IMapElement> Elements { get; }
         PlayableCharacter Player { get; }
+        int ClockTick { get; }
     }
 }
