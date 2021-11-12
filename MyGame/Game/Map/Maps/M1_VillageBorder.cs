@@ -14,7 +14,7 @@ namespace MyGame.Game.Map.Maps
     {
 
         public IMapCell[,] MapCells
-               {
+        {
             get { return _mapCells; }
         }
 
@@ -45,7 +45,7 @@ namespace MyGame.Game.Map.Maps
         public int ClockTick { get { return Clock.Default; } }
 
         public string _key = "M1_VillageBorder";
-        private readonly PlayableCharacter  _player;
+        private readonly PlayableCharacter _player;
         private readonly Dictionary<string, IMapElement> _elements;
 
         public M1_VillageBorder()
@@ -102,15 +102,17 @@ namespace MyGame.Game.Map.Maps
             IPlayerInteraction dialog = new DisaplayDialog("Coucou, I'm a dragon");
             npcD.SetPlayerInteraction(dialog);
 
-            
+
 
             _player = new PlayableCharacter();
             _player.SetPosition(13, 19);
             _elements.Add(_player.Key, _player);
 
-            _player = new ChangingMapPoint("goingToVillage", "M0_Village");
-            _player.SetPosition(13, 19);
-            _elements.Add(_player.Key, _player);
+            ChangingMapPoint nextMap = new ChangingMapPoint("goingToBackToVillage", "M0_Village");
+            nextMap.SetPosition(14, 19);
+            nextMap.SetSpriteName("arrowUp.png");
+            _elements.Add(nextMap.Key, nextMap);
+
 
             //HOUSE
             var house = new House(string.Concat("houseGateDownTopRight", 19, ";", 15));
@@ -274,15 +276,15 @@ namespace MyGame.Game.Map.Maps
             _mapCells[7, 11] = new MapCell(CaseTypes.PATH);
             _mapCells[6, 11] = new MapCell(CaseTypes.PATH);
 
-           _mapCells[6, 10]= new MapCell(CaseTypes.PATH);
-           _mapCells[6, 9] = new MapCell(CaseTypes.PATH);
-           _mapCells[6, 8] = new MapCell(CaseTypes.PATH);
-           _mapCells[6, 7] = new MapCell(CaseTypes.PATH);
-           _mapCells[6, 6] = new MapCell(CaseTypes.PATH);
-           _mapCells[6, 5] = new MapCell(CaseTypes.PATH);
-           _mapCells[6, 4] = new MapCell(CaseTypes.PATH);
-           _mapCells[6, 3] = new MapCell(CaseTypes.PATH);
-           _mapCells[17, 13] = new MapCell(CaseTypes.PATH);
+            _mapCells[6, 10] = new MapCell(CaseTypes.PATH);
+            _mapCells[6, 9] = new MapCell(CaseTypes.PATH);
+            _mapCells[6, 8] = new MapCell(CaseTypes.PATH);
+            _mapCells[6, 7] = new MapCell(CaseTypes.PATH);
+            _mapCells[6, 6] = new MapCell(CaseTypes.PATH);
+            _mapCells[6, 5] = new MapCell(CaseTypes.PATH);
+            _mapCells[6, 4] = new MapCell(CaseTypes.PATH);
+            _mapCells[6, 3] = new MapCell(CaseTypes.PATH);
+            _mapCells[17, 13] = new MapCell(CaseTypes.PATH);
             _mapCells[13, 14] = new MapCell(CaseTypes.PATH);
             #endregion path
 
@@ -323,8 +325,6 @@ namespace MyGame.Game.Map.Maps
                     _elements.Add(tree.Key, tree);
                 }
             }
-
-
         }
     }
 }

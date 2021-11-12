@@ -61,11 +61,9 @@ namespace MyGame.Game.Map.Maps
                 }
             }
 
-            ChangingMapPoint nextMap = new ChangingMapPoint("goingToForest", "M0_VillageBorder");
+            ChangingMapPoint nextMap = new ChangingMapPoint("goingToForest", "M1_VillageBorder");
             nextMap.SetPosition(3, 0);
             nextMap.SetSpriteName("arrowUp.png");
-            IPlayerInteraction playerInteraction = new NextMapToDisplay("M0_VillageBorder");
-            nextMap.SetPlayerInteraction(playerInteraction);
             _elements.Add(nextMap.Key, nextMap);
 
 
@@ -188,9 +186,6 @@ namespace MyGame.Game.Map.Maps
                 fence2.SetSpriteName("houseGateDown.png");
                 _elements.Add(fence2.Key, fence2);
             }
-
-
-
         }
     }
 }

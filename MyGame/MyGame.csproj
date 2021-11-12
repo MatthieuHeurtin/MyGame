@@ -93,7 +93,9 @@
     <Compile Include="Game\MapElements\IMapElement.cs" />
     <Compile Include="Game\MapElements\Interactions\NextMapToDisplay.cs" />
     <Compile Include="Game\Map\EventArgsFromMap.cs" />
+    <Compile Include="Game\Map\Maps\IStory.cs" />
     <Compile Include="Game\Map\Maps\M0_Village.cs" />
+    <Compile Include="Game\Map\Maps\S0_FIrstStory.cs" />
     <Compile Include="Ressources\RessourcesManager.cs" />
     <Page Include="DebugTools\DebugConsole.xaml">
       <SubType>Designer</SubType>

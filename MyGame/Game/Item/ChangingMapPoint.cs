@@ -5,7 +5,8 @@ namespace MyGame.Game.Item
     public class ChangingMapPoint : AbstractItem
     {
         private readonly string _key;
-        private readonly IPlayerInteraction _nextMap;
+
+        
 
         private readonly bool _isPhysical;
         public override bool IsPhysical
@@ -16,8 +17,9 @@ namespace MyGame.Game.Item
         public ChangingMapPoint(string key, string mapKey) : base()
         {
             _key = key;
-            _nextMap = new NextMapToDisplay(mapKey);
+            SetPlayerInteraction(new NextMapToDisplay(mapKey));
             _isPhysical = false;
+
         }
 
         public override string Key

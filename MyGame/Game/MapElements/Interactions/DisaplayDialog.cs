@@ -11,11 +11,10 @@ namespace MyGame.Game.MapElements.Interactions
             _text = text;
         }
 
-        public IMap Execute()
+
+        public string Execute()
         {
             throw new System.NotImplementedException();
         }
-
-        
     }
 }

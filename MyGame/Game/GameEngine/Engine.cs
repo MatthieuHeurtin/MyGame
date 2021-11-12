@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Linq;
 using MyGame.Game.Characters.Character;
 using MyGame.Game.Map.Maps;
 using MyGame.Game.MapCells;
@@ -10,12 +11,15 @@ namespace MyGame.Game.GameEngine
     {
         private readonly ConcurrentDictionary<string, MapState> _maps;
 
-        public readonly MapState _currentMap;
-        internal static PlayableCharacter _player;
+        public MapState _currentMap;
+        public static PlayableCharacter _player;
+        private readonly IStory _story;
 
-        public Engine(IMap map, bool IsDebug = false)
+        public Engine(IStory story)
         {
-            var mapState = new MapState(map, map.ClockTick);
+            IMap map = story.StoryMaps.FirstOrDefault().Value;
+            _story = story;
+            MapState mapState = new MapState(map, map.ClockTick);
             _maps = new ConcurrentDictionary<string, MapState>();
             mapState.ForwardEventToEngine += ExecuteEvent;
             _maps.TryAdd(map.Key, mapState);
@@ -30,26 +34,41 @@ namespace MyGame.Game.GameEngine
             switch (type)
             {
                 case EventFromCellType.ChangeMap:
-                    IMap nextMap = _currentMap._map.Elements[key].PlayerInteraction.Execute();
+                    string newMapKey = _currentMap._map.Elements[key].PlayerInteraction.Execute();
 
+                    if (_maps.TryGetValue(newMapKey, out var nextMap))
+                    {
+                        _player = nextMap._map.Player;
+                        nextMap.Resume();
+                        return;
+                    }
+                    var newMap = _story.StoryMaps[newMapKey];
+                    _player = newMap.Player;
+                    var mapState = new MapState(newMap, newMap.ClockTick);
 
-                    var mapState = new MapState(nextMap, nextMap.ClockTick);
-                    _player = nextMap.Player;
-                    _maps.TryAdd(nextMap.Key, mapState);
-                    StartMap(nextMap.Key);
+                    _maps.TryAdd(newMap.Key, mapState);
+                    StartMap(newMapKey);
+                    mapState.ForwardEventToEngine += ExecuteEvent;
+
                     break;
                 default:
                     break;
             }
         }
 
-        public void StartMap(string mapKey)
+        private void StartMap(string mapKey)
         {
             if (_maps.TryGetValue(mapKey, out MapState mapState))
             {
                 mapState.Init();
                 mapState.Start();
+                _currentMap = mapState;
             }
+        }
+
+        public void Start()
+        {
+            StartMap(_currentMap._map.Key);
         }
 
         public void Dispose()
