@@ -15,14 +15,15 @@ namespace MyGame.Game.GameEngine
         public IMap _map { get; }
         private EventConsumer _eventConsumer { get; }
         private Clock _clock { get; }
-        public event EventHandler ForwardEventToEngine ;
+        public event EventHandler ForwardEventToEngine;
 
-        public MapState(IMap map, int clockTick)
+        public MapState(IMap map, int clockTick, EventHandler callback)
         {
             _clock = new Clock();
             //event consumer (npc events only)
             _eventConsumer = new EventConsumer(_clock);
             _map = map;
+            ForwardEventToEngine += callback;
         }
 
         internal void Start()
@@ -135,13 +136,8 @@ namespace MyGame.Game.GameEngine
                     _mapGui.GetViewModel().SetFocusedElement(_map.Elements[key]);
                     break;
                 case EventFromCellType.ChangeMap:
-                    // IMap nextMap = _map.Elements[key].PlayerInteraction.Execute();
                     Pause();
                     ForwardEventToEngine?.Invoke(this, e);
-
-                    //  var mapState = new MapState(nextMap, new Clock());
-                    // _maps.TryAdd(nextMap.Key, mapState);
-                    // StartMap(nextMap.Key);
                     break;
                 default:
                     break;
@@ -154,7 +150,7 @@ namespace MyGame.Game.GameEngine
         {
             string direction = (e as EventArgsFromMap).Param;
 
-            using (MoveEvent p = new MoveEvent(direction, _map, Engine._player))
+            using (MoveEvent p = new MoveEvent(direction, _map, _map.Player))
             {
                 p.Execute();
             }

@@ -110,7 +110,7 @@ namespace MyGame.Game.Map.Maps
 
             ChangingMapPoint nextMap = new ChangingMapPoint("goingToBackToVillage", "M0_Village");
             nextMap.SetPosition(14, 19);
-            nextMap.SetSpriteName("arrowUp.png");
+            nextMap.SetSpriteName("arrowDown.png");
             _elements.Add(nextMap.Key, nextMap);
 
 

@@ -1,7 +1,6 @@
 ﻿using MyGame.Game.Characters.Character;
 using MyGame.Game.MapCells.GraphicMapCell;
 using MyGame.Game.MapElements;
-using MyGame.Game.MapElements.Interactions;
 using MyGame.Ressources;
 using System;
 using System.Windows.Media.Imaging;
@@ -43,13 +42,6 @@ namespace MyGame.Game.MapCells
             {
                 EventArgsFromCell e = new EventArgsFromCell(EventFromCellType.ChangeMap, _mapElement.Key);
                 ForwardEventToTheMap?.Invoke(this, e);
-            }
-
-            if (mapElement == null)
-            {
-                _guiMapCellViewModel.SetSprite(null);
-                _mapElement = null;
-                IsOccupied = false;
                 return;
             }
 
@@ -58,6 +50,16 @@ namespace MyGame.Game.MapCells
             IsOccupied = mapElement.IsPhysical;
             _mapElement = mapElement;
             _guiMapCellViewModel.SetElement(_mapElement);
+        }
+
+        public void RemoveMapElement()
+        {
+            if (_mapElement != null && _mapElement.IsPhysical)
+            {
+                _guiMapCellViewModel.SetSprite(null);
+                _mapElement = null;
+                IsOccupied = false;
+            }
         }
 
         public GuiMapCell GetGui()

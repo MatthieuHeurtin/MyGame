@@ -27,9 +27,7 @@ namespace MyGame.Game.GameEngine.Events.Event
             if (Xcurrent == dest.Item1 && Ycurrent == dest.Item2
                   || _map.MapCells[dest.Item1, dest.Item2].IsOccupied) return;
 
-
-
-            _map.MapCells[Xcurrent, Ycurrent].SetMapElement(null);
+            _map.MapCells[Xcurrent, Ycurrent].RemoveMapElement();
             _map.MapCells[dest.Item1, dest.Item2].SetMapElement(_character);
             _character.SetPosition(dest.Item1, dest.Item2);
 
@@ -60,7 +58,5 @@ namespace MyGame.Game.GameEngine.Events.Event
         {
 
         }
-
-
     }
 }

@@ -11,6 +11,7 @@ namespace MyGame.Game.MapCells
         bool IsOccupied { get; }
 
         void SetMapElement(IMapElement mapElement);
+        void RemoveMapElement();
         GuiMapCell GetGui();
         event EventHandler ForwardEventToTheMap;
     }
