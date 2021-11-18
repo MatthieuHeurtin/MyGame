@@ -33,3 +33,7 @@ C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\MyG
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\MyGame.csprojAssemblyReference.cache
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\Game\MapCells\GraphicMapCell\GuiMapCell.baml
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\Game\MapCells\GraphicMapCell\GuiMapCell.g.cs
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\Ressources\Menu\menu_background.jpg
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\Ressources\Menu\british_flag.png
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\Ressources\Menu\french_flag.png
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\Ressources\Menu\main_menu_music.wav

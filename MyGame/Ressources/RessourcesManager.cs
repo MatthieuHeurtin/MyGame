@@ -8,6 +8,7 @@ namespace MyGame.Ressources
     {
         public const string MapCellsPath = @".\Ressources\Images\MapCells\";
         public const string ItemsPath = @"\Ressources\Images\Items\";
+        public const string MenuPath = @".\Ressources\Menu\";
         public const string CharacterSpriteCellsPath = @".\..\..\..\..\Ressources\Images\CharactersSprites\";
 
         public static string GetPathFromElementMap(IMapElement mapElement)

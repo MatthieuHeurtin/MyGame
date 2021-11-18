@@ -26,7 +26,6 @@ namespace MyGame.Game.GameEngine
             for (int i = 1; i < 2; i++)
             {
                 var undisplayedMap = _story.StoryMaps.Skip(i)?.FirstOrDefault().Value;
-                
 
                 MapState undisplayedMapState = new MapState(undisplayedMap, undisplayedMap.ClockTick, ExecuteEvent);
                 undisplayedMapState.Init();
