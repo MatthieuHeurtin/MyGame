@@ -4,8 +4,44 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyGame"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
+    <Window.Resources>
+
+        <Style TargetType = "Button">
+            <Setter Property = "Background" Value = "Transparent" />
+            <Setter Property = "BorderThickness" Value = "0" />
+            <Style.Triggers>
+                <Trigger Property = "IsMouseOver" Value = "True">
+                    <Setter Property = "Effect">
+                        <Setter.Value>
+                            <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType = "Image" >
+            <Style.Triggers >
+                <Trigger Property = "IsMouseOver" Value = "True">
+                    <Setter Property = "Effect">
+                        <Setter.Value>
+                            <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+
+    </Window.Resources>
+
+
+
     <Grid Name="main">
         <Grid.Background>
             <ImageBrush x:Name="CellBackground" Stretch="UniformToFill"/>
@@ -35,13 +71,13 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="1">
-                    <Button Background="Transparent"  Content="New Game" Click="start_new_game" />
+                    <Button   Content="{Binding NewGame}" Click="start_new_game" />
                 </Grid>
                 <Grid Grid.Row="3">
-                    <Button Content="Load" Background="Transparent"  />
+                    <Button Content="{Binding LoadGame}"    />
                 </Grid>
                 <Grid Grid.Row="5">
-                    <Button Content="Options" Background="Transparent" />
+                    <Button Content="{Binding Options}" />
                 </Grid>
                 <Grid Grid.Row="7">
 
@@ -53,15 +89,23 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Grid Grid.Column="1">
-                        <Grid.Background>
-                            <ImageBrush x:Name="frenchFlag" Stretch="UniformToFill"/>
-                        </Grid.Background>
+                    <Grid Grid.Column="1" >
+                        <Image x:Name="frenchFlag" Source="{Binding FrenchFlag}" >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseLeftButtonDown" >
+                                    <i:InvokeCommandAction Command="{Binding LanguageSelected}" CommandParameter="french" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Image>
                     </Grid>
                     <Grid Grid.Column="3">
-                        <Grid.Background>
-                            <ImageBrush x:Name="britishFlag" Stretch="UniformToFill"/>
-                        </Grid.Background>
+                        <Image x:Name="britishFlag" Source="{Binding EnglishFlag}" >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseLeftButtonDown" >
+                                    <i:InvokeCommandAction Command="{Binding LanguageSelected}" CommandParameter="english" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Image>
                     </Grid>
                 </Grid>
             </Grid>

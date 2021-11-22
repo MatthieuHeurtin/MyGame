@@ -41,7 +41,7 @@ namespace MyGame.Game.Map.Maps
 
         public PlayableCharacter Player { get { return _player; } }
 
-        public int ClockTick { get { return Clock.Default; } }
+        public int ClockTick { get { return 1; } }
 
         public string _key = "M0_Village";
         private readonly Dictionary<string, IMapElement> _elements;

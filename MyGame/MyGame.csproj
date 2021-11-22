@@ -96,6 +96,15 @@
     <Compile Include="Game\Map\Maps\IStory.cs" />
     <Compile Include="Game\Map\Maps\M0_Village.cs" />
     <Compile Include="Game\Map\Maps\S0_FIrstStory.cs" />
+    <Compile Include="Langages\English.cs" />
+    <Compile Include="Langages\French.cs" />
+    <Compile Include="Langages\ILangage.cs" />
+    <Compile Include="Langages\LangagesManager.cs" />
+    <Compile Include="Menu\CommandRelay.cs" />
+    <Compile Include="Menu\MainWindowViewModel.cs" />
+    <Compile Include="Menu\MenuGraphicRessources.xaml.cs">
+      <DependentUpon>MenuGraphicRessources.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ressources\RessourcesManager.cs" />
     <Page Include="DebugTools\DebugConsole.xaml">
       <SubType>Designer</SubType>
@@ -151,6 +160,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Menu\MenuGraphicRessources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -276,14 +289,14 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Ressources\Menu\british_flag.png">
+    <Resource Include="Ressources\Menu\british_flag.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Ressources\Menu\french_flag.png">
+    <Resource Include="Ressources\Menu\french_flag.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Ressources\Menu\main_menu_music.wav">

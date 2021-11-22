@@ -14,10 +14,10 @@ namespace MyGame.Game.GameEngine
 
         private ManualResetEvent _manualResetEvent;
         private System.Timers.Timer _timer;
-        public Clock()
+        public Clock(int clockTick)
         {
             _manualResetEvent = new ManualResetEvent(false);
-            _timer = new System.Timers.Timer(HEARTBEAT);
+            _timer = new System.Timers.Timer(clockTick);
             _timer.Elapsed += ResetEvent;
             _timer.AutoReset = true;
             _timer.Enabled = true;

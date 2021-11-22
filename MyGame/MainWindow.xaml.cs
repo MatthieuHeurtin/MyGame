@@ -1,4 +1,5 @@
 ﻿using MyGame.Game.Map.Maps;
+using MyGame.Menu;
 using MyGame.Ressources;
 using System;
 using System.Windows;
@@ -12,20 +13,17 @@ namespace MyGame
     /// </summary>
     public partial class MainWindow : Window
     {
+
+
+
         public MainWindow()
         {
             InitializeComponent();
             CellBackground.ImageSource = new BitmapImage(new Uri(string.Concat(RessourcesManager.MenuPath, "menu_background.jpg"), UriKind.Relative));
-            frenchFlag.ImageSource = new BitmapImage(new Uri(string.Concat(RessourcesManager.MenuPath, "french_flag.png"), UriKind.Relative));
-            britishFlag.ImageSource = new BitmapImage(new Uri(string.Concat(RessourcesManager.MenuPath, "british_flag.png"), UriKind.Relative));
-
+            
+            DataContext = new MainWindowViewModel();
 
             StartBackgroundMusic();
-            //    t1.Start();
-
-            // var t2 = new Game.GameEngine.Engine(new M1_VillageBorder());
-
-            //t2.Start();
 
             Console.WriteLine("All Map started");
         }

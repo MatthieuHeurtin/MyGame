@@ -19,7 +19,7 @@ namespace MyGame.Game.GameEngine
 
         public MapState(IMap map, int clockTick, EventHandler callback)
         {
-            _clock = new Clock();
+            _clock = new Clock(clockTick);
             //event consumer (npc events only)
             _eventConsumer = new EventConsumer(_clock);
             _map = map;

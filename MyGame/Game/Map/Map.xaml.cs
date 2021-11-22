@@ -45,7 +45,6 @@ namespace MyGame.Game.Map
 
                     var caseInst = mapCell.GetGui(); //create a userControl
                    
-                    caseInst.ToolTip = j.ToString() + ";" + i.ToString();
 
                     Grid.SetRow(caseInst, i);
                     Grid.SetColumn(caseInst, j);
