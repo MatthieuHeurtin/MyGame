@@ -57,6 +57,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9e7cd3b544a090dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.2.0.2\lib\net40\WpfAnimatedGif.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -102,9 +105,6 @@
     <Compile Include="Langages\LangagesManager.cs" />
     <Compile Include="Menu\CommandRelay.cs" />
     <Compile Include="Menu\MainWindowViewModel.cs" />
-    <Compile Include="Menu\MenuGraphicRessources.xaml.cs">
-      <DependentUpon>MenuGraphicRessources.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Ressources\RessourcesManager.cs" />
     <Page Include="DebugTools\DebugConsole.xaml">
       <SubType>Designer</SubType>
@@ -160,10 +160,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Menu\MenuGraphicRessources.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -302,6 +298,11 @@
     <EmbeddedResource Include="Ressources\Menu\main_menu_music.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\Menu\circle.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

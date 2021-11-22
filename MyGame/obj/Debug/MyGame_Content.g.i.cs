@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ressources/menu/main_menu_music.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ressources/menu/circle.gif")]
 
 

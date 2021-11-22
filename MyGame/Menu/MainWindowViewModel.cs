@@ -1,12 +1,17 @@
-﻿using MyGame.Langages;
+﻿using MyGame.Game.Map.Maps;
+using MyGame.Langages;
 using MyGame.Ressources;
+using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace MyGame.Menu
 {
-    public class MainWindowViewModel :INotifyPropertyChanged
+    public class MainWindowViewModel : INotifyPropertyChanged
     {
 
         public string NewGame { get; set; }
@@ -14,17 +19,62 @@ namespace MyGame.Menu
         public string Options { get; set; }
         public string FrenchFlag { get; set; }
         public string EnglishFlag { get; set; }
+        public string CirclePath { get; set; }
+        public string IsLoading { get; set; }
 
-        private ICommand _languageSelected;
+
 
         public event PropertyChangedEventHandler PropertyChanged;
+        private MediaPlayer _backgroundMusic = new MediaPlayer();
 
+        private ICommand _languageSelected;
         public ICommand LanguageSelected
         {
             get
             {
                 return (_languageSelected ?? (_languageSelected = new CommandRelay(UpdateLanguage, true)));
             }
+        }
+
+        private ICommand _newGame;
+        public ICommand NewGameAction
+        {
+            get
+            {
+                return (_newGame ?? (_newGame = new CommandRelay(StartNewGame, true)));
+            }
+        }
+
+        public void StartBackgroundMusic()
+        {
+            _backgroundMusic.Open(new Uri(string.Concat(RessourcesManager.MenuPath, "main_menu_music.wav"), UriKind.Relative));
+            _backgroundMusic.MediaEnded += new EventHandler(BackgroundMusic_Ended);
+            _backgroundMusic.Play();
+        }
+
+        private void BackgroundMusic_Ended(object sender, EventArgs e)
+        {
+            _backgroundMusic.Position = TimeSpan.Zero;
+            _backgroundMusic.Play();
+        }
+
+        private void StartNewGame(string obj)
+        {
+            IsLoading = "Visible";
+            NotifyPropertyChanged(nameof(IsLoading));
+
+            //need to start a task able to run UI elements
+
+
+
+            var t1 = new Game.GameEngine.Engine(new S0_FirstStory());
+            t1.Start();
+
+
+            IsLoading = "Collapsed";
+            NotifyPropertyChanged(nameof(IsLoading));
+
+
         }
 
         private void UpdateLanguage(string language)
@@ -36,7 +86,6 @@ namespace MyGame.Menu
             NotifyPropertyChanged(nameof(NewGame));
             NotifyPropertyChanged(nameof(LoadGame));
             NotifyPropertyChanged(nameof(Options));
-
         }
 
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
@@ -49,6 +98,9 @@ namespace MyGame.Menu
             UpdateLanguage("french");
             FrenchFlag = string.Concat(RessourcesManager.MenuPath, "french_flag.png");
             EnglishFlag = string.Concat(RessourcesManager.MenuPath, "british_flag.png");
+            CirclePath = string.Concat(RessourcesManager.MenuPath, "circle.gif");
+            IsLoading = "Collapsed";
+            StartBackgroundMusic();
         }
     }
 }

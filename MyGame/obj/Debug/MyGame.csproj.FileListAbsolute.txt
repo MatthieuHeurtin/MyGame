@@ -35,5 +35,6 @@ C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\Gam
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\Game\MapCells\GraphicMapCell\GuiMapCell.g.cs
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\Ressources\Menu\menu_background.jpg
 C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\Ressources\Menu\main_menu_music.wav
-C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\Menu\MenuGraphicRessources.g.cs
-C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\Menu\MenuGraphicRessources.baml
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\WpfAnimatedGif.dll
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\WpfAnimatedGif.pdb
+C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\bin\Debug\WpfAnimatedGif.xml
