@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\obj\Debug\
+C:\Users\matth\Documents\MyGame\MyGame\obj\Debug\
 MyGame
 none
 false
 DEBUG;TRACE
-C:\Users\matth\Documents\Visual Studio 2017\Projects\MyGame\MyGame\App.xaml
-61337543838
+C:\Users\matth\Documents\MyGame\MyGame\App.xaml
+6-491053169
 
-59-289824478
-181879795866
+591789219446
+181822511890
 DebugTools\DebugConsole.xaml;Game\MapCells\Common\CellStyleSheet.xaml;Game\MapCells\GraphicMapCell\GuiMapCell.xaml;Game\Map\Map.xaml;Game\Views\Characters\CharacterView.xaml;MainWindow.xaml;
 
 False

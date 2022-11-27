@@ -32,7 +32,7 @@ namespace MyGame.Game.GameEngine
         }
 
 
-        internal void Start()
+        public void Start()
         {
             Task.Run(() =>
             {

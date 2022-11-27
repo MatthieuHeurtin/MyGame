@@ -29,18 +29,20 @@ namespace MyGame.Game.GameEngine
         internal void Start()
         {
             _eventConsumer.Start();
+         
             //display
             _mapGui.Show();
+
+            StartRountinesForMap();
+            SubscribeToCellsEvent();
         }
 
         internal void Init()
         {
             AddElementsOnMap();
-            SubscribeToCellsEvent();
-            StartRountinesForMap();
             _mapGui = new Map.Map();
             _mapGui.BuildMap(_map);
-            //subscribe to events coming from the global map
+            //subscribe to events coming from the user
             _mapGui.GetViewModel().RaiseMovement += Move;
         }
 

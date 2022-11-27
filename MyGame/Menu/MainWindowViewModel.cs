@@ -20,12 +20,11 @@ namespace MyGame.Menu
         public string FrenchFlag { get; set; }
         public string EnglishFlag { get; set; }
         public string CirclePath { get; set; }
-        public string IsLoading { get; set; }
-
-
 
         public event PropertyChangedEventHandler PropertyChanged;
         private MediaPlayer _backgroundMusic = new MediaPlayer();
+
+        public bool IsGameRunning { get; set; }
 
         private ICommand _languageSelected;
         public ICommand LanguageSelected
@@ -60,20 +59,15 @@ namespace MyGame.Menu
 
         private void StartNewGame(string obj)
         {
-            IsLoading = "Visible";
-            NotifyPropertyChanged(nameof(IsLoading));
-
-            //need to start a task able to run UI elements
 
 
 
-            var t1 = new Game.GameEngine.Engine(new S0_FirstStory());
-            t1.Start();
-
-
-            IsLoading = "Collapsed";
-            NotifyPropertyChanged(nameof(IsLoading));
-
+            using (var t1 = new Game.GameEngine.Engine(new S0_FirstStory()))
+            {
+                t1.Start();
+                IsGameRunning = false;
+                NotifyPropertyChanged(nameof(IsGameRunning));
+            }
 
         }
 
@@ -99,8 +93,8 @@ namespace MyGame.Menu
             FrenchFlag = string.Concat(RessourcesManager.MenuPath, "french_flag.png");
             EnglishFlag = string.Concat(RessourcesManager.MenuPath, "british_flag.png");
             CirclePath = string.Concat(RessourcesManager.MenuPath, "circle.gif");
-            IsLoading = "Collapsed";
-            StartBackgroundMusic();
+            IsGameRunning = true;
+              //  StartBackgroundMusic();
         }
     }
 }
