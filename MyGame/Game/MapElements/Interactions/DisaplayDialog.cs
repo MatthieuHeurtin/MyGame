@@ -1,4 +1,5 @@
 ﻿using MyGame.Game.Map.Maps;
+using MyGame.Game.MapCells;
 
 namespace MyGame.Game.MapElements.Interactions
 {
@@ -13,6 +14,11 @@ namespace MyGame.Game.MapElements.Interactions
 
 
         public string Execute()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public EventFromCellType GetEventType()
         {
             throw new System.NotImplementedException();
         }

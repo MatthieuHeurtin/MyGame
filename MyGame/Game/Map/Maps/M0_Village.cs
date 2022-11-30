@@ -5,7 +5,6 @@ using MyGame.Game.GameEngine;
 using MyGame.Game.Item;
 using MyGame.Game.MapCells;
 using MyGame.Game.MapElements;
-using MyGame.Game.MapElements.Interactions;
 using System.Collections.Generic;
 
 namespace MyGame.Game.Map.Maps
@@ -66,6 +65,10 @@ namespace MyGame.Game.Map.Maps
             nextMap.SetSpriteName("arrowUp.png");
             _elements.Add(nextMap.Key, nextMap);
 
+            Treasure treasure = new Treasure("treasure1", "M1_VillageBorder");
+            treasure.SetPosition(8, 8);
+            treasure.SetSpriteName("treasure1.png");
+            _elements.Add(treasure.Key, treasure);
 
 
             _player = new PlayableCharacter();
@@ -163,6 +166,17 @@ namespace MyGame.Game.Map.Maps
             IRoutine npcR12 = new MovementRoutine(new string[] { "Up", "Up", "Up", "Up", "Up", "Up", "Down", "Down", "Down", "Down", "Down", "Down", });
             npc12.SetRoutine(npcR12);
 
+            var npc13 = new NonPlayableCharacter("random13");
+            npc13.SetPosition(8, 15);
+            _elements.Add(npc13.Key, npc13);
+            IRoutine npcR13 = new MovementRoutine(new string[] { "Up", "Down" ,"Up", "Up", "Left", "Down", "Right" });
+            npc13.SetRoutine(npcR13);
+
+            var npc14 = new NonPlayableCharacter("random14");
+            npc14.SetPosition(7, 9);
+            _elements.Add(npc14.Key, npc14);
+            IRoutine npcR14 = new MovementRoutine(new string[] { "Up", "Up", "Up", "Up", "Up", "Up", "Down", "Down", "Down", "Down", "Down", "Down", });
+            npc14.SetRoutine(npcR14);
 
             for (int j = 0; j < _width; j++)
             {

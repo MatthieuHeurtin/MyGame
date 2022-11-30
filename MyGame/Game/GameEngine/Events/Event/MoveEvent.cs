@@ -10,7 +10,7 @@ namespace MyGame.Game.GameEngine.Events.Event
         private IMap _map;
         private readonly IMapElement _character;
 
-        public string Description { get { return "PLAYER : MOVE"; } }
+        public string Description { get { return "MOVE"; } }
 
         public MoveEvent(string direction, IMap map, IMapElement character)
         {

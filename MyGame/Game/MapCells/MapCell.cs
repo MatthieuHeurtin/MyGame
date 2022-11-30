@@ -38,9 +38,9 @@ namespace MyGame.Game.MapCells
         public void SetMapElement(IMapElement mapElement)
         {
 
-            if (mapElement is PlayableCharacter && _mapElement != null)// if the player is arriving on the current cell
+            if (mapElement is PlayableCharacter && _mapElement != null && _mapElement.PlayerInteraction != null)// if the player is arriving on the current cell, and the cell has a player Interaction
             {
-                EventArgsFromCell e = new EventArgsFromCell(EventFromCellType.ChangeMap, _mapElement.Key);
+                EventArgsFromCell e = new EventArgsFromCell(_mapElement.PlayerInteraction.GetEventType(), _mapElement.Key);
                 ForwardEventToTheMap?.Invoke(this, e);
                 return;
             }

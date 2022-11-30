@@ -22,7 +22,28 @@
             <Image Name="CellItem" Source="{Binding MapViewModel.SpriteFullPath}"></Image>
         </Grid>
         <Grid Name="DialogArea" Grid.Row="1" Background="GhostWhite" >
-            <Label Name="key" Content="{Binding MapViewModel.MapElement.Key}"></Label>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid   Grid.Row="0"  >
+                <Label Name="key" Content="{Binding MapViewModel.MapElement.Key}"></Label>
+            </Grid>
+
+            <Grid   Grid.Row="1"  >
+                <DataGrid Name="Objects" ItemsSource="{Binding Objects}" AutoGenerateColumns="False" >
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="Image" Width="SizeToCells" IsReadOnly="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding MapViewModel.SpriteFullPath}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+
         </Grid>
     </Grid>
 </UserControl>

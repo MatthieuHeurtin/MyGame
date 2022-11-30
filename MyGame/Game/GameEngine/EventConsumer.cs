@@ -14,13 +14,12 @@ namespace MyGame.Game.GameEngine
         private Clock _clock;
         private ManualResetEvent _manualEvent = new ManualResetEvent(false);
 
-        private readonly DebugConsole _dc;
-        public EventConsumer(Clock clock, DebugConsole dbc = null)
+ 
+        public EventConsumer(Clock clock)
         {
             _events = new BlockingCollection<IEvent>(MAX_THREAD);
             _clock = clock;
 
-            _dc = dbc ?? null;
         }
 
         internal void QueueEvent(IEvent custonEvent)

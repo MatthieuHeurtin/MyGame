@@ -80,6 +80,7 @@
     <Compile Include="Game\GameEngine\Events\IEvent.cs" />
     <Compile Include="Game\GameEngine\Events\Event\MoveEvent.cs" />
     <Compile Include="Game\GameEngine\MapState.cs" />
+    <Compile Include="Game\Item\Treasure.cs" />
     <Compile Include="Game\MapCells\EventArgsFromCell.cs" />
     <Compile Include="Game\MapCells\GraphicMapCell\GuiMapCell.xaml.cs">
       <DependentUpon>GuiMapCell.xaml</DependentUpon>
@@ -96,6 +97,7 @@
     <Compile Include="Game\Item\ChangingMapPoint.cs" />
     <Compile Include="Game\MapElements\IMapElement.cs" />
     <Compile Include="Game\MapElements\Interactions\NextMapToDisplay.cs" />
+    <Compile Include="Game\MapElements\Interactions\TreasureToOpen.cs" />
     <Compile Include="Game\Map\EventArgsFromMap.cs" />
     <Compile Include="Game\Map\Maps\IStory.cs" />
     <Compile Include="Game\Map\Maps\M0_Village.cs" />
@@ -302,6 +304,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Ressources\Menu\circle.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\Images\Items\treasure1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

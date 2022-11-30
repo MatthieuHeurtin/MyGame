@@ -1,4 +1,6 @@
-﻿namespace MyGame.Game.MapElements.Interactions
+﻿using MyGame.Game.MapCells;
+
+namespace MyGame.Game.MapElements.Interactions
 {
     public class NextMapToDisplay : IPlayerInteraction
     {
@@ -14,6 +16,11 @@
         public string Execute()
         {
             return _nextMap;
+        }
+
+        public EventFromCellType GetEventType()
+        {
+            return EventFromCellType.ChangeMap;
         }
     }
 }

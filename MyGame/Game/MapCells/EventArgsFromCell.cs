@@ -17,5 +17,6 @@ namespace MyGame.Game.MapCells
     {
         UpdateControlArea,
         ChangeMap,
+        Treasure
     }
 }

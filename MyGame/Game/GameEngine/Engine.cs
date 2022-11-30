@@ -22,18 +22,18 @@ namespace MyGame.Game.GameEngine
             _currentMap = mapState;
 
 
-            //for (int i = 1; i < 2; i++)
-            //{
-            //    var undisplayedMap = _story.StoryMaps.Skip(i)?.FirstOrDefault().Value;
+            for (int i = 1; i < 2; i++)
+            {
+                var undisplayedMap = _story.StoryMaps.Skip(i)?.FirstOrDefault().Value;
 
-            //    MapState undisplayedMapState = new MapState(undisplayedMap, undisplayedMap.ClockTick, ExecuteEvent);
-            //    undisplayedMapState.Init();
-            //    undisplayedMapState.Start();
-            //    undisplayedMapState.Pause();
+                MapState undisplayedMapState = new MapState(undisplayedMap, undisplayedMap.ClockTick, ExecuteEvent);
+                undisplayedMapState.Init();
+                undisplayedMapState.Start();
+                undisplayedMapState.Pause();
 
-            //    _maps.TryAdd(undisplayedMap.Key, undisplayedMapState);
+                _maps.TryAdd(undisplayedMap.Key, undisplayedMapState);
 
-            //}
+            }
 
 
 

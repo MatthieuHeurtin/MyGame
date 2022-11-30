@@ -137,6 +137,9 @@ namespace MyGame.Game.GameEngine
                 case EventFromCellType.UpdateControlArea:
                     _mapGui.GetViewModel().SetFocusedElement(_map.Elements[key]);
                     break;
+                case EventFromCellType.Treasure:
+                    _mapGui.GetViewModel().SetFocusedElement(_map.Elements[key]);
+                    break;
                 case EventFromCellType.ChangeMap:
                     Pause();
                     ForwardEventToEngine?.Invoke(this, e);
@@ -156,6 +159,7 @@ namespace MyGame.Game.GameEngine
             {
                 p.Execute();
             }
+
         }
         #endregion
         #endregion

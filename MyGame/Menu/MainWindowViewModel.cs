@@ -24,7 +24,7 @@ namespace MyGame.Menu
         public event PropertyChangedEventHandler PropertyChanged;
         private MediaPlayer _backgroundMusic = new MediaPlayer();
 
-        public bool IsGameRunning { get; set; }
+        public bool IsNotGameRunning { get; set; }
 
         private ICommand _languageSelected;
         public ICommand LanguageSelected
@@ -59,14 +59,11 @@ namespace MyGame.Menu
 
         private void StartNewGame(string obj)
         {
-
-
-
             using (var t1 = new Game.GameEngine.Engine(new S0_FirstStory()))
             {
                 t1.Start();
-                IsGameRunning = false;
-                NotifyPropertyChanged(nameof(IsGameRunning));
+                IsNotGameRunning = false;
+                NotifyPropertyChanged(nameof(IsNotGameRunning));
             }
 
         }
@@ -93,7 +90,7 @@ namespace MyGame.Menu
             FrenchFlag = string.Concat(RessourcesManager.MenuPath, "french_flag.png");
             EnglishFlag = string.Concat(RessourcesManager.MenuPath, "british_flag.png");
             CirclePath = string.Concat(RessourcesManager.MenuPath, "circle.gif");
-            IsGameRunning = true;
+            IsNotGameRunning = true;
               //  StartBackgroundMusic();
         }
     }

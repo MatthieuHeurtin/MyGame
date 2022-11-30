@@ -79,13 +79,13 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="1" >
-                    <Button Name="NewGame"   Content="{Binding NewGame}" Command="{Binding NewGameAction}" IsEnabled="{Binding IsGameRunning}"/>
+                    <Button Name="NewGame"   Content="{Binding NewGame}" Command="{Binding NewGameAction}" IsEnabled="{Binding IsNotGameRunning}"/>
                 </Grid>
                 <Grid Grid.Row="3" >
-                    <Button Name="LoadGame" Content="{Binding LoadGame}"  IsEnabled="{Binding IsGameRunning}"  />
+                    <Button Name="LoadGame" Content="{Binding LoadGame}"  IsEnabled="{Binding IsNotGameRunning}"  />
                 </Grid>
                 <Grid Grid.Row="5" >
-                    <Button Name="Options"  Content="{Binding Options}"  IsEnabled="{Binding IsGameRunning}"/>
+                    <Button Name="Options"  Content="{Binding Options}"  IsEnabled="{Binding IsNotGameRunning}"/>
                 </Grid>
 
             </Grid>
