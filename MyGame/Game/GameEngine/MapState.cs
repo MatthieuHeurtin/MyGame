@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using MyGame.Game.Character.Characters;
 using MyGame.Game.Character.Routines.Events;
 using MyGame.Game.GameEngine.Events.Event;
@@ -40,8 +41,10 @@ namespace MyGame.Game.GameEngine
         internal void Init()
         {
             AddElementsOnMap();
+         
             _mapGui = new Map.Map();
             _mapGui.BuildMap(_map);
+            SetuoPlayerArea();
             //subscribe to events coming from the user
             _mapGui.GetViewModel().RaiseMovement += Move;
         }
@@ -75,8 +78,15 @@ namespace MyGame.Game.GameEngine
                 }
 
             }
+        }
 
-
+        private void SetuoPlayerArea()
+        {
+           //setup player area (on the right)
+            foreach (var item in _map.Player.PlayerItems)
+            {
+                _mapGui.GetViewModel().AddAnItem(item);
+            }
         }
 
         private void StartRountinesForMap()
@@ -138,7 +148,8 @@ namespace MyGame.Game.GameEngine
                     _mapGui.GetViewModel().SetFocusedElement(_map.Elements[key]);
                     break;
                 case EventFromCellType.Treasure:
-                    _mapGui.GetViewModel().SetFocusedElement(_map.Elements[key]);
+                     _map.Elements[key].PlayerInteraction?.Execute();
+                    _mapGui.GetViewModel().AddAnItem(_map.Player.PlayerItems.Last());
                     break;
                 case EventFromCellType.ChangeMap:
                     Pause();

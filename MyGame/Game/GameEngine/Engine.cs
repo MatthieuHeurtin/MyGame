@@ -50,7 +50,6 @@ namespace MyGame.Game.GameEngine
             {
                 case EventFromCellType.ChangeMap:
                     string newMapKey = _currentMap._map.Elements[key].PlayerInteraction.Execute();
-
                     if (_maps.TryGetValue(newMapKey, out var nextMap))
                     {
                         nextMap.Resume();

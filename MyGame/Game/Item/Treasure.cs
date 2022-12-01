@@ -1,4 +1,9 @@
-﻿namespace MyGame.Game.Item
+﻿using MyGame.Game.Character.Models;
+using MyGame.Game.Characters.Character;
+using MyGame.Game.MapElements.Interactions;
+using System;
+
+namespace MyGame.Game.Item
 {
     internal class Treasure : AbstractItem
     {
@@ -15,12 +20,20 @@
             get { return _isPhysical; }
         }
 
-        public Treasure(string key, string mapKey) : base()
+
+        private PlayerItem _playerItem;
+
+
+
+
+        public Treasure(string key, PlayableCharacter player, PlayerItem playerItem) : base()
         {
             _key = key;
-         //   SetPlayerInteraction(new NextMapToDisplay(mapKey));
+            _playerItem = playerItem;
+            SetPlayerInteraction(new TreasureToOpen(player, playerItem));
             _isPhysical = false;
 
         }
+
     }
 }

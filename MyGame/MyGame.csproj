@@ -71,6 +71,7 @@
       <DependentUpon>DebugConsole.xaml</DependentUpon>
     </Compile>
     <Compile Include="DebugTools\DebugConsoleElement.cs" />
+    <Compile Include="Game\Character\Models\PlayerItem.cs" />
     <Compile Include="Game\Character\Routines\Events\IRoutineEvent.cs" />
     <Compile Include="Game\Character\Routines\Events\MovementEvent.cs" />
     <Compile Include="Game\Character\Routines\IRoutine.cs" />
@@ -309,6 +310,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Ressources\Images\Items\treasure1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\Images\PlayerItems\treasure1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\Images\PlayerItems\arrowUp.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\Images\PlayerItems\houseGateDown.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

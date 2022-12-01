@@ -91,7 +91,7 @@ namespace MyGame.Menu
             EnglishFlag = string.Concat(RessourcesManager.MenuPath, "british_flag.png");
             CirclePath = string.Concat(RessourcesManager.MenuPath, "circle.gif");
             IsNotGameRunning = true;
-              //  StartBackgroundMusic();
+  //StartBackgroundMusic();
         }
     }
 }

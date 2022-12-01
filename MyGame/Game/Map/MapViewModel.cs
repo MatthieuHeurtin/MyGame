@@ -1,9 +1,8 @@
-﻿using MyGame.Game.Character.Characters;
-using MyGame.Game.MapCells;
+﻿using MyGame.Game.Character.Models;
 using MyGame.Game.MapElements;
 using MyGame.Ressources;
 using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -13,10 +12,15 @@ namespace MyGame.Game.Map
     {
         public event EventHandler RaiseMovement;
         public event PropertyChangedEventHandler PropertyChanged;
-
+        public ObservableCollection<PlayerItem> PlayerItems { get; set; }
         public IMapElement MapElement { get; set; }
         public string SpriteFullPath { get; set; }
 
+
+        public MapViewModel()
+        {
+            PlayerItems = new ObservableCollection<PlayerItem>();
+        }
         internal void Move(string direction)
         {
             EventArgsFromMap e = new EventArgsFromMap(null, direction);
@@ -36,5 +40,11 @@ namespace MyGame.Game.Map
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        internal void AddAnItem(PlayerItem playerItem)
+        {
+            string folderRessourcesPath = RessourcesManager.GetPathFromPLayerItem(playerItem);
+            playerItem.Icon = string.Concat(folderRessourcesPath, playerItem.SpriteName);
+            PlayerItems.Add(playerItem);
+        }
     }
 }

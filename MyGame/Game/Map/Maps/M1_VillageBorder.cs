@@ -1,4 +1,5 @@
 ﻿using MyGame.Game.Character.Characters;
+using MyGame.Game.Character.Models;
 using MyGame.Game.Character.Routines;
 using MyGame.Game.Characters.Character;
 using MyGame.Game.GameEngine;

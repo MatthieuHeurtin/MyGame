@@ -1,4 +1,5 @@
 ﻿using MyGame.Game.Character.Characters;
+using MyGame.Game.Character.Models;
 using MyGame.Game.Character.Routines;
 using MyGame.Game.Characters.Character;
 using MyGame.Game.GameEngine;
@@ -65,15 +66,20 @@ namespace MyGame.Game.Map.Maps
             nextMap.SetSpriteName("arrowUp.png");
             _elements.Add(nextMap.Key, nextMap);
 
-            Treasure treasure = new Treasure("treasure1", "M1_VillageBorder");
+            _player = new PlayableCharacter();
+            _player.SetPosition(13, 18);
+            var t = new PlayerItem("I'm an item", "arrowUp.png");
+            _player.PlayerItems.Add(t);
+            _elements.Add(_player.Key, _player);
+
+            var c = new PlayerItem("I'm an treasure", "arrowUp.png");
+            Treasure treasure = new Treasure("treasure1", _player, c);
             treasure.SetPosition(8, 8);
             treasure.SetSpriteName("treasure1.png");
             _elements.Add(treasure.Key, treasure);
 
 
-            _player = new PlayableCharacter();
-            _player.SetPosition(13, 18);
-            _elements.Add(_player.Key, _player);
+       
 
 
 

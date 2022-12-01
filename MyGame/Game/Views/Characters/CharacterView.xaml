@@ -6,6 +6,31 @@
              xmlns:local="clr-namespace:MyGame.Game.Views.Characters"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+
+
+        <DataTemplate x:Key="Description">
+            <Label Name="MyLabel" Content="{Binding Description}"/>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListViewItem}},Path=IsMouseOver}" Value="True">
+                    <Setter TargetName="MyLabel" Property="Foreground" Value="Red"/>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+
+        <DataTemplate x:Key="IamgeItem">
+            <Image Name="MyImageItem" Source="{Binding Icon}" Width="50" Height="50"/>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListViewItem}},Path=IsMouseOver}" Value="True">
+                    <Setter TargetName="MyImageItem" Property="Width" Value="60"/>
+                    <Setter TargetName="MyImageItem" Property="Height" Value="60"/>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+
+        </DataTemplate>
+
+    </UserControl.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
@@ -23,25 +48,22 @@
         </Grid>
         <Grid Name="DialogArea" Grid.Row="1" Background="GhostWhite" >
             <Grid.RowDefinitions>
-                <RowDefinition Height="2*"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             <Grid   Grid.Row="0"  >
                 <Label Name="key" Content="{Binding MapViewModel.MapElement.Key}"></Label>
             </Grid>
 
             <Grid   Grid.Row="1"  >
-                <DataGrid Name="Objects" ItemsSource="{Binding Objects}" AutoGenerateColumns="False" >
-                    <DataGrid.Columns>
-                        <DataGridTemplateColumn Header="Image" Width="SizeToCells" IsReadOnly="True">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Image Source="{Binding MapViewModel.SpriteFullPath}" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                    </DataGrid.Columns>
-                </DataGrid>
+                <ListView Grid.Row="0"  ItemsSource="{Binding MapViewModel.PlayerItems}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Item"  CellTemplate="{StaticResource IamgeItem}" />
+                            <GridViewColumn Header="Description"   CellTemplate="{StaticResource Description}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
             </Grid>
 
         </Grid>
