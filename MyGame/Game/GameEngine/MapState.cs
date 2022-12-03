@@ -3,6 +3,7 @@ using System.Linq;
 using MyGame.Game.Character.Characters;
 using MyGame.Game.Character.Routines.Events;
 using MyGame.Game.GameEngine.Events.Event;
+using MyGame.Game.Item;
 using MyGame.Game.Map;
 using MyGame.Game.Map.Maps;
 using MyGame.Game.MapCells;
@@ -150,6 +151,7 @@ namespace MyGame.Game.GameEngine
                 case EventFromCellType.Treasure:
                      _map.Elements[key].PlayerInteraction?.Execute();
                     _mapGui.GetViewModel().AddAnItem(_map.Player.PlayerItems.Last());
+                    if ((_map.Elements[key] as AbstractItem).HasToDisapear) _map.MapCells[_map.Elements[key].X, _map.Elements[key].Y].RemoveMapElement();
                     break;
                 case EventFromCellType.ChangeMap:
                     Pause();

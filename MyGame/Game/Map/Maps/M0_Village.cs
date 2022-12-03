@@ -68,7 +68,7 @@ namespace MyGame.Game.Map.Maps
 
             _player = new PlayableCharacter();
             _player.SetPosition(13, 18);
-            var t = new PlayerItem("I'm an item", "arrowUp.png");
+            var t = new PlayerItem("I'm an item", "treasure1.png");
             _player.PlayerItems.Add(t);
             _elements.Add(_player.Key, _player);
 
