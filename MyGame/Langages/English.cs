@@ -12,7 +12,9 @@ namespace MyGame.Langages
             {"NewGame", "New Game" },
             {"LoadGame", "Load" },
             { "Options", "Options" },
+            { "VillageTitle", "Village" },
+            {"VillageBorderTitle", "Village  Border"},
         };
 
-    }
+}
 }

@@ -12,6 +12,8 @@ namespace MyGame.Langages
             {"NewGame", "Nouvelle Partie" },
             {"LoadGame", "Charger une Partie" },
             { "Options", "Options" },
+             { "VillageTitle", "Village" },
+              { "VillageBorderTitle", "Sortie du Village" },
         };
 
     }

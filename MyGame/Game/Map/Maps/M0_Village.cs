@@ -6,6 +6,7 @@ using MyGame.Game.GameEngine;
 using MyGame.Game.Item;
 using MyGame.Game.MapCells;
 using MyGame.Game.MapElements;
+using MyGame.Langages;
 using System.Collections.Generic;
 
 namespace MyGame.Game.Map.Maps
@@ -19,6 +20,14 @@ namespace MyGame.Game.Map.Maps
 
         private readonly IMapCell[,] _mapCells;
 
+
+        public string MapTitle
+        {
+            get { return _mapTitle; }
+        }
+
+
+        private readonly string _mapTitle;
         public int Width
         {
             get { return _width; }
@@ -49,6 +58,8 @@ namespace MyGame.Game.Map.Maps
 
         public M0_Village()
         {
+
+            _mapTitle = _mapTitle = LangagesManager.Get().Dico["VillageTitle"];
             _elements = new Dictionary<string, IMapElement>();
             _height = 20;
             _width = 20;

@@ -1,5 +1,4 @@
 ﻿using MyGame.Game.Character.Characters;
-using MyGame.Game.Character.Models;
 using MyGame.Game.Character.Routines;
 using MyGame.Game.Characters.Character;
 using MyGame.Game.GameEngine;
@@ -7,6 +6,7 @@ using MyGame.Game.Item;
 using MyGame.Game.MapCells;
 using MyGame.Game.MapElements;
 using MyGame.Game.MapElements.Interactions;
+using MyGame.Langages;
 using System.Collections.Generic;
 
 namespace MyGame.Game.Map.Maps
@@ -20,6 +20,13 @@ namespace MyGame.Game.Map.Maps
         }
 
         private readonly IMapCell[,] _mapCells;
+
+        public string MapTitle
+        {
+            get { return _mapTitle; }
+        }
+
+        private readonly string _mapTitle;
 
         public int Width
         {
@@ -51,6 +58,8 @@ namespace MyGame.Game.Map.Maps
 
         public M1_VillageBorder()
         {
+           
+            _mapTitle = LangagesManager.Get().Dico["VillageBorderTitle"];
             _elements = new Dictionary<string, IMapElement>();
             _height = 20;
             _width = 20;

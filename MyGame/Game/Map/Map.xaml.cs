@@ -51,6 +51,7 @@ namespace MyGame.Game.Map
                 }
             }
 
+            Title = map.MapTitle;
 
 
         }
