@@ -54,7 +54,7 @@ namespace MyGame.Game.MapCells
 
         public void RemoveMapElement()
         {
-            if (_mapElement != null )
+            if (_mapElement != null && _mapElement.IsPhysical)
             {
                 _guiMapCellViewModel.SetSprite(null);
                 _mapElement = null;
