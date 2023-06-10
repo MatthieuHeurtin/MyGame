@@ -24,6 +24,8 @@ namespace MyGame.Game.MapCells
         GRASS,
         PATH,
         STONE_PATH,
-        HAPPY_GRASS
+        HAPPY_GRASS,
+        ARROW_UP,
+        ARROW_DOWN,
     }
 }

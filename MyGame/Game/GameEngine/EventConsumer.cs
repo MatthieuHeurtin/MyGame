@@ -1,5 +1,4 @@
-﻿using MyGame.DebugTools;
-using MyGame.Game.GameEngine.Events;
+﻿using MyGame.Game.GameEngine.Events;
 using System;
 using System.Collections.Concurrent;
 using System.Threading;
@@ -12,9 +11,7 @@ namespace MyGame.Game.GameEngine
         private const int MAX_THREAD = 1;
         private BlockingCollection<IEvent> _events;
         private Clock _clock;
-        private ManualResetEvent _manualEvent = new ManualResetEvent(false);
-
- 
+         
         public EventConsumer(Clock clock)
         {
             _events = new BlockingCollection<IEvent>(MAX_THREAD);

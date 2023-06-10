@@ -79,3 +79,4 @@ C:\Users\matth\Documents\MyGame\MyGame\obj\Debug\MyGame.csproj.CoreCompileInputs
 C:\Users\matth\Documents\MyGame\MyGame\obj\Debug\MyGame.csproj.CopyComplete
 C:\Users\matth\Documents\MyGame\MyGame\obj\Debug\MyGame.exe
 C:\Users\matth\Documents\MyGame\MyGame\obj\Debug\MyGame.pdb
+C:\Users\matth\Documents\MyGame\MyGame\bin\Debug\Ressources\Images\MapCells\arrowUp.png

@@ -1,5 +1,6 @@
 ﻿using MyGame.Game.Character.Routines;
 using MyGame.Game.MapElements;
+using System.Threading;
 
 namespace MyGame.Game.Character.Characters
 {
@@ -17,9 +18,9 @@ namespace MyGame.Game.Character.Characters
             //nothing because player does not have a default routine
         }
 
-        public void StartRoutine()
+        public void StartRoutine(ManualResetEvent routineBlocker)
         {
-            Routine.Start();
+            Routine.Start(routineBlocker);
         }
 
         public override string ToString()

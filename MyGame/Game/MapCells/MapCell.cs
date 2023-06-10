@@ -42,7 +42,7 @@ namespace MyGame.Game.MapCells
             {
                 EventArgsFromCell e = new EventArgsFromCell(_mapElement.PlayerInteraction.GetEventType(), _mapElement.Key);
                 ForwardEventToTheMap?.Invoke(this, e);
-                return;
+
             }
 
             string folderRessourcesPath = RessourcesManager.GetPathFromElementMap(mapElement);
@@ -54,7 +54,7 @@ namespace MyGame.Game.MapCells
 
         public void RemoveMapElement()
         {
-            if (_mapElement != null && _mapElement.IsPhysical)
+            if (_mapElement != null )
             {
                 _guiMapCellViewModel.SetSprite(null);
                 _mapElement = null;
@@ -80,6 +80,10 @@ namespace MyGame.Game.MapCells
                 case CaseTypes.DESERT:
                     return "desert.jpg";
                 case CaseTypes.HAPPY_GRASS:
+                    return "happyGrass.png";
+                case CaseTypes.ARROW_UP:
+                    return "arrowUp.png";
+                case CaseTypes.ARROW_DOWN:
                     return "happyGrass.png";
                 default:
                     return "happyGrass.png";

@@ -75,6 +75,7 @@ namespace MyGame.Game.Map.Maps
             ChangingMapPoint nextMap = new ChangingMapPoint("goingToForest", "M1_VillageBorder");
             nextMap.SetPosition(3, 0);
             nextMap.SetSpriteName("arrowUp.png");
+            _mapCells[3, 0] = new MapCell(CaseTypes.ARROW_UP);
             _elements.Add(nextMap.Key, nextMap);
 
             _player = new PlayableCharacter();
@@ -83,7 +84,7 @@ namespace MyGame.Game.Map.Maps
             _player.PlayerItems.Add(t);
             _elements.Add(_player.Key, _player);
 
-            var c = new PlayerItem("I'm an treasure", "arrowUp.png");
+            var c = new PlayerItem("I'm an treasure", "treasure1.png");
             Treasure treasure = new Treasure("treasure1", _player, c);
             treasure.SetPosition(8, 8);
             treasure.SetSpriteName("treasure1.png");

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
 using MyGame.Game.Character.Characters;
 using MyGame.Game.Character.Routines.Events;
 using MyGame.Game.GameEngine.Events.Event;
@@ -19,6 +20,8 @@ namespace MyGame.Game.GameEngine
         private Clock _clock { get; }
         public event EventHandler ForwardEventToEngine;
 
+        private ManualResetEvent _routineBlocker = new ManualResetEvent(false);
+
         public MapState(IMap map, int clockTick, EventHandler callback)
         {
             _clock = new Clock(clockTick);
@@ -31,12 +34,15 @@ namespace MyGame.Game.GameEngine
         internal void Start()
         {
             _eventConsumer.Start();
-         
-            //display
-            _mapGui.Show();
 
             StartRountinesForMap();
             SubscribeToCellsEvent();
+
+            //display
+            _mapGui.Show();
+
+            _routineBlocker.Set();
+
         }
 
         internal void Init()
@@ -52,12 +58,14 @@ namespace MyGame.Game.GameEngine
 
         internal void Pause()
         {
+            _routineBlocker.WaitOne();
             _clock.Pause();
             _mapGui.Hide();
         }
 
         internal void Resume()
         {
+            _routineBlocker.Set();
             _clock.Resume();
             _mapGui.Show();
         }
@@ -96,7 +104,7 @@ namespace MyGame.Game.GameEngine
             {
                 if ((element.Value as ICharacter)?.Routine != null)
                 {
-                    (element.Value as ICharacter)?.Routine?.Start();
+                    (element.Value as ICharacter)?.StartRoutine(_routineBlocker);
                 }
             }
         }

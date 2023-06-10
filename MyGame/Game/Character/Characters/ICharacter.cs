@@ -1,4 +1,5 @@
 ﻿using MyGame.Game.Character.Routines;
+using System.Threading;
 
 namespace MyGame.Game.Character.Characters
 {
@@ -6,7 +7,7 @@ namespace MyGame.Game.Character.Characters
     {
         IRoutine Routine { get; set; }
         void SetRoutine(IRoutine routine);
-        void StartRoutine();
+        void StartRoutine(ManualResetEvent routineBlocker);
 
     }
 }
